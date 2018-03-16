@@ -12,16 +12,18 @@ import * as myGlobals from './../global';
 })
 export class FooterComponent implements OnInit {
 
-  public basecurr: any = myGlobals.basecurr;
-  public base_sing: any = myGlobals.base_sing;
   public base_url: any = myGlobals.base_url;
-  public coincount: any;
-  public totalcoin: any;
-  public totalmarket: any = 0;
-  public totaltrade: any = 0;
   adds: any;
+  curl: any;
 
   constructor(private coinservice: CoinService, private router: Router, private http: Http) {
+    const href = location.href;
+    const url = href.split('/');
+    if (url[3] === '') {
+      this.curl = 'home';
+    } else {
+      this.curl = url[3];
+    }
   }
 
   ngOnInit() {

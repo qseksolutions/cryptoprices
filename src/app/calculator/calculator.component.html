@@ -18,7 +18,7 @@
   <div class="subpage-bg widget-bg">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-12 col-sm-10 col-md-8 col-lg-8">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-8">
           <div class="subpage-head">
             <h4 class="pagename-title text-center">Cryptocurrency Converter & Calculator</h4>
           </div>
@@ -30,40 +30,22 @@
   <section>
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-12 col-sm-10 col-md-8 col-lg-8">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-8">
           <div class="subpage-form widget-box">
             <div class="widget-dropdown mb-lg-4 mb-md-4">
-              <div class="dropdown amnt-widget-dropdown">
+              <div class="amnt-widget-dropdown">
                 <label class="widget-select-label">Enter Amount</label>
 
-                <input type="number" class="form-control" value="1"/>
+                <input type="number" class="form-control" />
               </div>
 
               <div class="dropdown calc-curr-dropdown">
                 <label class="widget-select-label">Select Currency</label>
-                <select class="form-control">
-                  <ng-container *ngFor="let curr of maincurrencylist">
-                    <option value="{{curr.currency_symbol}}">{{curr.currency_symbol}}</option>
+                <select class="form-control hauto">
+                  <ng-container>
+                    <option>USD</option>
                   </ng-container>
                 </select>
-                <!-- <a href="javascript:void(0);" class="dropdown-anchor" id="currency-dropdown" data-toggle="dropdown" aria-haspopup="true"
-                  aria-expanded="false">
-                  <span class="btn currency-widget-btn">
-                    <img src="assets/currency-symbol/USD.svg" class="curre-img">
-                    <span class="currency-name"> USD </span>
-                  </span>
-                  <button class="btn btn-language btn-select-dropdown">
-                    <i class="fas fa-caret-down"></i>
-                  </button>
-                </a>
-                <ul class="select-list-country dropdown-menu" aria-labelledby="currency-dropdown">
-                  <li *ngFor="let curr of maincurrencylist" (click)="closeNav(curr.currency_symbol,curr.currency_sign)">
-                    <span value="english">
-                      <img src="assets/currency-symbol/{{curr.currency_symbol}}.svg" class="curre-img" />
-                      <span class="currency-name"> {{curr.currency_symbol}} </span>
-                    </span>
-                  </li>
-                </ul> -->
               </div>
             </div>
 
@@ -74,42 +56,16 @@
 
               <div class="dropdown calc-coin-dropdown">
                 <label class="widget-select-label">Select Coin</label>
-                <!-- <a href="javascript:void(0);" class="dropdown-anchor" id="coin-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <span class="btn currency-widget-btn">
-                    <img src="assets/currency-svg/btc.svg" class="curre-img">
-                    <span class="currency-name"> Bitcoin </span>
-                  </span>
-                  <button class="btn btn-language btn-select-dropdown">
-                    <i class="fas fa-caret-down"></i>
-                  </button>
-                </a>
-                <ul class="select-list-country dropdown-menu" aria-labelledby="coin-dropdown">
-                  <li *ngFor="let coin of allcoin" (click)="closeNav(coin)">
-                    <span value="english">
-                      <span class="currency-name"> {{coin.name}} </span>
-                    </span>
-                  </li>
-                </ul> -->
+                <select class="form-control hauto">
+                  <option>Bitcoin</option>
+                </select>
               </div>
 
               <div class="dropdown calc-coin-dropdown">
                 <label class="widget-select-label">Select Coin</label>
-                <!-- <a href="javascript:void(0);" class="dropdown-anchor" id="coin-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <span class="btn currency-widget-btn">
-                    <img src="assets/currency-svg/btc.svg" class="curre-img">
-                    <span class="currency-name"> Bitcoin </span>
-                  </span>
-                  <button class="btn btn-language btn-select-dropdown">
-                    <i class="fas fa-caret-down"></i>
-                  </button>
-                </a>
-                <ul class="select-list-country dropdown-menu" aria-labelledby="coin-dropdown">
-                  <li *ngFor="let coin of allcoin" (click)="closeNav(coin)">
-                    <span value="english">
-                      <span class="currency-name"> {{coin.name}} </span>
-                    </span>
-                  </li>
-                </ul> -->
+                <select class="form-control hauto">
+                  <option>Bitcoin</option>
+                </select>
               </div>
 
             </div>
@@ -125,7 +81,7 @@
               </div>
 
               <div class="equal-value">
-                <span class="btn btn-success equal-value-btn">65.521
+                <span class="btn btn-warning equal-value-btn">65.521
                   <span class="calc-curr-symbol">USD</span>
                 </span>
               </div>

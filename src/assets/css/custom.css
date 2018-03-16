@@ -39,6 +39,10 @@ a:hover {
 	width: 25px;
 }
 
+.hauto {
+	height: auto !important;
+}
+
 #ngb-typeahead-0 {
 	top: 20px !important;
 	left: 1130px !important;

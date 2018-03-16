@@ -5,7 +5,13 @@ $('.form-control').on('keyup', function() {
 	else{
 	$(this).parents('.form-group').addClass('add-label');
 	}
+});
 
+$('#btn-copy').click(function(){
+  var copyText = document.getElementById("copy-text");
+  copyText.select();
+  document.execCommand("Copy");
+  $('#btn-copy').html('<i class="far fa-copy"></i> Copy to clipboard');
 });
 
 $(document).on('click', '.sing-up-link', function(){

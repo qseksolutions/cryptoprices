@@ -50,6 +50,11 @@ import { CalculatorComponent } from './calculator/calculator.component';
 import { WidgetComponent } from './widget/widget.component';
 import { NewsComponent } from './news/news.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { ChangepasswordComponent } from './changepassword/changepassword.component';
+import { ProfileComponent } from './profile/profile.component';
+import { FaqComponent } from './faq/faq.component';
+import { FollowlistComponent } from './followlist/followlist.component';
+import { ProtfolioComponent } from './protfolio/protfolio.component';
 
 export function highchartsModules() {
     return [ highstock, exporting ];
@@ -116,6 +121,11 @@ export function highchartsModules() {
     WidgetComponent,
     NewsComponent,
     AboutusComponent,
+    ChangepasswordComponent,
+    ProfileComponent,
+    FaqComponent,
+    FollowlistComponent,
+    ProtfolioComponent,
   ],
   providers: [
     // { provide: HIGHCHARTS_MODULES, useFactory: highchartsModules }, { provide: AuthServiceConfig, useFactory: provideConfig }

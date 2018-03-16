@@ -34,26 +34,31 @@
           <div class="subpage-form editprofile-form">
             <form class="form-model">
               <div class="form-group">
-                <label for="recipient-name" class="col-form-label">Username:</label>
-                <input type="text" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="message-text" class="col-form-label">Registration Date:</label>
-                <input type="email" class="form-control">
+                <label for="recipient-name" class="col-form-label">Name:</label>
+                <input type="text" class="form-control" id="unmae" name="uname" [(ngModel)]="prof.uname" value="{{profile.name}}">
               </div>
 
               <div class="form-group">
-                <label for="message-text" class="col-form-label">First Name:</label>
-                <input type="email" class="form-control">
+                <label for="message-text" class="col-form-label">Email</label>
+                <input type="email" class="form-control" disabled >
               </div>
 
               <div class="form-group">
-                <label for="message-text" class="col-form-label">Last Name:</label>
-                <input type="email" class="form-control">
+                <label for="message-text" class="col-form-label">Change Currency</label>
+                <ng-template #os let-o="result" let-s="termcur" id="allcurr">
+                  <div>{{o.currency_symbol}}</div>
+                  <div id="icon-currency" class="currency_icon">
+                    <img src="assets/currency-symbol/{{o.currency_symbol | lowercase}}.svg" class="input-currency-icon img-filter">
+                  </div>
+                </ng-template>
+                <input id="typeahead-template" type="text" class="form-control currency-select currency-name" [(ngModel)]="prof.b_curr" name="b_curr" [ngbTypeahead]="searchcur" [resultTemplate]="os" [inputFormatter]="formattercur" placeholder="Change your currency here" id="selectedcur" value="{{profile.d_currency}}" />
+                <!-- <button class="button-arrow currency_icon" id="icon-coin">
+                  <img class="input-currency-icon img-filter" id="coin_image" src="assets/currency-symbol/{{profile.d_currency | lowercase}}.svg">
+                </button> -->
               </div>
 
               <div class="form-group">
-                <button type="send" class="btn btn-primary btn-submit"> Submit </button>
+                <button type="button" class="btn btn-primary btn-submit" (click)="onSubmitPrafile()"> Submit </button>
               </div>
             </form>
           </div>

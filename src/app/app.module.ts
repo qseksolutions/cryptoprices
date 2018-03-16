@@ -98,6 +98,31 @@ export function highchartsModules() {
         component: WidgetComponent,
         pathMatch: 'full'
       },
+      {
+        path: 'change-password',
+        component: ChangepasswordComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: 'faq',
+        component: FaqComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: 'followlist',
+        component: FollowlistComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: 'protfolio',
+        component: ProtfolioComponent,
+        pathMatch: 'full'
+      },
     ]),
     BrowserModule,
     NgbModule.forRoot(),

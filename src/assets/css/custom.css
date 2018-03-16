@@ -1,0 +1,56 @@
+.hidden {
+	display: none;
+}
+
+a {
+	color: inherit;
+}
+a:hover {
+	color: inherit;
+}
+
+.coin_pump_now {
+    background-color: rgb(234, 255, 234) !important;
+}
+
+.coin_dump_now {
+    background-color: rgb(255, 234, 234) !important;
+}
+
+.coin_pump {
+    background-color: white !important;
+    transition: background-color 1s !important;
+}
+
+.coin_dump {
+    background-color: white !important;
+    transition: background-color 1s !important;
+}
+
+.width50 {
+    width: 50px;
+}
+
+.width30 {
+    width: 30px;
+}
+
+.input-currency-icon {
+	width: 25px;
+}
+
+#ngb-typeahead-0 {
+	top: 20px !important;
+	left: 1130px !important;
+	min-width: 100px;
+	width: 20%;
+}
+#ngb-typeahead-0 .dropdown-item {
+	padding-left: 10px;
+}
+.coin_name {
+	width:150px;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}

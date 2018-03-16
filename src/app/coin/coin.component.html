@@ -1,0 +1,179 @@
+<div class="breadcrumb-wrapper">
+  <div class="container" *ngIf="coin == ''">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <img class="width50" src="../../assets/images/preloader.gif" >
+      </div>
+    </div>
+  </div>
+  <div class="container" *ngIf="coin != ''">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <h1 class="page-title">{{coin.name}} ({{coin.symbol}}) Price</h1>
+        <ol class="breadcrumb">
+          <li>
+            <a href="{{base_url}}">Home</a>
+          </li>
+          <li class="active">{{coin.symbol}}</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="content">
+  <section class="crypto-detaile">
+    <div class="container">
+      <div class="row align-items-stretch">
+        <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+          <div class="single-header-box mb-0" *ngIf="coin == ''">
+            <div class="coin-rank">
+              <i class="far fa-star"></i> Rank {{coin.rank}}
+            </div>
+            <div class="single-coin-detaile text-center">
+              <img class="width50" src="../../assets/images/preloader.gif">
+            </div>
+          </div>
+          <div class="single-header-box h-100 mb-0" *ngIf="coin != ''">
+            <div class="coin-rank">
+              <i class="far fa-star"></i> Rank {{coin.rank}}
+            </div>
+            <div class="single-coin-detaile">
+              <div class="single-coin-name">
+                <span class="single-coin-symbol">
+                  <img class="img-fluid" src="assets/currency-svg/{{coin.symbol | lowercase}}.svg" (error)="errorHandler($event,coin.symbol)">
+                </span>
+
+                <span class="single-coin-title">
+                  <h6>{{coin.name}}</h6>
+
+                  <div class="visit-site">
+                    <a href="{{coin.website}}">
+                      <i class="fas fa-share-square"></i> Website</a>
+                  </div>
+                </span>
+
+              </div>
+
+
+              <div class="single-coin-value">
+                <span class="price-number-coin">
+                  {{base_sing}}&nbsp;{{coin['price_'+basecurr] | number : '1.0-12'}}
+                </span>
+                <span class="coin-price-change" [ngClass]="coin.percent_change_24h > 0 ? 'text-geen' : 'text-red'"> ({{coin.percent_change_24h}}%) </span>
+                <div class="btc-price">
+                  <span class="btc-coin-price"> {{coin.price_btc | number : '1.2-2'}} </span>
+                  <span class="currency_symbol"> BTC </span>
+                </div>
+              </div>
+
+              <div class="single-track-btn">
+                <button type="submit" class="btn btn-primary btn-add" data-toggle="modal" data-target="#login-form" [style.display]="loginData == null ? 'initial':'none'">
+                  <i class="fas fa-plus"></i>
+                </button>
+                <button type="submit" class="btn btn-primary btn-add" data-toggle="modal" data-target="#login-form" [style.display]="loginData != null ? 'initial':'none'">
+                  <i class="fas fa-plus"></i>
+                </button>
+                <button type="submit" class="btn btn-success btn-track" data-toggle="modal" data-target="#login-form" [style.display]="loginData == null ? 'initial':'none'">
+                  <i class="fas fa-check"></i>
+                </button>
+                <button type="submit" class="btn btn-success btn-track" *ngIf="coin.followstatus == 0" [style.display]="loginData != null ? 'initial':'none'" (click)="followcoin(coin);">
+                  <i class="fas fa-check"></i>
+                </button>
+                <button type="submit" class="btn btn-success btn-track" *ngIf="coin.followstatus == 1" [style.display]="loginData != null ? 'initial':'none'" (click)="followcoin(coin);">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-4 col-md-4 col-lg-4 d-flex flex-column justify-content-between">
+          <div class="single-header-box mb-20" *ngIf="coin == ''">
+            <div class="best-coin-value text-center">
+              <img class="width30" src="../../assets/images/preloader.gif">
+            </div>
+          </div>
+          <div class="single-header-box" *ngIf="coin != ''">
+            <div class="best-coin-value">
+              <label class="coin-lable">
+                MARKET CAP:
+              </label>
+              <span class="coin-box-price">
+                 {{base_sing}}&nbsp;{{coin['market_cap_'+basecurr] | number : '1.0-8'}}
+              </span>
+            </div>
+          </div>
+
+          <div class="single-header-box" *ngIf="coin == ''">
+            <div class="best-coin-value text-center">
+              <img class="width30" src="../../assets/images/preloader.gif">
+            </div>
+          </div>
+          <div class="single-header-box" *ngIf="coin != ''">
+            <div class="best-coin-value">
+              <label class="coin-lable">
+                24H VOLUME:
+              </label>
+              <span class="coin-box-price">
+                 {{base_sing}}&nbsp;{{coin['24h_volume_'+basecurr] | number : '1.0-8'}}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-4 col-md-4 col-lg-4 d-flex flex-column justify-content-between">
+          <div class="single-header-box mb-20" *ngIf="coin == ''">
+            <div class="best-coin-value text-center">
+              <img class="width30" src="../../assets/images/preloader.gif">
+            </div>
+          </div>
+          <div class="single-header-box" *ngIf="coin != ''">
+            <div class="best-coin-value">
+              <label class="coin-lable">
+                CIRCULATING SUPPLY:
+              </label>
+              <span class="coin-box-price">
+                 {{coin.available_supply | number}}
+                <span class="currency_symbol">{{coin.symbol}}</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="single-header-box" *ngIf="coin == ''">
+            <div class="best-coin-value text-center">
+              <img class="width30" src="../../assets/images/preloader.gif">
+            </div>
+          </div>
+          <div class="single-header-box" *ngIf="coin != ''">
+            <div class="best-coin-value">
+              <label class="coin-lable">
+                TOTAL SUPPLY:
+              </label>
+              <span class="coin-box-price">
+                 {{coin.total_supply | number}}
+                <span class="currency_symbol">{{coin.symbol}}</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center" *ngIf="tempgraph == ''">
+          <div>
+            <img class="width50" src="../../assets/images/preloader.gif">
+          </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12" *ngIf="tempgraph != ''">
+          <div>
+            <div [chart]="chart"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

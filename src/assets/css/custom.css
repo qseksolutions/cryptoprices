@@ -23,7 +23,7 @@ a:hover {
 }
 
 .coin_dump {
-    background-color: white !important;
+    background-color:transparent !important;
     transition: background-color 1s !important;
 }
 

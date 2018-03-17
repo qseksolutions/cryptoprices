@@ -25,17 +25,17 @@
     <div class="container">
       <div class="row align-items-stretch">
         <div class="col-12 col-sm-4 col-md-4 col-lg-4">
-          <div class="single-header-box mb-0" *ngIf="coin == ''">
+          <div class="single-header-box" *ngIf="coin == ''">
             <div class="coin-rank">
-              <i class="far fa-star"></i> Rank {{coin.rank}}
+              <i class="fas fa-star"></i> Rank {{coin.rank}}
             </div>
             <div class="single-coin-detaile text-center">
               <img class="width50" src="../../assets/images/preloader.gif">
             </div>
           </div>
-          <div class="single-header-box h-100 mb-0" *ngIf="coin != ''">
+          <div class="single-header-box" *ngIf="coin != ''">
             <div class="coin-rank">
-              <i class="far fa-star"></i> Rank {{coin.rank}}
+              <i class="fas fa-star"></i> Rank {{coin.rank}}
             </div>
             <div class="single-coin-detaile">
               <div class="single-coin-name">
@@ -68,19 +68,19 @@
 
               <div class="single-track-btn">
                 <button type="submit" class="btn btn-primary btn-add" data-toggle="modal" data-target="#login-form" [style.display]="loginData == null ? 'initial':'none'">
-                  <i class="fas fa-plus"></i>
+                  <span> Add </span> <i class="fas fa-plus"></i>
                 </button>
                 <button type="submit" class="btn btn-primary btn-add" data-toggle="modal" data-target="#login-form" [style.display]="loginData != null ? 'initial':'none'">
-                  <i class="fas fa-plus"></i>
+                 <span> Add </span>  <i class="fas fa-plus"></i>
                 </button>
-                <button type="submit" class="btn btn-success btn-track" data-toggle="modal" data-target="#login-form" [style.display]="loginData == null ? 'initial':'none'">
-                  <i class="fas fa-check"></i>
+                <button type="submit" class="btn btn-warning btn-track" data-toggle="modal" data-target="#login-form" [style.display]="loginData == null ? 'initial':'none'">
+                 <span> Track </span>  <i class="fas fa-check"></i>
                 </button>
-                <button type="submit" class="btn btn-success btn-track" *ngIf="coin.followstatus == 0" [style.display]="loginData != null ? 'initial':'none'" (click)="followcoin(coin);">
-                  <i class="fas fa-check"></i>
+                <button type="submit" class="btn btn-warning btn-track" *ngIf="coin.followstatus == 0" [style.display]="loginData != null ? 'initial':'none'" (click)="followcoin(coin);">
+                 <span> Track </span> <i class="fas fa-check"></i>
                 </button>
-                <button type="submit" class="btn btn-success btn-track" *ngIf="coin.followstatus == 1" [style.display]="loginData != null ? 'initial':'none'" (click)="followcoin(coin);">
-                  <i class="fas fa-times"></i>
+                <button type="submit" class="btn btn-warning btn-track" *ngIf="coin.followstatus == 1" [style.display]="loginData != null ? 'initial':'none'" (click)="followcoin(coin);">
+                 <span> Track </span> <i class="fas fa-times"></i>
                 </button>
               </div>
             </div>
@@ -169,7 +169,7 @@
           </div>
         </div>
         <div class="col-12 col-sm-12 col-md-12 col-lg-12" *ngIf="tempgraph != ''">
-          <div>
+          <div class="width-responsive">
             <div [chart]="chart"></div>
           </div>
         </div>

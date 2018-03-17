@@ -26,16 +26,24 @@
     <div class="top-navbar">
       <nav class="navbar pr-0">
         <ul class="nav dropdown">
-          <li class="nav-item" *ngIf="loginData == null">
+          <li class="nav-item d-none d-lg-block" *ngIf="loginData == null">
             <a class="nav-link" href="#" data-toggle="modal" data-target="#login-form">Login</a>
           </li>
           
-          <li class="nav-item" *ngIf="loginData == null">
+          <li class="nav-item d-none d-lg-block" *ngIf="loginData == null">
             <a class="nav-link" href="#" data-toggle="modal" data-target="#register-form">Register</a>
           </li>
           
-          <li class="nav-item" *ngIf="loginData != null">
-            <a class="nav-link" href="javascript:;" (click)="destroyUser();">Logout</a>
+          <li class="nav-item dropdown submenu-dropdown d-none d-lg-block" *ngIf="loginData != null">
+            <a href="#" class="nav-link dropdown-toggle" id="account-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+              My Account <i class="fas fa-angle-down"></i></a>
+            <div class="dropdown-menu" aria-labelledby="account-dropdown">
+                <a class="nav-link" [ngClass]="curl == 'protfolio' ? 'active' : ''" href="{{base_url}}protfolio">My Portfolio</a>
+                <a class="nav-link" [ngClass]="curl == 'followlist' ? 'active' : ''"  href="{{base_url}}followlist">Follow List</a>
+                <a class="nav-link" [ngClass]="curl == 'profile' ? 'active' : ''" href="{{base_url}}profile"> Profile</a>
+                <a class="nav-link" [ngClass]="curl == 'change-password' ? 'active' : ''" href="{{base_url}}change-password">Change Password</a>
+                <a class="nav-link" href="javascript:;" (click)="destroyUser();">Logout</a>
+            </div>
           </li>
 
           <li class="">
@@ -179,7 +187,7 @@
             </ul>
           </li>
 
-          <li class="dropdown currency-dropdown">
+          <li class="currency-dropdown">
             <a href="javascript:void(0);" class="dropdown-anchor" id="currency-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
               aria-expanded="false">
               <span class="btn btn-select btn-currency-select">
@@ -230,7 +238,7 @@
                         </span>
                       </div>
 
-                      <div class="form-group d-md-flex justify-content-md-between align-items-md-center">
+                      <div class="form-group d-flex justify-content-between align-items-center">
                         <button type="button" class="btn btn-primary btn-submit" (click)="onSubmitLogin()"> Login </button>
                         <span class="register-link"> Don’t have a account
                           <button type="submit" class="back-link sing-in-link"> Register </button>
@@ -277,7 +285,7 @@
                         <input type="password" class="form-control" name="userconpass" [(ngModel)]="register.userconpass">
                       </div>
 
-                      <div class="form-group d-md-flex justify-content-md-between align-items-md-center">
+                      <div class="form-group d-flex justify-content-between align-items-center">
                         <button type="button" class="btn btn-primary btn-submit" (click)="onSubmitRegister()"> Register </button>
                         <button type="submit" class="back-link sing-up-link"> Back to login </button>
                       </div>
@@ -312,7 +320,7 @@
                         <input type="text" class="form-control" name="forgot" [(ngModel)]="forgot">
                       </div>
 
-                      <div class="form-group d-md-flex justify-content-md-between align-items-md-center">
+                      <div class="form-group d-flex justify-content-between align-items-center">
                         <button type="submit" class="btn btn-primary btn-submit" (click)="onSubmitforgotpassword()"> Submit </button>
                         <button type="submit" class="back-link forgot-link"> Back to Login </button>
                       </div>
@@ -370,13 +378,26 @@
             <a class="nav-link" href="{{base_url}}widget">Widget</a>
           </li>
 
-          <li class="nav-item d-lg-none">
+          <li class="nav-item d-block d-lg-none">
             <a class="nav-link " href="#" data-toggle="modal" data-target="#login-form"> Login </a>
           </li>
 
-          <li class="nav-item d-lg-none">
+          <li class="nav-item d-block d-lg-none">
             <a class="nav-link" href="#" data-toggle="modal" data-target="#register-form"> Register</a>
           </li>
+
+          <li class="nav-item dropdown submenu-small-dropdown d-block d-lg-none" *ngIf="loginData != null">
+            <a href="#" class="nav-link dropdown-toggle" id="account-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+              My Account <i class="fas fa-angle-down"></i></a>
+            <div class="dropdown-menu" aria-labelledby="account-dropdown">
+                <a class="nav-link" [ngClass]="curl == 'protfolio' ? 'active' : ''" href="{{base_url}}protfolio">My Portfolio</a>
+                <a class="nav-link" [ngClass]="curl == 'followlist' ? 'active' : ''"  href="{{base_url}}followlist">Follow List</a>
+                <a class="nav-link" [ngClass]="curl == 'profile' ? 'active' : ''" href="{{base_url}}profile"> Profile</a>
+                <a class="nav-link" [ngClass]="curl == 'change-password' ? 'active' : ''" href="{{base_url}}change-password">Change Password</a>
+                <a class="nav-link" href="javascript:;" (click)="destroyUser();">Logout</a>
+            </div>
+          </li>
+
         </ul>
       </div>
       <div id="homeSearch" class="collapse homeSearch d-lg-block">

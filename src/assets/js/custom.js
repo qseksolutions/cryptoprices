@@ -30,7 +30,7 @@ $(document).on('click', '.forgot-link', function(){
 });
 
 setTimeout(function(){
-	$('.sparkliness1').sparkline('html', { lineWidth:1,disableInteraction:true,spotColor:false,minSpotColor:false,maxSpotColor:false,width:125,lineColor:'#0b2545',height:22,fillColor:'#8da9c4'});
+	$('.sparkliness1').sparkline('html', { lineWidth:2,disableInteraction:true,spotColor:false,minSpotColor:false,maxSpotColor:false,width:125,lineColor:'#F7931A',height:22,fillColor:'rgba(255, 255, 255, 0.0)'});
 }, 3000);
 
 function getData(page)

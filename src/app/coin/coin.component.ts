@@ -155,7 +155,8 @@ export class CoinComponent implements OnInit {
           selected: 1
         },
         title: {
-          text: this.coin.name + ' Price Chart'
+          text: this.coin.name + ' Price Chart',
+          align:'left'
         },
         xAxis: {
           fillColor: {
@@ -191,6 +192,7 @@ export class CoinComponent implements OnInit {
           tooltip: {
             valueDecimals: 2
           },
+          color: '#F7931A',
           name: 'Price in USD',
           data: this.price_usd,
           yAxis: 0,

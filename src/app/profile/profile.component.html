@@ -18,7 +18,7 @@
   <div class="subpage-bg editprofile-bg">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-12 col-sm-8 col-md-6 col-lg-6">
+        <div class="col-12 col-sm-12 col-md-10 col-lg-6">
           <div class="subpage-head">
             <h4 class="pagename-title text-center">Edit Profile</h4>
           </div>
@@ -30,21 +30,21 @@
   <section>
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-12 col-sm-8 col-md-6 col-lg-6">
+        <div class="col-12 col-sm-12 col-md-10 col-lg-6">
           <div class="subpage-form editprofile-form">
             <form class="form-model">
               <div class="form-group">
-                <label for="recipient-name" class="col-form-label">Name:</label>
+                <label for="recipient-name" class="widget-select-label">Name:</label>
                 <input type="text" class="form-control" id="unmae" name="uname" [(ngModel)]="prof.uname" value="{{profile.name}}">
               </div>
 
               <div class="form-group">
-                <label for="message-text" class="col-form-label">Email</label>
+                <label for="message-text" class="widget-select-label">Email</label>
                 <input type="email" class="form-control" disabled value="{{profile.email}}">
               </div>
 
               <div class="form-group">
-                <label for="message-text" class="col-form-label">Change Currency</label>
+                <label for="message-text" class="widget-select-label">Change Currency</label>
                 <ng-template #os let-o="result" let-s="termcur" id="allcurr">
                   <div>
                     <img src="assets/currency-symbol/{{o.currency_symbol}}.svg" onError="this.src='assets/currency-25/not-found-25.png'" class="input-currency-icon img-filter">

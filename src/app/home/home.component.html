@@ -15,141 +15,143 @@
   <div class="container">
     <div class="row">
       <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-        <div class="main-table home-table table-responsive" style="min-height:450px;">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>
-                  <a href="javascript:;" (click)="orderingColumn('ch.rank','asc')">
-                    #
-                    <span class="datatable-arrow" *ngIf="sorton == 'ch.rank'">
-                      <i class="fas fa-angle-up" *ngIf="sortby == 'asc'"></i>
-                      <i class="fas fa-angle-down" *ngIf="sortby == 'desc'"></i>
-                    </span>
-                  </a>
-                </th>
-                <th>
-                  <a href="javascript:;" (click)="orderingColumn('ch.name','asc')">
-                    Name
-                    <span class="datatable-arrow" *ngIf="sorton == 'ch.name'">
-                      <i class="fas fa-angle-up" *ngIf="sortby == 'asc'"></i>
-                      <i class="fas fa-angle-down" *ngIf="sortby == 'desc'"></i>
-                    </span>
-                  </a>
-                </th>
-                <th>
-                  <a href="javascript:;" (click)="orderingColumn('ch.price_usd','asc')">
-                    Price
-                    <span class="datatable-arrow" *ngIf="sorton == 'ch.price_usd'">
-                      <i class="fas fa-angle-up" *ngIf="sortby == 'asc'"></i>
-                      <i class="fas fa-angle-down" *ngIf="sortby == 'desc'"></i>
-                    </span>
-                  </a>
-                </th>
-                <th>
-                  <a href="javascript:;" (click)="orderingColumn('ch.percent_change_24h','asc')">
-                    +/- 24h
-                    <span class="datatable-arrow" *ngIf="sorton == 'ch.percent_change_24h'">
-                      <i class="fas fa-angle-up" *ngIf="sortby == 'asc'"></i>
-                      <i class="fas fa-angle-down" *ngIf="sortby == 'desc'"></i>
-                    </span>
-                  </a>
-                </th>
-                <th>
-                  <a href="javascript:;" (click)="orderingColumn('ch.market_cap_usd','asc')">
-                    Market Cap
-                    <span class="datatable-arrow" *ngIf="sorton == 'ch.market_cap_usd'">
-                      <i class="fas fa-angle-up" *ngIf="sortby == 'asc'"></i>
-                      <i class="fas fa-angle-down" *ngIf="sortby == 'desc'"></i>
-                    </span>
-                  </a>
-                </th>
-                <th>
-                  <a href="javascript:;" (click)="orderingColumn('ch.24h_volume_usd','asc')">
-                    Volume 24h
-                    <span class="datatable-arrow" *ngIf="sorton == 'ch.24h_volume_usd'">
-                      <i class="fas fa-angle-up" *ngIf="sortby == 'asc'"></i>
-                      <i class="fas fa-angle-down" *ngIf="sortby == 'desc'"></i>
-                    </span>
-                  </a>
-                </th>
-                <th>
-                  7 Day
-                </th>
-                <th>
-                  <a href="javascript:;" (click)="orderingColumn('ct.status','asc')">
-                    Add/Track
-                    <span class="datatable-arrow" *ngIf="sorton == 'ct.status'">
-                      <i class="fas fa-angle-up" *ngIf="sortby == 'asc'"></i>
-                      <i class="fas fa-angle-down" *ngIf="sortby == 'desc'"></i>
-                    </span>
-                  </a>
-                </th>
-              </tr>
-            </thead>
-
-            <tbody *ngIf="coins == ''">
-              <tr>
-                <td colspan="9" align="center" style="border-bottom: none">
-                  <img src="../../assets/images/loading.gif" />
-                </td>
-              </tr>
-            </tbody>
-            <tbody *ngIf="coins != ''">
-              <tr *ngFor="let coin of coins; let i = index" id="tr_coin_{{i}}">
-                <td>{{coin.rank}}</td>
-                <td>
-                  <a href="#">
-                    <div class="coin-name">
-                      <span class="coin-symbol">
-                        <a href="{{base_url}}coin/{{coin.coin_id}}">
-                          <img class="img-fluid" src="assets/currency-svg/{{coin.symbol | lowercase}}.svg" (error)="errorHandler($event,coin.symbol)">
-                        </a>
+        <div class="width-responsive">
+          <div class="main-table home-table table-responsive" style="min-height:450px;">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>
+                    <a href="javascript:;" (click)="orderingColumn('ch.rank','asc')">
+                      #
+                      <span class="datatable-arrow" *ngIf="sorton == 'ch.rank'">
+                        <i class="fas fa-angle-up" *ngIf="sortby == 'asc'"></i>
+                        <i class="fas fa-angle-down" *ngIf="sortby == 'desc'"></i>
                       </span>
-
-                      <span class="coin-name-text">
-                        <a href="{{urlString}}coin/{{coin.coin_id}}">
-                          <h6>{{coin.name}}</h6>
-                          <span class="coin-shortname">
-                            {{coin.symbol}}
-                          </span>
-                        </a>
+                    </a>
+                  </th>
+                  <th>
+                    <a href="javascript:;" (click)="orderingColumn('ch.name','asc')">
+                      Name
+                      <span class="datatable-arrow" *ngIf="sorton == 'ch.name'">
+                        <i class="fas fa-angle-up" *ngIf="sortby == 'asc'"></i>
+                        <i class="fas fa-angle-down" *ngIf="sortby == 'desc'"></i>
                       </span>
+                    </a>
+                  </th>
+                  <th>
+                    <a href="javascript:;" (click)="orderingColumn('ch.price_usd','asc')">
+                      Price
+                      <span class="datatable-arrow" *ngIf="sorton == 'ch.price_usd'">
+                        <i class="fas fa-angle-up" *ngIf="sortby == 'asc'"></i>
+                        <i class="fas fa-angle-down" *ngIf="sortby == 'desc'"></i>
+                      </span>
+                    </a>
+                  </th>
+                  <th>
+                    <a href="javascript:;" (click)="orderingColumn('ch.percent_change_24h','asc')">
+                      +/- 24h
+                      <span class="datatable-arrow" *ngIf="sorton == 'ch.percent_change_24h'">
+                        <i class="fas fa-angle-up" *ngIf="sortby == 'asc'"></i>
+                        <i class="fas fa-angle-down" *ngIf="sortby == 'desc'"></i>
+                      </span>
+                    </a>
+                  </th>
+                  <th>
+                    <a href="javascript:;" (click)="orderingColumn('ch.market_cap_usd','asc')">
+                      Market Cap
+                      <span class="datatable-arrow" *ngIf="sorton == 'ch.market_cap_usd'">
+                        <i class="fas fa-angle-up" *ngIf="sortby == 'asc'"></i>
+                        <i class="fas fa-angle-down" *ngIf="sortby == 'desc'"></i>
+                      </span>
+                    </a>
+                  </th>
+                  <th>
+                    <a href="javascript:;" (click)="orderingColumn('ch.24h_volume_usd','asc')">
+                      Volume 24h
+                      <span class="datatable-arrow" *ngIf="sorton == 'ch.24h_volume_usd'">
+                        <i class="fas fa-angle-up" *ngIf="sortby == 'asc'"></i>
+                        <i class="fas fa-angle-down" *ngIf="sortby == 'desc'"></i>
+                      </span>
+                    </a>
+                  </th>
+                  <th>
+                    7 Day
+                  </th>
+                  <th>
+                    <a href="javascript:;" (click)="orderingColumn('ct.status','asc')">
+                      Add/Track
+                      <span class="datatable-arrow" *ngIf="sorton == 'ct.status'">
+                        <i class="fas fa-angle-up" *ngIf="sortby == 'asc'"></i>
+                        <i class="fas fa-angle-down" *ngIf="sortby == 'desc'"></i>
+                      </span>
+                    </a>
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody *ngIf="coins == ''">
+                <tr>
+                  <td colspan="9" align="center" style="border-bottom: none">
+                    <img src="../../assets/images/loading.gif" />
+                  </td>
+                </tr>
+              </tbody>
+              <tbody *ngIf="coins != ''">
+                <tr *ngFor="let coin of coins; let i = index" id="tr_coin_{{i}}">
+                  <td>{{coin.rank}}</td>
+                  <td>
+                    <a href="#">
+                      <div class="coin-name">
+                        <span class="coin-symbol">
+                          <a href="{{base_url}}coin/{{coin.coin_id}}">
+                            <img class="img-fluid" src="assets/currency-svg/{{coin.symbol | lowercase}}.svg" (error)="errorHandler($event,coin.symbol)">
+                          </a>
+                        </span>
+
+                        <span class="coin-name-text">
+                          <a href="{{urlString}}coin/{{coin.coin_id}}">
+                            <h6>{{coin.name}}</h6>
+                            <span class="coin-shortname">
+                              {{coin.symbol}}
+                            </span>
+                          </a>
+                        </span>
+                      </div>
+                    </a>
+                  </td>
+                  <td id="td_price_{{i}}"> {{base_sing}}&nbsp;{{coin['price_'+basecurr] | number : '1.0-12'}} </td>
+                  <td>
+                    <span id="td_24_change_{{i}}" [ngClass]="coin.percent_change_24h >= 0 ? 'text-green' : 'text-red'"> {{coin.percent_change_24h >= 0 ? '+' : ''}}{{coin.percent_change_24h | number : '1.2-2'}}% </span>
+                  </td>
+                  <td id="td_market_cap_{{i}}"> {{base_sing}}&nbsp;{{coin['market_cap_'+basecurr] | number : '1.0-2'}} </td>
+                  <td id="td_24h_volume_{{i}}"> {{base_sing}}&nbsp;{{coin['24h_volume_'+basecurr] | number}} </td>
+                  <td>
+                    <span class="sparkliness1" sparkType="line" sparkBarColor="red"> 1,4,4,7,5,9,10 </span>
+                  </td>
+                  <td>
+                    <div class="add-track-btn text-center">
+                      <button class="btn btn-primary btn-add" data-toggle="modal" data-target="#login-form" [style.display]="loginData == null ? 'initial':'none'">
+                        <i class="fas fa-plus"></i>
+                      </button>
+                      <button class="btn btn-warning btn-track" data-toggle="modal" data-target="#login-form" [style.display]="loginData == null ? 'initial':'none'">
+                        <i class="fas fa-check"></i>
+                      </button>
+                      <button type="submit" class="btn btn-primary btn-add" [style.display]="loginData != null ? 'initial':'none'">
+                        <i class="fas fa-plus"></i>
+                      </button>
+                      <button type="submit" class="btn btn-warning btn-track" *ngIf="coin.followstatus == 0" [style.display]="loginData != null ? 'initial':'none'"
+                        (click)="followcoin(coin);">
+                        <i class="fas fa-check"></i>
+                      </button>
+                      <button type="submit" class="btn btn-warning btn-track" *ngIf="coin.followstatus == 1" [style.display]="loginData != null ? 'initial':'none'" (click)="followcoin(coin);">
+                        <i class="fas fa-times"></i>
+                      </button>
                     </div>
-                  </a>
-                </td>
-                <td id="td_price_{{i}}"> {{base_sing}}&nbsp;{{coin['price_'+basecurr] | number : '1.0-12'}} </td>
-                <td>
-                  <span id="td_24_change_{{i}}" [ngClass]="coin.percent_change_24h >= 0 ? 'text-green' : 'text-red'"> {{coin.percent_change_24h >= 0 ? '+' : ''}}{{coin.percent_change_24h | number : '1.2-2'}}% </span>
-                </td>
-                <td id="td_market_cap_{{i}}"> {{base_sing}}&nbsp;{{coin['market_cap_'+basecurr] | number : '1.0-2'}} </td>
-                <td id="td_24h_volume_{{i}}"> {{base_sing}}&nbsp;{{coin['24h_volume_'+basecurr] | number}} </td>
-                <td>
-                  <span class="sparkliness1" sparkType="line" sparkBarColor="red"> 1,4,4,7,5,9,10 </span>
-                </td>
-                <td>
-                  <div class="add-track-btn text-center">
-                    <button class="btn btn-primary btn-add" data-toggle="modal" data-target="#login-form" [style.display]="loginData == null ? 'initial':'none'">
-                      <i class="fas fa-plus" style="margin-top:-2px;"></i>
-                    </button>
-                    <button class="btn btn-success btn-track" data-toggle="modal" data-target="#login-form" [style.display]="loginData == null ? 'initial':'none'">
-                      <i class="fas fa-check" style="margin-top:-2px;"></i>
-                    </button>
-                    <button type="submit" class="btn btn-primary btn-add" [style.display]="loginData != null ? 'initial':'none'">
-                      <i class="fas fa-plus"></i>
-                    </button>
-                    <button type="submit" class="btn btn-success btn-track" *ngIf="coin.followstatus == 0" [style.display]="loginData != null ? 'initial':'none'"
-                      (click)="followcoin(coin);">
-                      <i class="fas fa-check"></i>
-                    </button>
-                    <button type="submit" class="btn btn-success btn-track" *ngIf="coin.followstatus == 1" [style.display]="loginData != null ? 'initial':'none'" (click)="followcoin(coin);">
-                      <i class="fas fa-times"></i>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

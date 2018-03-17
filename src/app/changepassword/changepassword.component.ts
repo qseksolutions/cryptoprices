@@ -17,6 +17,9 @@ declare var $;
 export class ChangepasswordComponent implements OnInit {
 
   private toasterService: ToasterService;
+
+  public login_ses: any = myGlobals.login_ses;
+  public base_url: any = myGlobals.base_url;
   pass = {
     old_pass: '',
     new_pass: '',
@@ -27,6 +30,10 @@ export class ChangepasswordComponent implements OnInit {
     localStorage.setItem('sorton', null);
     localStorage.setItem('sortby', null);
     this.toasterService = toasterService;
+
+    if (this.login_ses == null) {
+      window.location.href = this.base_url;
+    }
   }
 
   ngOnInit() {

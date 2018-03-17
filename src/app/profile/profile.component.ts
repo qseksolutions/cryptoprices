@@ -17,6 +17,9 @@ declare var $;
 export class ProfileComponent implements OnInit {
 
   private toasterService: ToasterService;
+
+  public login_ses: any = myGlobals.login_ses;
+  public base_url: any = myGlobals.base_url;
   profile = {
     name: '',
     email: '',
@@ -32,10 +35,14 @@ export class ProfileComponent implements OnInit {
     localStorage.setItem('sorton', null);
     localStorage.setItem('sortby', null);
     this.toasterService = toasterService;
+
+    if (this.login_ses == null) {
+      window.location.href = this.base_url;
+    }
   }
 
   ngOnInit() {
-    /* const curl = window.location.href;
+    const curl = window.location.href;
     this.coinservice.gettestseometa(curl).subscribe(resData => {
       if (resData.status === true) {
         this.title.setTitle(resData.data.title);
@@ -55,7 +62,7 @@ export class ProfileComponent implements OnInit {
       if (resData.status === true) {
         this.allcurrency = resData.data;
       }
-    }); */
+    });
   }
 
   searchcur = (text$: Observable<string>) =>

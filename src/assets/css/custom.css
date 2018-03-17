@@ -45,11 +45,20 @@ a:hover {
 
 #ngb-typeahead-0 {
 	top: 20px !important;
-	left: 1130px !important;
-	min-width: 100px;
-	width: 20%;
+	right: 0 !important;
+    min-width: 225px;
+    width: 100%;
 }
 #ngb-typeahead-0 .dropdown-item {
+	padding-left: 10px;
+}
+#ngb-typeahead-1 {
+	top: 20px !important;
+	right: 0 !important;
+    min-width: 225px;
+    width: 100%;
+}
+#ngb-typeahead-1 .dropdown-item {
 	padding-left: 10px;
 }
 .coin_name {

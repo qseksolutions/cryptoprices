@@ -5,7 +5,7 @@
         <h1 class="page-title">Edit Profile</h1>
         <ol class="breadcrumb">
           <li>
-            <a href="#">Home</a>
+            <a href="{{base_url}}">Home</a>
           </li>
           <li class="active">Edit Profile</li>
         </ol>
@@ -40,15 +40,17 @@
 
               <div class="form-group">
                 <label for="message-text" class="col-form-label">Email</label>
-                <input type="email" class="form-control" disabled >
+                <input type="email" class="form-control" disabled value="{{profile.email}}">
               </div>
 
               <div class="form-group">
                 <label for="message-text" class="col-form-label">Change Currency</label>
                 <ng-template #os let-o="result" let-s="termcur" id="allcurr">
-                  <div>{{o.currency_symbol}}</div>
-                  <div id="icon-currency" class="currency_icon">
-                    <img src="assets/currency-symbol/{{o.currency_symbol | lowercase}}.svg" class="input-currency-icon img-filter">
+                  <div>
+                    <img src="assets/currency-symbol/{{o.currency_symbol}}.svg" onError="this.src='assets/currency-25/not-found-25.png'" class="input-currency-icon img-filter">
+                    <span>
+                      {{o.currency_symbol}}
+                    </span>
                   </div>
                 </ng-template>
                 <input id="typeahead-template" type="text" class="form-control currency-select currency-name" [(ngModel)]="prof.b_curr" name="b_curr" [ngbTypeahead]="searchcur" [resultTemplate]="os" [inputFormatter]="formattercur" placeholder="Change your currency here" id="selectedcur" value="{{profile.d_currency}}" />

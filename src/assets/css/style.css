@@ -1501,12 +1501,22 @@ div.modal.show .modal-dialog {
     display: flex; 
     justify-content: space-between;
     padding: 30px 0px;
+    position: relative;
 
+}
+
+.calcu-count:after {
+    position: absolute;
+    content: "=";
+    top: calc(50% - 7px);
+    left: calc(50% - 7px);
+    font-size: 24px;
+    width: 14px;
+    height: 14px;
 }
 
 .calcu-value {
     width: 150px;
-    background-color: #fff;
     display: inline-block;
     border-radius: 20px;
     padding: 10px 15px;
@@ -1808,7 +1818,7 @@ div.modal.show .modal-dialog {
     color: #fff;
     font-size: 14px;
     font-weight: 300;
-    opacity: 0.8;
+    opacity: 0.9;
     transition: all ease-in-out 0.5s;
 
 }
@@ -1820,7 +1830,8 @@ div.modal.show .modal-dialog {
 
 .followlist-visit-site a:hover{
     opacity: 1;
-
+    color: #fff;
+    
 }
 
 .followlist-coin-value{
@@ -2169,6 +2180,20 @@ div.modal.show .modal-dialog {
         padding: 5px 0px;
 
     }
+
+    .single-coin-value , .single-track-btn{
+        margin-left: 0px;
+
+    }
+
+    .single-track-btn{
+        display: -webkit-box;     
+        display: -moz-box;        
+        display: -ms-flexbox;     
+        display: -webkit-flex;   
+        display: flex; 
+
+    }
 }
 
 @media (min-width: 768px){
@@ -2293,9 +2318,6 @@ div.modal.show .modal-dialog {
     .contact-form{
         margin-top: -200px;
     }
-    .protfolio-box {
-        margin-top: -30px;
-    }
 
     .protfolio-top-area{
         margin-top: 0px;
@@ -2305,8 +2327,19 @@ div.modal.show .modal-dialog {
     .editprofile-form {
         margin-top: -80px;
     }
+
     .footer-logo{
         margin-bottom: 20px;
+    }
+
+    .single-coin-value , .single-track-btn{
+        margin-left: 45px;
+
+    }
+
+    .single-track-btn{
+        display: block;
+
     }
 }
 
@@ -2386,6 +2419,9 @@ div.modal.show .modal-dialog {
     .modal-body{
         padding: 30px 0px;
 
+    }
+    .left-box-value, .right-box-value{
+        width: 50%;
     }
 
 }

@@ -2161,6 +2161,101 @@ div.modal.show .modal-dialog {
 
     }
 
+    .collapse.show {
+        border-top: solid 1px #134074;
+
+    }
+
+    body.noscroll {
+        overflow: hidden;
+
+    }
+
+    .navbar-collapse {
+        position: fixed;
+        z-index: 1005;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: table;
+        width: 100vw;
+        height: 100vh;
+        text-align: center;
+        visibility: hidden;
+        background: #ffffff;
+        background: linear-gradient(45deg,#ffffff 0,#fafafa 200%);
+        transform:scale(0.7);
+        opacity: 0;
+        transition: initial;
+        overflow-y: scroll;
+        overflow-x: hidden;
+
+    }
+
+    .navbar-collapse.show {
+        border-top: none;
+        visibility: visible;
+        opacity:1;
+        transform:scale(1);
+        transition: opacity 0.5s, transform 0.3s;
+
+    }
+
+    .navbar-nav {
+        align-items: center;
+        justify-content: center;
+        margin-top: 50px;
+        
+    }
+
+    .navbar-close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        padding: 0;
+        
+    }
+
+    .navbar-close-icon {
+        background: no-repeat center center;
+        background-image: url(../images/close-gray.svg);
+        background-size: 100% 100%;
+        display: inline-block;        
+        width: 1em;
+        height: 1em;
+        vertical-align: middle;
+
+    }
+
+    .navbar-expand-lg .navbar-nav .nav-item a {
+        padding: 15px 10px;
+    }
+
+    .navbar-expand-lg .navbar-nav .nav-item:last-child a {
+        padding-right: 15px;
+
+    }
+
+    .navbar-expand-lg .navbar-nav .nav-item a::after {
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        bottom: 5px;
+
+    }
+
+    .navbar-expand-lg .navbar-nav .nav-item.active a:after, 
+    .navbar-expand-lg .navbar-nav .nav-item:hover a:after {
+        left: 0;       
+
+    }
+
+    .submenu-small-dropdown .dropdown-menu{
+        text-align: center;
+
+    }
+
     .main-table {
         min-width: 900px;
 
@@ -2168,11 +2263,6 @@ div.modal.show .modal-dialog {
 
     .datatable-arrow{
         margin-left: 5px;
-
-    }
-
-    .collapse.show{
-        border-top: solid 1px #134074;
 
     }
 
@@ -2301,6 +2391,7 @@ div.modal.show .modal-dialog {
         padding: 0;
 
     }
+    
     .calc-arrow{
         display: none;
     }
@@ -2440,6 +2531,11 @@ div.modal.show .modal-dialog {
 
     footer{
         margin-top: 30px;
+    }
+
+    .all-coinvalue{
+        justify-content: center;
+        flex-wrap: wrap
     }
 }
 

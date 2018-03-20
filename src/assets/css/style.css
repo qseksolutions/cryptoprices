@@ -90,7 +90,7 @@
 }
 
 body{
-	background-color: #F5F9F5;
+	background-color: #ffffff;
 	font-family: 'Lato', sans-serif;
 	color: #404040;
 	font-size: 14px;
@@ -281,6 +281,7 @@ a:hover , a:focus{
     color: #F7931A;
     text-transform: uppercase;
     font-size: 12px;
+    font-weight: 600;
 
 }
 
@@ -327,10 +328,7 @@ a:hover , a:focus{
 }
 
 .dropdown-menu li:hover{
-    background-image: -moz-linear-gradient( 90deg, rgb(64, 64, 64) 0%, rgb(52, 52, 52) 100%);
-    background-image: -webkit-linear-gradient( 90deg, rgb(64, 64, 64) 0%, rgb(52, 52, 52) 100%);
-    background-image: -ms-linear-gradient( 90deg, rgb(64, 64, 64) 0%, rgb(52, 52, 52) 100%);
-    background-image: linear-gradient( 90deg, rgb(64, 64, 64) 0%, rgb(52, 52, 52) 100%);
+    background-color: #F7931A;
     color: #FFF;
 
 }
@@ -340,10 +338,10 @@ a:hover , a:focus{
 }
 
 
-.dropdown-menu li span {
+.dropdown-menu li > span {
     font-size: 12px;
     font-weight: 600;
-
+    display: block;
 }
 
 .dropdown-menu .select-list li {
@@ -364,6 +362,9 @@ a:hover , a:focus{
     height: 15px;
 }
 
+.curre-img {
+    filter: contrast(5%) sepia(80%) hue-rotate(4deg) saturate(10);
+}
 .btn.btn-select {
     background-color: #fff;
     color: #000;
@@ -1257,12 +1258,12 @@ div.modal.show .modal-dialog {
 }
 
 .contact-bg{
-    padding: 50px 0px 170px;
+    padding: 0px 0px 170px;
 
 }
 
 .subpage-head {
-    background-color: rgba(255,255,255,0.08);
+    background-color:#404040;
     padding: 10px 30px;
 
 }
@@ -1270,7 +1271,7 @@ div.modal.show .modal-dialog {
 .pagename-title {
     color: #fff;
     font-size: 36px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     font-weight: 500;
 
 }
@@ -1307,7 +1308,7 @@ div.modal.show .modal-dialog {
 -------------------------*/
 
 .widget-bg{
-    padding: 50px 0px 120px;
+    padding: 0px 0px 120px;
 
 }
 
@@ -1544,7 +1545,7 @@ div.modal.show .modal-dialog {
 
 
 .news-bg{
-    padding: 50px 0px;
+    padding-bottom:50px;
 
 }
 
@@ -1626,7 +1627,7 @@ div.modal.show .modal-dialog {
 --------------------------*/
 
 .about-bg {
-    padding: 50px 0px 120px;
+    padding: 0px 0px 120px;
 
 }
 
@@ -1659,7 +1660,7 @@ div.modal.show .modal-dialog {
 -------------------------------*/
 
 .protfolio-bg{
-    padding: 50px 0;
+    padding-bottom: 50px;
 
 }
 
@@ -1896,7 +1897,7 @@ div.modal.show .modal-dialog {
 
 
 .faq-bg{
-    padding: 50px 0;
+    padding-bottom: 50px ;
 
 }
 
@@ -1998,7 +1999,7 @@ div.modal.show .modal-dialog {
 ---------------------*/
 
 .editprofile-bg{
-    padding: 50px 0px;
+    padding-bottom: 50px;
 
 }
 
@@ -2436,7 +2437,7 @@ div.modal.show .modal-dialog {
 
     .news-bg , 
     .faq-bg{
-        padding: 30px 0px;
+        padding: 20px 0px;
     }
     
 
@@ -2506,15 +2507,15 @@ div.modal.show .modal-dialog {
     }
     
     .about-bg{
-        padding: 30px 0px 120px;
+        padding: 20px 0px 120px;
     }
     
     .contact-bg{
-        padding: 30px 0px 170px;
+        padding: 20px 0px 170px;
     }
 
     .editprofile-bg{
-        padding: 30px 0px 50px;
+        padding: 20px 0px 50px;
     }
     .model-form{
         padding: 0px;
@@ -2526,7 +2527,7 @@ div.modal.show .modal-dialog {
     }
 
     .protfolio-bg{
-        padding: 30px 0px;
+        padding: 20px 0px;
     }
 
     footer{

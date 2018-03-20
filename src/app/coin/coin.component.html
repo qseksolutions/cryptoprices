@@ -57,7 +57,7 @@
 
               <div class="single-coin-value">
                 <span class="price-number-coin">
-                  {{base_sing}}&nbsp;{{coin['price_'+basecurr] | number : '1.0-12'}}
+                  {{base_sing}}{{coin['price_'+basecurr] | number : '1.0-12'}}
                 </span>
                 <span class="coin-price-change" [ngClass]="coin.percent_change_24h > 0 ? 'text-geen' : 'text-red'"> ({{coin.percent_change_24h}}%) </span>
                 <div class="btc-price">
@@ -99,7 +99,7 @@
                 MARKET CAP:
               </label>
               <span class="coin-box-price">
-                 {{base_sing}}&nbsp;{{coin['market_cap_'+basecurr] | number : '1.0-8'}}
+                 {{base_sing}}{{coin['market_cap_'+basecurr] | number : '1.0-8'}}
               </span>
             </div>
           </div>
@@ -115,7 +115,7 @@
                 24H VOLUME:
               </label>
               <span class="coin-box-price">
-                 {{base_sing}}&nbsp;{{coin['24h_volume_'+basecurr] | number : '1.0-8'}}
+                 {{base_sing}}{{coin['24h_volume_'+basecurr] | number : '1.0-8'}}
               </span>
             </div>
           </div>

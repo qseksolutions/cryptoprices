@@ -103,13 +103,13 @@
                     <a href="#">
                       <div class="coin-name">
                         <span class="coin-symbol">
-                          <a href="{{base_url}}coin/{{coin.coin_id}}">
+                          <a href="{{base_url}}coin/{{coin.coin_id}}-{{coin.symbol | lowercase}}-price">
                             <img class="img-fluid" src="assets/currency-svg/{{coin.symbol | lowercase}}.svg" (error)="errorHandler($event,coin.symbol)">
                           </a>
                         </span>
 
                         <span class="coin-name-text">
-                          <a href="{{urlString}}coin/{{coin.coin_id}}">
+                          <a href="{{base_url}}coin/{{coin.coin_id}}-{{coin.symbol | lowercase}}-price">
                             <h6>{{coin.name}}</h6>
                             <span class="coin-shortname">
                               {{coin.symbol}}
@@ -119,12 +119,12 @@
                       </div>
                     </a>
                   </td>
-                  <td id="td_price_{{i}}"> {{base_sing}}&nbsp;{{coin['price_'+basecurr] | number : '1.0-12'}} </td>
+                  <td id="td_price_{{i}}"> {{base_sing}}{{coin['price_'+basecurr] | number : '1.0-12'}} </td>
                   <td>
                     <span id="td_24_change_{{i}}" [ngClass]="coin.percent_change_24h >= 0 ? 'text-green' : 'text-red'"> {{coin.percent_change_24h >= 0 ? '+' : ''}}{{coin.percent_change_24h | number : '1.2-2'}}% </span>
                   </td>
-                  <td id="td_market_cap_{{i}}"> {{base_sing}}&nbsp;{{coin['market_cap_'+basecurr] | number : '1.0-2'}} </td>
-                  <td id="td_24h_volume_{{i}}"> {{base_sing}}&nbsp;{{coin['24h_volume_'+basecurr] | number}} </td>
+                  <td id="td_market_cap_{{i}}"> {{base_sing}}{{coin['market_cap_'+basecurr] | number : '1.0-2'}} </td>
+                  <td id="td_24h_volume_{{i}}"> {{base_sing}}{{coin['24h_volume_'+basecurr] | number}} </td>
                   <td>
                     <span class="sparkliness1" sparkType="line" sparkBarColor="red"> 1,4,4,7,5,9,10 </span>
                   </td>

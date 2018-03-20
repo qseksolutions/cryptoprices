@@ -1,0 +1,426 @@
+<header>
+  <div class="top-header">
+    <div class="all-coinvalue">
+      <div class="coinvalue-box pl-0">
+        <div class="value-list-box">
+          <span class="coinlis-value"> Market Cap: </span>
+          <h5 class="coinlist-name"> {{base_sing}}{{totalmarket | number}} </h5>
+        </div>
+      </div>
+
+      <div class="coinvalue-box big-box">
+        <div class="value-list-box">
+          <span class="coinlis-value"> 24h Vol: </span>
+          <h5 class="coinlist-name"> {{base_sing}}{{totaltrade | number}} </h5>
+        </div>
+      </div>
+
+      <div class="coinvalue-box">
+        <div class="value-list-box">
+          <span class="coinlis-value"> BTC Dominance: </span>
+          <h5 class="coinlist-name"> 41.8% </h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="top-navbar">
+      <nav class="navbar pr-0">
+        <ul class="nav dropdown">
+          <li class="nav-item d-none d-lg-block" *ngIf="loginData == null">
+            <a class="nav-link" href="#" data-toggle="modal" data-target="#login-form">Login</a>
+          </li>
+          
+          <li class="nav-item d-none d-lg-block" *ngIf="loginData == null">
+            <a class="nav-link" href="#" data-toggle="modal" data-target="#register-form">Register</a>
+          </li>
+          
+          <li class="nav-item dropdown submenu-dropdown d-none d-lg-block" *ngIf="loginData != null">
+            <a href="#" class="nav-link dropdown-toggle" id="account-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+              My Account <i class="fas fa-angle-down"></i></a>
+            <div class="dropdown-menu" aria-labelledby="account-dropdown">
+                <a class="nav-link" [ngClass]="curl == 'protfolio' ? 'active' : ''" href="{{base_url}}protfolio">My Portfolio</a>
+                <a class="nav-link" [ngClass]="curl == 'followlist' ? 'active' : ''"  href="{{base_url}}followlist">Follow List</a>
+                <a class="nav-link" [ngClass]="curl == 'profile' ? 'active' : ''" href="{{base_url}}profile"> Profile</a>
+                <a class="nav-link" [ngClass]="curl == 'change-password' ? 'active' : ''" href="{{base_url}}change-password">Change Password</a>
+                <a class="nav-link" href="javascript:;" (click)="destroyUser();">Logout</a>
+            </div>
+          </li>
+
+          <li class="">
+            <a href="javascript:void(0);" class="select-list-country-link dropdown-anchor" id="lang-dropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <span class="btn btn-select">
+                <img src="assets/language-symbol/english.svg" class="flag-img">
+                <span class="lang-name">English</span>
+              </span>
+              <button class="btn btn-language btn-select-dropdown">
+                <i class="fas fa-caret-down"></i>
+              </button>
+            </a>
+            <ul class="select-list-country dropdown-menu" aria-labelledby="lang-dropdown">
+              <li class="active">
+                <span value="english">
+                  <img src="assets/language-symbol/english.svg" class="flag-img">
+                  <span class="lang-name">Engish</span>
+                </span>
+              </li>
+              <li>
+                <span value="chinese">
+                  <img src="assets/language-symbol/chinese.svg" class="flag-img">
+                  <span class="lang-name">简体中文</span>
+                </span>
+              </li>
+              <li>
+                <span value="japanese">
+                  <img src="assets/language-symbol/japanese.svg" class="flag-img">
+                  <span class="lang-name">日本語</span>
+                </span>
+              </li>
+              <li>
+                <span value="korean">
+                  <img src="assets/language-symbol/korean.svg" class="flag-img">
+                  <span class="lang-name">한국어</span>
+                </span>
+              </li>
+              <li>
+                <span value="vietnamese">
+                  <img src="assets/language-symbol/vietnamese.svg" class="flag-img">
+                  <span class="lang-name">Tiếng Việt</span>
+                </span>
+              </li>
+              <li>
+                <span value="spanish">
+                  <img src="assets/language-symbol/spanish.svg" class="flag-img">
+                  <span class="lang-name">Español</span>
+                </span>
+              </li>
+              <li>
+                <span value="portugueseBrazil">
+                  <img src="assets/language-symbol/portugueseBrazil.svg" class="flag-img">
+                  <span class="lang-name">Brazil Português</span>
+                </span>
+              </li>
+              <li>
+                <span value="portugal">
+                  <img src="assets/language-symbol/portugal.svg" class="flag-img">
+                  <span class="lang-name">Português</span>
+                </span>
+              </li>
+              <li>
+                <span value="german">
+                  <img src="assets/language-symbol/german.svg" class="flag-img">
+                  <span class="lang-name">Deutsche</span>
+                </span>
+              </li>
+              <li>
+                <span value="romanian">
+                  <img src="assets/language-symbol/romanian.svg" class="flag-img">
+                  <span class="lang-name">Română</span>
+                </span>
+              </li>
+              <li>
+                <span value="russian">
+                  <img src="assets/language-symbol/russian.svg" class="flag-img">
+                  <span class="lang-name">русский</span>
+                </span>
+              </li>
+              <li>
+                <span value="turkish">
+                  <img src="assets/language-symbol/turkish.svg" class="flag-img">
+                  <span class="lang-name">Türk</span>
+                </span>
+              </li>
+              <li>
+                <span value="ukraine">
+                  <img src="assets/language-symbol/ukraine.svg" class="flag-img">
+                  <span class="lang-name">український</span>
+                </span>
+              </li>
+              <li>
+                <span value="italian">
+                  <img src="assets/language-symbol/italian.svg" class="flag-img">
+                  <span class="lang-name">Italiano</span>
+                </span>
+              </li>
+              <li>
+                <span value="dutch">
+                  <img src="assets/language-symbol/dutch.svg" class="flag-img">
+                  <span class="lang-name">Nederlands</span>
+                </span>
+              </li>
+              <li>
+                <span value="french">
+                  <img src="assets/language-symbol/french.svg" class="flag-img">
+                  <span class="lang-name">Français</span>
+                </span>
+              </li>
+              <li>
+                <span value="greek">
+                  <img src="assets/language-symbol/greek.svg" class="flag-img">
+                  <span class="lang-name">ελληνικά</span>
+                </span>
+              </li>
+              <li>
+                <span value="hindi">
+                  <img src="assets/language-symbol/hindi.svg" class="flag-img">
+                  <span class="lang-name">हिंदी</span>
+                </span>
+              </li>
+              <li>
+                <span value="indonesian">
+                  <img src="assets/language-symbol/indonesian.svg" class="flag-img">
+                  <span class="lang-name">Bahasa Indonesia</span>
+                </span>
+              </li>
+              <li>
+                <span value="danish">
+                  <img src="assets/language-symbol/danish.svg" class="flag-img">
+                  <span class="lang-name">Dansk</span>
+                </span>
+              </li>
+              <li>
+                <span value="arabic">
+                  <img src="assets/language-symbol/arabic.svg" class="flag-img">
+                  <span class="lang-name">العربية</span>
+                </span>
+              </li>
+            </ul>
+          </li>
+
+          <li class="currency-dropdown">
+            <a href="javascript:void(0);" class="dropdown-anchor" id="currency-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              <span class="btn btn-select btn-currency-select">
+                <img src="assets/currency-symbol/{{basecurr | lowercase}}.svg" class="curre-img">
+                <span class="currency-name"> {{basecurr}} </span>
+              </span>
+              <button class="btn btn-language btn-select-dropdown">
+                <i class="fas fa-caret-down"></i>
+              </button>
+            </a>
+            <ul class="select-list-country dropdown-menu" aria-labelledby="currency-dropdown">
+              <li *ngFor="let curr of maincurrencylist" (click)="closeNav(curr.currency_symbol,curr.currency_sign)">
+                <span value="english">
+                  <img src="assets/currency-symbol/{{curr.currency_symbol | lowercase}}.svg" class="curre-img" />
+                  <span class="currency-name"> {{curr.currency_symbol}} </span>
+                </span>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- model-start -->
+      <div class="modal fade" id="login-form" tabindex="-1" role="dialog" aria-labelledby="loginformLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Login</h5>
+              <span aria-hidden="true" class="close-btn" data-dismiss="modal" aria-label="Close">
+                <img src="assets/images/close.svg" class="img-fluid"> </span>
+            </div>
+
+            <div class="modal-body">
+              <div class="container">
+                <div class="row">
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                    <form class="model-form">
+                      <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Username/Email Address:</label>
+                        <input type="text" class="form-control" name="email" [(ngModel)]="login.email">
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Password:</label>
+                        <input type="password" class="form-control" name="password" [(ngModel)]="login.password">
+
+                        <span class="btn-forgot forgot-link">
+                          <a href="#"> Restore </a>
+                        </span>
+                      </div>
+
+                      <div class="form-group d-flex justify-content-between align-items-center">
+                        <button type="button" class="btn btn-primary btn-submit" (click)="onSubmitLogin()"> Login </button>
+                        <span class="register-link"> Don’t have a account
+                          <button type="submit" class="back-link sing-in-link"> Register </button>
+                        </span>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="register-form" tabindex="-1" role="dialog" aria-labelledby="registerformLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Register</h5>
+              <span aria-hidden="true" class="close-btn" data-dismiss="modal" aria-label="Close">
+                <img src="assets/images/close.svg" class="img-fluid"> </span>
+            </div>
+
+            <div class="modal-body">
+              <div class="container">
+                <div class="row">
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                    <form class="model-form">
+                      <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Name:</label>
+                        <input type="text" class="form-control" name="username" [(ngModel)]="register.username">
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Email Address:</label>
+                        <input type="email" class="form-control" name="useremail" [(ngModel)]="register.useremail">
+                      </div>
+                      <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Password:</label>
+                        <input type="password" class="form-control" name="userpass" [(ngModel)]="register.userpass">
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Confirm Password:</label>
+                        <input type="password" class="form-control" name="userconpass" [(ngModel)]="register.userconpass">
+                      </div>
+
+                      <div class="form-group d-flex justify-content-between align-items-center">
+                        <button type="button" class="btn btn-primary btn-submit" (click)="onSubmitRegister()"> Register </button>
+                        <button type="submit" class="back-link sing-up-link"> Back to login </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="forgot-form" tabindex="-1" role="dialog" aria-labelledby="forgotformLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Forgot Password</h5>
+              <span aria-hidden="true" class="close-btn" data-dismiss="modal" aria-label="Close">
+                <img src="assets/images/close.svg" class="img-fluid"> </span>
+            </div>
+
+            <div class="modal-body">
+              <div class="container">
+                <div class="row">
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="form-title">
+                    </div>
+                    <form class="model-form">
+                      <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Username/Email Address:</label>
+                        <input type="text" class="form-control" name="forgot" [(ngModel)]="forgot">
+                      </div>
+
+                      <div class="form-group d-flex justify-content-between align-items-center">
+                        <button type="submit" class="btn btn-primary btn-submit" (click)="onSubmitforgotpassword()"> Submit </button>
+                        <button type="submit" class="back-link forgot-link"> Back to Login </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <!-- model-end -->
+    </div>
+  </div>
+
+  <div class="header">
+    <nav class="navbar navbar-expand-lg white-shades-bg">
+      <a class="navbar-brand" href="{{base_url}}">
+        <img src="assets/images/logo.png" class="img-fluid">
+      </a>
+      <div>
+        <button class="search-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#homeSearch" aria-controls="homeSearch"
+          aria-expanded="false" aria-label="Toggle Search">
+          <span class="search-icon"></span>
+        </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse justify-content-end" id="navbar">
+        <button class="navbar-toggler navbar-close" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-close-icon"></span>
+        </button>
+        <ul class="navbar-nav">
+          <li class="nav-item" [ngClass]="curl == 'home' ? 'active' : ''">
+            <a class="nav-link" href="{{base_url}}">Home</a>
+          </li>
+          
+          <li class="nav-item" [ngClass]="curl == 'contact-us' ? 'active' : ''">
+            <a class="nav-link" href="{{base_url}}contact-us">Contact Us</a>
+          </li>
+          
+          <li class="nav-item" [ngClass]="curl == 'about-us' ? 'active' : ''">
+            <a class="nav-link" href="{{base_url}}about-us">About Us</a>
+          </li>
+          
+          <li class="nav-item" [ngClass]="curl == 'news' ? 'active' : ''">
+            <a class="nav-link" href="{{base_url}}news">News</a>
+          </li>
+          
+          <li class="nav-item" [ngClass]="curl == 'calculator' ? 'active' : ''">
+            <a class="nav-link" href="{{base_url}}calculator">Calculator</a>
+          </li>
+          
+          <li class="nav-item" [ngClass]="curl == 'widget' ? 'active' : ''">
+            <a class="nav-link" href="{{base_url}}widget">Widget</a>
+          </li>
+
+          <li class="nav-item d-block d-lg-none">
+            <a class="nav-link " href="#" data-toggle="modal" data-target="#login-form"> Login </a>
+          </li>
+
+          <li class="nav-item d-block d-lg-none">
+            <a class="nav-link" href="#" data-toggle="modal" data-target="#register-form"> Register</a>
+          </li>
+
+          <li class="nav-item dropdown submenu-small-dropdown d-block d-lg-none" *ngIf="loginData != null">
+            <a href="#" class="nav-link dropdown-toggle" id="account-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+              My Account <i class="fas fa-angle-down"></i></a>
+            <div class="dropdown-menu" aria-labelledby="account-dropdown">
+                <a class="nav-link" [ngClass]="curl == 'protfolio' ? 'active' : ''" href="{{base_url}}protfolio">My Portfolio</a>
+                <a class="nav-link" [ngClass]="curl == 'followlist' ? 'active' : ''"  href="{{base_url}}followlist">Follow List</a>
+                <a class="nav-link" [ngClass]="curl == 'profile' ? 'active' : ''" href="{{base_url}}profile"> Profile</a>
+                <a class="nav-link" [ngClass]="curl == 'change-password' ? 'active' : ''" href="{{base_url}}change-password">Change Password</a>
+                <a class="nav-link" href="javascript:;" (click)="destroyUser();">Logout</a>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+      <div id="homeSearch" class="collapse homeSearch d-lg-block">
+        <div class="home-search small-home-search">
+          <ng-template #sc let-s="result" let-c="term" id="allcoinsearch">
+            <div [attr.value]="s.symbol" class="">
+              <a href="{{urlString}}coin/{{s.id}}">
+                <img src="assets/currency-svg/{{s.symbol | lowercase}}.svg" (error)="errorHandler($event,s.symbol)" class="input-currency-icon">
+                <span>
+                  <span class="coin_name">{{s.name}}</span> ({{s.symbol}})
+                </span>
+              </a>
+            </div>
+          </ng-template>
+          <input id="typeahead-template-new" type="text" class="form-control search-input" [(ngModel)]="model" name="search" [ngbTypeahead]="search" [resultTemplate]="sc" [inputFormatter]="formattersearch" placeholder="Search Coin.." (keydown)="keyDownFunction($event)" />
+          <button class="btn btn-warning home-serch-btn">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>

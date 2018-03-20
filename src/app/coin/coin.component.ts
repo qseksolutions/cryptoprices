@@ -96,8 +96,11 @@ export class CoinComponent implements OnInit {
 
   getsinglecoinData() {
     const url = window.location.href;
-    const coinid = url.split('/');
-    this.coinservice.getSingleCoin(coinid[4]).subscribe(resData => {
+    const turl = url.split('/');
+    const coinid = turl[4].split('-');
+    console.log(coinid);
+    console.log(coinid[0]);
+    this.coinservice.getSingleCoin(coinid[0]).subscribe(resData => {
       if (resData.status === true) {
         this.follow = resData.data.followstatus;
         this.coin = resData.data;
@@ -110,9 +113,10 @@ export class CoinComponent implements OnInit {
     this.getsinglecoinData();
     this.realTimeGraph(this.perioddata);
     const curl = window.location.href;
-    const ccoin = curl.split('/');
-    const durl = curl.replace('/' + ccoin[4], '');
-    this.coinservice.getSingleCoin(ccoin[4]).subscribe(responce => {
+    const turl = curl.split('/');
+    const ccoin = turl[4].split('-');
+    const durl = curl.replace('/' + ccoin[0], '');
+    this.coinservice.getSingleCoin(ccoin[0]).subscribe(responce => {
       if (responce.status === true) {
         this.coin = responce.data;
         this.coinservice.gettestseometa(durl).subscribe(resData => {
@@ -142,8 +146,9 @@ export class CoinComponent implements OnInit {
     localStorage.setItem('period', period);
     this.perioddata = localStorage.getItem('period');
     const url = window.location.href;
-    const coinid = url.split('/');
-    this.coinservice.getGraphData('all', coinid[4]).subscribe(response => {
+    const turl = url.split('/');
+    const coinid = turl[4].split('-');
+    this.coinservice.getGraphData('all', coinid[0]).subscribe(response => {
       this.market_cap = response.market_cap;
       this.price_usd = response.price_usd;
       this.chart = new StockChart({

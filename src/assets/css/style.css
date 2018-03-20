@@ -99,11 +99,12 @@ body{
 }
 
 header {
-    display: -webkit-box;     
-    display: -moz-box;        
-    display: -ms-flexbox;     
-    display: -webkit-flex;   
-    display: flex; 
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
 
 }
@@ -229,11 +230,11 @@ a:hover , a:focus{
 ----------------------------*/
 
 .top-header{
-    display: -webkit-box;     
-    display: -moz-box;        
-    display: -ms-flexbox;     
-    display: -webkit-flex;   
-    display: flex; 
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     padding: 0px 30px;
     background-color: #404040;
@@ -241,11 +242,9 @@ a:hover , a:focus{
 }
 
 .all-coinvalue{
-    display: -webkit-box;     
-    display: -moz-box;        
-    display: -ms-flexbox;     
-    display: -webkit-flex;   
-    display: flex; 
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     align-items: center;
 
 }
@@ -328,7 +327,7 @@ a:hover , a:focus{
 }
 
 .dropdown-menu li:hover{
-    background-color: #F7931A;
+    background-color: #404040;
     color: #FFF;
 
 }
@@ -337,11 +336,23 @@ a:hover , a:focus{
     filter: brightness(100%) invert(10);
 }
 
+.currency-name{
+    flex: 2;
+
+}
+
+span .curre-img{
+    flex: 1;
+    width: auto;
+
+}
 
 .dropdown-menu li > span {
     font-size: 12px;
     font-weight: 600;
-    display: block;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
 }
 
 .dropdown-menu .select-list li {
@@ -363,7 +374,11 @@ a:hover , a:focus{
 }
 
 .curre-img {
+    -webkit-filter: contrast(5%) sepia(80%) hue-rotate(4deg) saturate(10);
+    -moz-filter: contrast(5%) sepia(80%) hue-rotate(4deg) saturate(10);
+    -ms-filter: contrast(5%) sepia(80%) hue-rotate(4deg) saturate(10);
     filter: contrast(5%) sepia(80%) hue-rotate(4deg) saturate(10);
+
 }
 .btn.btn-select {
     background-color: #fff;
@@ -632,11 +647,9 @@ input.search-input{
 }
 
 .coin-name{
-	display: -webkit-box;     
-	display: -moz-box;        
-	display: -ms-flexbox;     
-	display: -webkit-flex;   
-	display: flex; 
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
 	align-items: center; 
 
 }
@@ -827,9 +840,7 @@ input.search-input{
 
 .single-coin-name{
     display: -webkit-box;
-    display: -moz-box;
     display: -ms-flexbox;
-    display: -webkit-flex;
     display: flex;
     align-items: center;
     padding-bottom: 10px;
@@ -1318,11 +1329,11 @@ div.modal.show .modal-dialog {
 }
 
 .widget-dropdown{
-    display: -webkit-box;     
-    display: -moz-box;        
-    display: -ms-flexbox;     
-    display: -webkit-flex;   
-    display: flex; 
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     position: relative;
 
@@ -1389,11 +1400,11 @@ div.modal.show .modal-dialog {
 }
 
 .widget-coin-value{
-    display: -webkit-box;     
-    display: -moz-box;        
-    display: -ms-flexbox;     
-    display: -webkit-flex;   
-    display: flex; 
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     padding-top: 10px;
     border-top: solid 1px #afb8b8;
@@ -1480,11 +1491,11 @@ div.modal.show .modal-dialog {
 }
 
 .calcu-count{
-    display: -webkit-box;     
-    display: -moz-box;        
-    display: -ms-flexbox;     
-    display: -webkit-flex;   
-    display: flex; 
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     padding: 30px 0px;
     position: relative;
@@ -1552,11 +1563,11 @@ div.modal.show .modal-dialog {
 .news-box {
     background-color: #fff;
     box-shadow: 0 5px 10px rgba(114, 114, 114, 0.1);
-    display: -webkit-box;     
-    display: -moz-box;        
-    display: -ms-flexbox;     
-    display: -webkit-flex;   
-    display: flex; 
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     margin-bottom: 15px;
 
@@ -1666,15 +1677,18 @@ div.modal.show .modal-dialog {
 
 .protfolio-networth{
     display: -webkit-box;
-    display: -moz-box;
     display: -ms-flexbox;
-    display: -webkit-flex;
     display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     align-items: center;
     background-color: #fff;
     box-shadow: 0 5px 10px rgba(114, 114, 114, 0.1);
     padding: 20px 20px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
 
 }
@@ -1738,25 +1752,23 @@ div.modal.show .modal-dialog {
 -------------------------------*/
 
 .follow-networth{
-    display: -webkit-box;     
-    display: -moz-box;        
-    display: -ms-flexbox;     
-    display: -webkit-flex;   
-    display: flex; 
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 5px 10px rgba(114, 114, 114, 0.1);
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     
 }
 
 
 .followlist-box{
-    display: -webkit-box;     
-    display: -moz-box;        
-    display: -ms-flexbox;     
-    display: -webkit-flex;   
-    display: flex; 
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     align-items: center;
     background-color: #fff;
     box-shadow: 0 5px 10px rgba(114, 114, 114, 0.1);
@@ -1771,7 +1783,12 @@ div.modal.show .modal-dialog {
 
 
 .followlist-coin-detaile{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     width: 100%;
 
@@ -1779,9 +1796,7 @@ div.modal.show .modal-dialog {
 
 .followlist-coin-name{
     display: -webkit-box;
-    display: -moz-box;
     display: -ms-flexbox;
-    display: -webkit-flex;
     display: flex;
     align-items: center;
     padding: 10px 20px;
@@ -1830,11 +1845,11 @@ div.modal.show .modal-dialog {
 }
 
 .followlist-coin-value{
-    display: -webkit-box;     
-    display: -moz-box;        
-    display: -ms-flexbox;     
-    display: -webkit-flex;   
-    display: flex; 
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     align-items: center;
     padding: 25px 0px;
@@ -1905,12 +1920,15 @@ div.modal.show .modal-dialog {
     background-color: #fff;
     box-shadow: 0 5px 10px rgba(114, 114, 114, 0.1);
     display: -webkit-box;
-    display: -moz-box;
     display: -ms-flexbox;
-    display: -webkit-flex;
     display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     margin-bottom: 15px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
 
 }
@@ -2085,22 +2103,29 @@ div.modal.show .modal-dialog {
     }
 
     .top-header{
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
 
     }
 
     .all-coinvalue{
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
 
     }
 
     .top-navbar{
-        display: -webkit-box;     
-        display: -moz-box;        
-        display: -ms-flexbox;     
-        display: -webkit-flex;   
-        display: flex; 
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
 
     }
@@ -2205,6 +2230,8 @@ div.modal.show .modal-dialog {
 
     .navbar-nav {
         align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
         margin-top: 50px;
         
@@ -2285,21 +2312,21 @@ div.modal.show .modal-dialog {
     }
     
     .add-track-btn{
-        display: -webkit-box;     
-        display: -moz-box;        
-        display: -ms-flexbox;     
-        display: -webkit-flex;   
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex; 
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
         justify-content: space-between;
 
     }
 
     .main-table th > a {
-        display: -webkit-box;     
-        display: -moz-box;        
-        display: -ms-flexbox;     
-        display: -webkit-flex;   
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex; 
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
         justify-content: space-between;
         align-items: center;
 
@@ -2317,11 +2344,9 @@ div.modal.show .modal-dialog {
     }
 
     .single-track-btn{
-        display: -webkit-box;     
-        display: -moz-box;        
-        display: -ms-flexbox;     
-        display: -webkit-flex;   
-        display: flex; 
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
 
     }
 }
@@ -2345,6 +2370,8 @@ div.modal.show .modal-dialog {
         width: 100%;
     }
     .nav{
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
     }
 
@@ -2379,7 +2406,10 @@ div.modal.show .modal-dialog {
     }
 
     .widget-dropdown{
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
     }
 
     .calc-curr-dropdown, .calc-coin-dropdown , .amnt-widget-dropdown {
@@ -2486,7 +2516,9 @@ div.modal.show .modal-dialog {
 
     }
     .dropdown-menu li > span{
-        display: block;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
         overflow: hidden;
     }
 
@@ -2535,6 +2567,8 @@ div.modal.show .modal-dialog {
     }
 
     .all-coinvalue{
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
         flex-wrap: wrap
     }

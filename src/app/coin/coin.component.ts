@@ -105,6 +105,7 @@ export class CoinComponent implements OnInit {
         this.follow = resData.data.followstatus;
         this.coin = resData.data;
         console.log(this.coin);
+        this.titleService.setTitle(resData.data.name + ' (' + resData.data.symbol + ') Price');
       }
     });
   }
@@ -112,7 +113,7 @@ export class CoinComponent implements OnInit {
   ngOnInit() {
     this.getsinglecoinData();
     this.realTimeGraph(this.perioddata);
-    const curl = window.location.href;
+    /* const curl = window.location.href;
     const turl = curl.split('/');
     const ccoin = turl[4].split('-');
     const durl = curl.replace('/' + ccoin[0], '');
@@ -139,7 +140,7 @@ export class CoinComponent implements OnInit {
           }
         });
       }
-    });
+    }); */
   }
 
   realTimeGraph(period) {
@@ -157,7 +158,34 @@ export class CoinComponent implements OnInit {
           backgroundColor: null,
         },
         rangeSelector: {
-          selected: 1
+          buttons: [
+          {
+            type: 'week',
+            count: 1,
+            text: '1w',
+          }, {
+            type: 'month',
+            count: 1,
+            text: '1m',
+          }, {
+            type: 'month',
+            count: 3,
+            text: '3m'
+          }, {
+            type: 'month',
+            count: 6,
+            text: '6m'
+          }, {
+            type: 'ytd',
+            text: 'YTD'
+          }, {
+            type: 'year',
+            count: 1,
+            text: '1y'
+          }, {
+            type: 'all',
+            text: 'All'
+          }]
         },
         title: {
           text: this.coin.name + ' Price Chart',

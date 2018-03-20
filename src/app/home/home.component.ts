@@ -128,7 +128,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.coinservice.gettestseometa(this.base_url).subscribe(resData => {
+    /* this.coinservice.gettestseometa(this.base_url).subscribe(resData => {
       if (resData.status === true) {
         this.title.setTitle(resData.data.title);
         // console.log(resData.data);
@@ -138,7 +138,7 @@ export class HomeComponent implements OnInit {
         this.meta.addTag({ name: 'robots', content: resData.data.robots });
         this.meta.addTag({ name: 'title', content: ' www.coinlisting.io' });
       }
-    });
+    }); */
     this.coinservice.getadvertiseforpage('top add').subscribe(resData => {
       if (resData.status === true) {
         this.adds = resData.data;

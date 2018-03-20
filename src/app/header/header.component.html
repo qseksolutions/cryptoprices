@@ -191,7 +191,7 @@
             <a href="javascript:void(0);" class="dropdown-anchor" id="currency-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
               aria-expanded="false">
               <span class="btn btn-select btn-currency-select">
-                <img src="assets/currency-symbol/{{basecurr}}.svg" class="curre-img">
+                <img src="assets/currency-symbol/{{basecurr | lowercase}}.svg" class="curre-img">
                 <span class="currency-name"> {{basecurr}} </span>
               </span>
               <button class="btn btn-language btn-select-dropdown">
@@ -201,7 +201,7 @@
             <ul class="select-list-country dropdown-menu" aria-labelledby="currency-dropdown">
               <li *ngFor="let curr of maincurrencylist" (click)="closeNav(curr.currency_symbol,curr.currency_sign)">
                 <span value="english">
-                  <img src="assets/currency-symbol/{{curr.currency_symbol}}.svg" class="curre-img" />
+                  <img src="assets/currency-symbol/{{curr.currency_symbol | lowercase}}.svg" class="curre-img" />
                   <span class="currency-name"> {{curr.currency_symbol}} </span>
                 </span>
               </li>
@@ -339,7 +339,7 @@
 
   <div class="header">
     <nav class="navbar navbar-expand-lg white-shades-bg">
-      <a class="navbar-brand" href="index.html">
+      <a class="navbar-brand" href="{{base_url}}">
         <img src="assets/images/logo.png" class="img-fluid">
       </a>
       <div>

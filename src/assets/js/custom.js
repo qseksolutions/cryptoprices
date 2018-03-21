@@ -85,3 +85,5 @@ function getData(page)
 $('.navbar-toggler').click(function(){
     $('body').toggleClass('noscroll');
 });
+
+$('.selectpicker').select2();

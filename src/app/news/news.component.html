@@ -29,139 +29,26 @@
   <section>
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-10">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-10" *ngIf="newslist == ''">
           <div class="news-box">
+            <img src="../../assets/images/loading.gif" style="margin:0 auto;"/>
+          </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-10" *ngIf="newslist != ''">
+          <div class="news-box" *ngFor="let news of newslist" >
             <div class="news-text">
               <div class="news-field-detaile">
-                <h3 class="news-title">International Banking Study Calls Centralized Crypto Inevitable</h3>
+                <h3 class="news-title">{{news.title}}</h3>
                 <div class="news-source">
                   <span class="small-text">Source:</span>
-                  <span class="news-name">NEWSBTC</span>
+                  <span class="news-name">{{news.source}}</span>
                   <span class="times-text">1 hour ago</span>
                 </div>
-                <p>A new report issued by an international banking group analyzing the use of cryptocurrency by central banks
-                  recognizes the usefulness of digital currency while calling into question their overall safety and security.
-                  Study Calls Centralized Crypto Inevitable The Bank for International Settlements issued a report on Monday
-                  saying that cryptocurrency, as issued by central banks, could ...</p>
+                <p>{{news.short_news}}</p>
+                <p class="long_news read_more_{{news.id}}" [innerHtml]="news.long_news" style="display: none"></p>
 
                 <div class="news-btn">
-                  <button class="btn btn-primary btn-read">Read More
-                    <i class="fas fa-angle-double-right"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="news-box">
-            <div class="news-text">
-              <div class="news-field-detaile">
-                <h3 class="news-title">International Banking Study Calls Centralized Crypto Inevitable</h3>
-                <div class="news-source">
-                  <span class="small-text">Source:</span>
-                  <span class="news-name">NEWSBTC</span>
-                  <span class="times-text">1 hour ago</span>
-                </div>
-                <p>A new report issued by an international banking group analyzing the use of cryptocurrency by central banks
-                  recognizes the usefulness of digital currency while calling into question their overall safety and security.
-                  Study Calls Centralized Crypto Inevitable The Bank for International Settlements issued a report on Monday
-                  saying that cryptocurrency, as issued by central banks, could ...</p>
-
-                <div class="news-btn">
-                  <button class="btn btn-primary btn-read">Read More
-                    <i class="fas fa-angle-double-right"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="news-box">
-            <div class="news-text">
-              <div class="news-field-detaile">
-                <h3 class="news-title">Google Bans Cryptocurrency Ads, But Bitcoin Not Affected</h3>
-                <div class="news-source">
-                  <span class="small-text">Source:</span>
-                  <span class="news-name">Bitcoinist</span>
-                  <span class="times-text">52 minutes ago</span>
-                </div>
-                <p>Following in the footsteps of Facebook, Google has announced it will ban cryptocurrency and initial coin
-                  offering (ICO) promotional material from its ad platform. Google Cracks Down on Sketchy ICOs & Crypto Ads
-                  Alphabet Inc.’s Google explained the new policy will go into effect in June of this year, affecting its
-                  search engine, advertisements on YouTube, and and its display-ads network. Google’s crackdown is intended
-                  mainly to “prevent consumer harm” and follows Facebook, which adopted a ...</p>
-
-                <div class="news-btn">
-                  <button class="btn btn-primary btn-read">Read More
-                    <i class="fas fa-angle-double-right"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="news-box">
-            <div class="news-text">
-              <div class="news-field-detaile">
-                <h3 class="news-title">The Future Is Decentralized, at LocalCoinSwap</h3>
-                <div class="news-source">
-                  <span class="small-text">Source:</span>
-                  <span class="news-name"> Live Bitcoin News </span>
-                  <span class="times-text">57 minutes ago</span>
-                </div>
-                <p>The future of money was always meant to be decentralized, with the inception of Bitcoin – that’s what Satoshi
-                  Nakamoto said anyway: “A lot of people automatically dismiss e-currency as a lost cause because of all
-                  the companies that failed since the 1990’s. I hope it’s obvious it was only the centrally controlled nature
-                  of......</p>
-
-                <div class="news-btn">
-                  <button class="btn btn-primary btn-read">Read More
-                    <i class="fas fa-angle-double-right"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="news-box">
-            <div class="news-text">
-              <div class="news-field-detaile">
-                <h3 class="news-title">P2P, Past and Future: Why Is the World’s Most Innovative Cryptocurrency Exchange Using Humanity’s First Ever
-                  Trading System?</h3>
-                <div class="news-source">
-                  <span class="small-text">Source:</span>
-                  <span class="news-name">NEWSBTC</span>
-                  <span class="times-text">1 hour ago</span>
-                </div>
-                <p>Exchanging value with other individuals was a critical milestone in the human evolution and the way our ancestors
-                  first began to interact with each other. Collaborating with groups in the earliest tribes meant specializing
-                  roles and social contracts – some people hunted and gathered whilst others nurtured new generations. The
-                  mutual benefit was implicit and ...</p>
-
-                <div class="news-btn">
-                  <button class="btn btn-primary btn-read">Read More
-                    <i class="fas fa-angle-double-right"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="news-box">
-            <div class="news-text">
-              <div class="news-field-detaile">
-                <h3 class="news-title">Opinion: BITRUST on Telegram’s ‘Secret’ Second Presale</h3>
-                <div class="news-source">
-                  <span class="small-text">Source:</span>
-                  <span class="news-name">NEWSBTC</span>
-                  <span class="times-text">1 hour ago</span>
-                </div>
-                <p>Being a part of crypto community, we closely follow developments in the crypto world. We are excited with
-                  the pace it is growing and boldness of the projects appearing and could not pass by the recent announcement
-                  of the secret second presale of Telegram. We would like to share our mixed feelings on the issue ...</p>
-
-                <div class="news-btn">
-                  <button class="btn btn-primary btn-read">Read More
+                  <button class="btn btn-primary btn-read read_btn_{{news.id}}" (click)="showmore(news.id)">Read More
                     <i class="fas fa-angle-double-right"></i>
                   </button>
                 </div>

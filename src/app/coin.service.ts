@@ -39,6 +39,7 @@ export class CoinService {
   gettestseometaAPI: any = myGlobals.gettestseometaAPI;
   gettradesingledataAPI: any = myGlobals.gettradesingledataAPI;
   getadvertiseforpageAPI: any = myGlobals.getadvertiseforpageAPI;
+  newslistAPI: any = myGlobals.newslistAPI;
 
   cointrackbyuserAPI: any = myGlobals.cointrackbyuserAPI;
 
@@ -459,6 +460,14 @@ export class CoinService {
     form.append('side', side);
 
     return this.http.post(this.api_url + this.getadvertiseforpageAPI, form, options)
+      .map((response: Response) => response.json());
+  }
+
+  newslist() {
+    const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const options = new RequestOptions({ headers: headers });
+
+    return this.http.get(this.api_url + this.newslistAPI, options)
       .map((response: Response) => response.json());
   }
 

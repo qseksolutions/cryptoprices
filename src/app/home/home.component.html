@@ -126,7 +126,7 @@
                   <td id="td_market_cap_{{i}}"> {{base_sing}}{{coin['market_cap_'+basecurr] | number : '1.0-2'}} </td>
                   <td id="td_24h_volume_{{i}}"> {{base_sing}}{{coin['24h_volume_'+basecurr] | number}} </td>
                   <td>
-                    <span class="sparkliness1" sparkType="line" sparkBarColor="red"> 1,4,4,7,5,9,10 </span>
+                    <span class="sparkliness1" sparkType="line" sparkBarColor="red"> {{coin.graph}} </span>
                   </td>
                   <td>
                     <div class="add-track-btn text-center">

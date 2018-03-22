@@ -103,13 +103,13 @@
                     <a href="#">
                       <div class="coin-name">
                         <span class="coin-symbol">
-                          <a href="{{base_url}}coin/{{coin.coin_id}}-{{coin.symbol | lowercase}}-price">
+                          <a href="{{base_url}}cryptocurrency/{{coin.coin_id}}-{{coin.symbol | lowercase}}-price">
                             <img class="img-fluid" src="assets/currency-svg/{{coin.symbol | lowercase}}.svg" (error)="errorHandler($event,coin.symbol)">
                           </a>
                         </span>
 
                         <span class="coin-name-text">
-                          <a href="{{base_url}}coin/{{coin.coin_id}}-{{coin.symbol | lowercase}}-price">
+                          <a href="{{base_url}}cryptocurrency/{{coin.coin_id}}-{{coin.symbol | lowercase}}-price">
                             <h6>{{coin.name}}</h6>
                             <span class="coin-shortname">
                               {{coin.symbol}}

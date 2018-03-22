@@ -69,7 +69,7 @@ export function highchartsModules() {
         pathMatch: 'full'
       },
       {
-        path: 'coin/:any',
+        path: 'cryptocurrency/:any',
         component: CoinComponent,
         pathMatch: 'full'
       },

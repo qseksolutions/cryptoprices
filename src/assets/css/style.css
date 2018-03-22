@@ -1636,8 +1636,12 @@ div.modal.show .modal-dialog {
 
 
 .news-bg{
-    padding-bottom:50px;
+    padding-bottom:120px;
 
+}
+
+.newspage-form {
+    margin-top: -170px;
 }
 
 .news-box {

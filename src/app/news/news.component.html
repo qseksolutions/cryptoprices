@@ -30,27 +30,31 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-12 col-sm-12 col-md-12 col-lg-10" *ngIf="newslist == ''">
-          <div class="news-box">
-            <img src="../../assets/images/loading.gif" style="margin:0 auto;"/>
+          <div class="subpage-form newspage-form">
+            <div class="news-box">
+              <img src="../../assets/images/loading.gif" style="margin:0 auto;"/>
+            </div>
           </div>
         </div>
         <div class="col-12 col-sm-12 col-md-12 col-lg-10" *ngIf="newslist != ''">
-          <div class="news-box" *ngFor="let news of newslist" >
-            <div class="news-text">
-              <div class="news-field-detaile">
-                <h3 class="news-title">{{news.title}}</h3>
-                <div class="news-source">
-                  <span class="small-text">Source:</span>
-                  <span class="news-name">{{news.source}}</span>
-                  <span class="times-text">1 hour ago</span>
-                </div>
-                <p>{{news.short_news}}</p>
-                <p class="long_news read_more_{{news.id}}" [innerHtml]="news.long_news" style="display: none"></p>
+          <div class="subpage-form newspage-form">
+            <div class="news-box" *ngFor="let news of newslist" >
+              <div class="news-text">
+                <div class="news-field-detaile">
+                  <h3 class="news-title">{{news.title}}</h3>
+                  <div class="news-source">
+                    <span class="small-text">Source:</span>
+                    <span class="news-name">{{news.source}}</span>
+                    <span class="times-text">1 hour ago</span>
+                  </div>
+                  <p>{{news.short_news}}</p>
+                  <p class="long_news read_more_{{news.id}}" [innerHtml]="news.long_news" style="display: none"></p>
 
-                <div class="news-btn">
-                  <button class="btn btn-primary btn-read read_btn_{{news.id}}" (click)="showmore(news.id)">Read More
-                    <i class="fas fa-angle-double-right"></i>
-                  </button>
+                  <div class="news-btn">
+                    <button class="btn btn-primary btn-read read_btn_{{news.id}}" (click)="showmore(news.id)">Read More
+                      <i class="fas fa-angle-double-right"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

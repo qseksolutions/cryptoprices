@@ -35,6 +35,7 @@ export const gettradesingledataAPI = 'gettradesingledata';
 export const getadvertiseforpageAPI = 'getadvertiseforpage';
 export const newslistAPI = 'newslist';
 
+
 export const cointrackbyuserAPI = 'cointrackbyuser';
 export const coincalculatorAPI = 'coinCalculator';
 

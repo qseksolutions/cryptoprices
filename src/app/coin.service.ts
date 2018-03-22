@@ -537,6 +537,7 @@ export class CoinService {
       .map((response: Response) => response.json());
   }
   
+  
   coincalculator(currency, basecoin, convertcoin) {
     const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
     const options = new RequestOptions({ headers: headers });

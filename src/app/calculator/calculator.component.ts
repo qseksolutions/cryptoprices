@@ -93,6 +93,7 @@ export class CalculatorComponent implements OnInit {
     this.showloader = true;
     this.coinservice.coincalculator(this.currency, this.basecoin, this.convcoin).subscribe(resData => {
       if (resData.status === true) {
+        
         const amount = $('#amt').val();
         $('#amout').html(amount);
         const convert_coin = this.decimalpipe.transform(resData.data.convertCoin * amount, '1.0-8');

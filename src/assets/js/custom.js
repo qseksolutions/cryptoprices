@@ -33,6 +33,8 @@ setTimeout(function(){
 	$('.sparkliness1').sparkline('html', { lineWidth:2,disableInteraction:true,spotColor:false,minSpotColor:false,maxSpotColor:false,width:125,lineColor:'#F7931A',height:22,fillColor:'rgba(255, 255, 255, 0.0)'});
 }, 3000);
 
+$('.selectpicker').select2();
+
 function getData(page)
 {
 	var sortOrder=$('#sortOrder').val();
@@ -85,5 +87,3 @@ function getData(page)
 $('.navbar-toggler').click(function(){
     $('body').toggleClass('noscroll');
 });
-
-$('.selectpicker').select2();

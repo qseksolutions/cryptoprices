@@ -1,6 +1,6 @@
 export const header = '';
-//export const base_url = 'http://localhost:4200/';
-export const base_url = 'http://cryptoprices.com/';
+export const base_url = 'http://localhost:4200/';
+// export const base_url = 'http://cryptoprices.com/';
 // export const api_url = 'https://api.coinlisting.io/v1/';
 export const api_url = 'http://74.124.217.247:3000/v1/';
 
@@ -36,6 +36,7 @@ export const getadvertiseforpageAPI = 'getadvertiseforpage';
 export const newslistAPI = 'newslist';
 
 export const cointrackbyuserAPI = 'cointrackbyuser';
+export const coincalculatorAPI = 'coinCalculator';
 
 export const login_ses = localStorage.getItem('login_ses');
 export const userid = localStorage.getItem('id');

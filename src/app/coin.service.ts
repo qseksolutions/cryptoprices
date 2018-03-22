@@ -42,6 +42,7 @@ export class CoinService {
   newslistAPI: any = myGlobals.newslistAPI;
 
   cointrackbyuserAPI: any = myGlobals.cointrackbyuserAPI;
+  coincalculatorAPI: any = myGlobals.coincalculatorAPI;
 
   userid: any = localStorage.getItem('id');
   basecur: any = localStorage.getItem('base');
@@ -533,6 +534,19 @@ export class CoinService {
     form.append('token', this.token);
 
     return this.http.post(this.api_url + this.cointrackbyuserAPI, form, options)
+      .map((response: Response) => response.json());
+  }
+  
+  coincalculator(currency, basecoin, convertcoin) {
+    const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const options = new RequestOptions({ headers: headers });
+
+    const form = new URLSearchParams();
+    form.append('currency', currency);
+    form.append('basecoin', basecoin);
+    form.append('convertcoin', convertcoin);
+
+    return this.http.post(this.api_url + this.coincalculatorAPI, form, options)
       .map((response: Response) => response.json());
   }
 

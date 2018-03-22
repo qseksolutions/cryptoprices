@@ -35,20 +35,15 @@
             <div class="widget-dropdown mb-lg-4 mb-md-4">
               <div class="amnt-widget-dropdown">
                 <label class="widget-select-label">Enter Amount</label>
-
-                <input type="number" class="form-control" />
+                <input type="number" class="form-control" value="1" id="amt" (keyup)="changeamount()"/>
               </div>
 
               <div class="calc-curr-dropdown">
                 <label class="widget-select-label">Select Currency</label>
-                <select class="selectpicker form-control hauto" data-live-search="true">
-                  <ng-container>
-                    <option>USD</option>
-                    <option>INR</option>
-                    <option>BRL</option>
-                    <option>BTC</option>
-                    <option>HKD</option>
-                    <option>JPY</option>
+                <!-- <select class="selectpicker form-control hauto" id="sel_curr" #c (change)="currencychange(c.value)"> -->
+                <select class="selectpicker form-control hauto" id="sel_curr">
+                  <ng-container *ngFor="let curr of maincurrencylist">
+                    <option value="{{curr.currency_symbol}}">{{curr.currency_symbol}}</option>
                   </ng-container>
                 </select>
               </div>
@@ -61,25 +56,19 @@
 
               <div class="calc-coin-dropdown">
                 <label class="widget-select-label">Select Coin</label>
-                <select class="selectpicker form-control" data-live-search="true">
-                  <option>Bitcoin</option>
-                  <option>Ether</option>
-                  <option>Ripple</option>
-                  <option>Bitcoin Cash</option>
-                  <option>Litecoin</option>
-                  <option>Cardano</option>
+                <select class="selectpicker form-control" id="sel_base" #b (change)="basechange(b.value)">
+                  <ng-container *ngFor="let coin of allcoin">
+                    <option value="{{coin.symbol}}">{{coin.name}}</option>
+                  </ng-container>
                 </select>
               </div>
 
               <div class="calc-coin-dropdown">
                 <label class="widget-select-label">Select Coin</label>
-                <select class="selectpicker form-control hauto" data-live-search="true">
-                  <option>Bitcoin</option>
-                  <option>Ether</option>
-                  <option>Ripple</option>
-                  <option>Bitcoin Cash</option>
-                  <option>Litecoin</option>
-                  <option>Cardano</option>
+                <select class="selectpicker form-control hauto" id="sel_convert" #c (change)="convertchange(c.value)">
+                  <ng-container *ngFor="let coin of allcoin">
+                    <option value="{{coin.symbol}}">{{coin.name}}</option>
+                  </ng-container>
                 </select>
               </div>
 
@@ -88,16 +77,19 @@
             <div class="calcu-results">
               <div class="calcu-count">
                 <div class="left-box-value text-right">
-                  <span class="calcu-value">3</span>
+                  <span class="calcu-value" id="amout">0</span>
                 </div>
                 <div class="right-box-value text-left">
-                  <span class="calcu-value">0.00720</span>
+                  <span class="calcu-value" id="convert_coin">0.0000</span>
                 </div>
               </div>
 
               <div class="equal-value">
-                <span class="btn btn-warning equal-value-btn">65.521
-                  <span class="calc-curr-symbol">USD</span>
+                <span class="btn btn-warning equal-value-btn" id="convert_curr">00.000
+                  <span class="calc-curr-symbol"></span>
+                </span>
+                <span *ngIf="showloader">
+                  <img src="../../assets/images/preloader.gif" width="30px" style="margin-left: 2%;"/>
                 </span>
               </div>
             </div>

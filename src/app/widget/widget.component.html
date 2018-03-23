@@ -55,21 +55,23 @@
             <div class="row">
               <div class="col-12 col-sm-12 col-md-5 col-lg-5">
                 <div class="widget-coin-box">
-                  <div class="coin-rank">
-                    <i class="fas fa-star"></i> Rank 1</div>
+                  <div class="coin-rank" id="coinrank">
+                    <i class="fas fa-star"></i> Rank 0</div>
 
                   <div class="single-coin-detaile">
                     <div class="single-coin-name">
                       <span class="single-coin-symbol">
-                        <img class="img-fluid" src="http://stagging.coinmage.com/upload/currency-svg/btc.svg">
+                        <img class="img-fluid" src="assets/currency-svg/{{basecoin | lowercase}}.svg">
                       </span>
 
                       <span class="single-coin-title">
-                        <h6>Bitcoin</h6>
+                        <h6 id="coinname">Bitcoin</h6>
 
                         <div class="visit-site">
-                          <a href="#">
-                            <i class="fas fa-share-square"></i> Website</a>
+                          <span class="price-number-coin" id="coinprice">
+                            $8840
+                          </span>
+                          <span class="coin-price-change" [ngClass]="widgetchange24 > 0 ? 'text-green':'text-red'" id="coinchange24">  </span>
                         </div>
                       </span>
 
@@ -80,21 +82,26 @@
                         <label class="widget-coin-label">
                           MARKET CAP:
                         </label>
-                        <span class="widget-box-price">
+                        <span class="widget-box-price" id="coinmarket">
                           $155.88
-                          <span class="currency_symbol">BTC</span>
+                          <!--<span class="currency_symbol">BTC</span>-->
                         </span>
                       </div>
                       <div class="widget-value">
                         <label class="widget-coin-label">
                           24H VOLUME:
                         </label>
-                        <span class="widget-box-price">
+                        <span class="widget-box-price" id="coinvolume24">
                           $1.46
-                          <span class="currency_symbol">BTC</span>
+                          <!--<span class="currency_symbol">BTC</span>-->
                         </span>
                       </div>
                     </div>
+
+                    <div class="poweredby">
+                      
+                    </div>
+
                   </div>
                 </div>
 

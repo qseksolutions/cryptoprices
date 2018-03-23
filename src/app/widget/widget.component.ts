@@ -19,6 +19,7 @@ export class WidgetComponent implements OnInit {
   allcoin: any;
   currency: any;
   basecoin: any;
+  widgetchange24: any;
 
   constructor(private coinservice: CoinService, private title: Title, private meta: Meta, private decimalpipe: DecimalPipe) {
     localStorage.setItem('sorton', null);
@@ -56,9 +57,38 @@ export class WidgetComponent implements OnInit {
       $('#sel_curr').select2();
       $('#sel_coin').select2();
       this.currency = $('#sel_curr').val();
-      this.basecoin = $('#sel_base').val();
-      // this.changevalue();
+      this.basecoin = $('#sel_coin').val();
+      this.getWidget();
     }, 2000);
+  }
+
+  ngAfterViewInit() {
+    $('#sel_curr').on('change', (e) => {
+      this.currency = $(e.target).val();
+      this.getWidget();
+    });
+
+    $('#sel_coin').on('change', (e) => {
+      this.basecoin = $(e.target).val();
+      this.getWidget();
+    });
+
+  };
+
+  getWidget() {
+    this.coinservice.coinwidget(this.currency, this.basecoin).subscribe(resData => {
+      if (resData.status === true) {
+        this.widgetchange24 = resData.data.change24;
+        console.log(this.widgetchange24);
+        $('#coinrank').html('<i class="fas fa-star"></i> Rank '+resData.data.rank);
+        $('#coinname').html(resData.data.name);
+        const coin_price = this.decimalpipe.transform(resData.data.price, '1.0-2');
+        $('#coinprice').html(coin_price+' '+this.currency);
+        $('#coinchange24').html("("+resData.data.change24+")");
+        $('#coinmarket').html('$'+resData.data.market_cap);
+        $('#coinvolume24').html('$'+resData.data.volume24h);
+      }
+    });
   }
 
 }

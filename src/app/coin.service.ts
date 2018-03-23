@@ -43,6 +43,7 @@ export class CoinService {
 
   cointrackbyuserAPI: any = myGlobals.cointrackbyuserAPI;
   coincalculatorAPI: any = myGlobals.coincalculatorAPI;
+  coinwidgetAPI: any = myGlobals.coinwidgetAPI;
 
   userid: any = localStorage.getItem('id');
   basecur: any = localStorage.getItem('base');
@@ -548,6 +549,18 @@ export class CoinService {
     form.append('convertcoin', convertcoin);
 
     return this.http.post(this.api_url + this.coincalculatorAPI, form, options)
+      .map((response: Response) => response.json());
+  }
+  
+  coinwidget(currency, basecoin) {
+    const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const options = new RequestOptions({ headers: headers });
+
+    const form = new URLSearchParams();
+    form.append('currency', currency);
+    form.append('basecoin', basecoin);
+
+    return this.http.post(this.api_url + this.coinwidgetAPI, form, options)
       .map((response: Response) => response.json());
   }
 

@@ -38,6 +38,7 @@ export const newslistAPI = 'newslist';
 
 export const cointrackbyuserAPI = 'cointrackbyuser';
 export const coincalculatorAPI = 'coinCalculator';
+export const coinwidgetAPI = 'coinWidget';
 
 export const login_ses = localStorage.getItem('login_ses');
 export const userid = localStorage.getItem('id');

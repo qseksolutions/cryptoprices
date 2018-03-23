@@ -1431,6 +1431,10 @@ div.modal.show .modal-dialog {
     padding-bottom: 10px;
 }
 
+.fs16 {
+    font-size: 16px;
+}
+
 .widget-value{
     text-align: center;
     width: 50%;

@@ -297,6 +297,14 @@ export class CoinService {
     return this.http.get(this.api_url + this.totalcoinAPI + '/?base=' + this.basecur, options)
       .map((response: Response) => response.json());
   }
+  
+  getCoinCountsecond() {
+    const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const options = new RequestOptions({ headers: headers });
+
+    return this.http.get(this.api_url + this.totalcoinAPI + '/?base=' + this.basecur, options)
+      .map((response: Response) => response.json());
+  }
 
   getSingleCoin(coin) {
     const coinid = coin;

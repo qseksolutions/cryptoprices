@@ -18,7 +18,7 @@
       <div class="coinvalue-box">
         <div class="value-list-box">
           <span class="coinlis-value"> BTC Dominance: </span>
-          <h5 class="coinlist-name"> 41.8% </h5>
+          <h5 class="coinlist-name"> {{(btcmarketcap / totalmarket) * 100 | number  : '1.0-2'}}% </h5>
         </div>
       </div>
     </div>

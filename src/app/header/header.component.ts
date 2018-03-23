@@ -48,6 +48,7 @@ export class HeaderComponent implements OnInit {
   public totalcoin: any;
   public totalmarket: any = 0;
   public totaltrade: any = 0;
+  public btcmarketcap: any;
 
   login = {
     email: '',
@@ -90,10 +91,13 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.coinservice.getCoinCountsecond().subscribe(responceData => {
+    });
     this.coinservice.getCoinCount().subscribe(responceData => {
       if (responceData.status === true) {
         this.totalmarket = responceData.data['totalmarketcap_' + this.basecurr];
         this.totaltrade = responceData.data['totalvolume_' + this.basecurr];
+        this.btcmarketcap = responceData.data.btc_marketcap;
         const total = responceData.data.totalcoins / 50;
         this.coincount = Math.ceil(total);
         this.totalcoin = responceData.data.totalcoins;

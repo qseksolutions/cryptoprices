@@ -1421,6 +1421,15 @@ div.modal.show .modal-dialog {
     border-top: solid 1px #afb8b8;
 
 }
+.power-text {
+    justify-content: space-between;
+    padding-top: 10px;
+    border-top: solid 1px #afb8b8;
+}
+
+.pb10 {
+    padding-bottom: 10px;
+}
 
 .widget-value{
     text-align: center;

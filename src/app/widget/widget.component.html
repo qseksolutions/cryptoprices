@@ -35,25 +35,19 @@
             <div class="widget-dropdown">
               <div class="coin-dropdown">
                 <label class="widget-select-label">Select Coin</label>
-                <select class="selectpicker" style="width: 100%">
-                  <option>Bitcoin</option>
-                  <option>Ether</option>
-                  <option>Ripple</option>
-                  <option>Bitcoin Cash</option>
-                  <option>Litecoin</option>
-                  <option>Cardano</option>
+                <select class="selectpicker" id="sel_coin" style="width: 100%">
+                  <ng-container *ngFor="let coin of allcoin">
+                    <option value="{{coin.symbol}}">{{coin.name}}</option>
+                  </ng-container>
                 </select>
               </div>
 
               <div class="widget-curr-dropdown">
                 <label class="widget-select-label">Select Currency</label>
-                <select class="selectpicker" style="width: 100%">
-                    <option>USD</option>
-                    <option>INR</option>
-                    <option>BRL</option>
-                    <option>BTC</option>
-                    <option>HKD</option>
-                    <option>JPY</option>
+                <select class="selectpicker" id="sel_curr" style="width: 100%">
+                  <ng-container *ngFor="let curr of maincurrencylist">
+                    <option value="{{curr.currency_symbol}}">{{curr.currency_symbol}}</option>
+                  </ng-container>
                 </select>
               </div>
             </div>

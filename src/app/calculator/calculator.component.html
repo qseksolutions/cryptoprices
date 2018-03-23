@@ -56,7 +56,7 @@
 
               <div class="calc-coin-dropdown">
                 <label class="widget-select-label">Select Coin</label>
-                <select class="selectpicker form-control" id="sel_base" #b (change)="basechange(b.value)">
+                <select class="selectpicker form-control" id="sel_base">
                   <ng-container *ngFor="let coin of allcoin">
                     <option value="{{coin.symbol}}">{{coin.name}}</option>
                   </ng-container>
@@ -65,7 +65,7 @@
 
               <div class="calc-coin-dropdown">
                 <label class="widget-select-label">Select Coin</label>
-                <select class="selectpicker form-control hauto" id="sel_convert" #c (change)="convertchange(c.value)">
+                <select class="selectpicker form-control hauto" id="sel_convert">
                   <ng-container *ngFor="let coin of allcoin">
                     <option value="{{coin.symbol}}">{{coin.name}}</option>
                   </ng-container>

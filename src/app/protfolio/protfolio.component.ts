@@ -107,6 +107,4 @@ export class ProtfolioComponent implements OnInit {
   formattercur = (x: { currency_symbol: string }) => x.currency_symbol;
   formattersign = (x: { currency_sign: string }) => x.currency_sign;
 
-
-
 }

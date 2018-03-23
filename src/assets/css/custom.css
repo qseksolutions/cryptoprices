@@ -39,7 +39,7 @@ a:hover {
 	width: 25px;
 }
 
-.hauto {
+select.form-control:not([size]):not([multiple]) {
 	height: auto !important;
 }
 

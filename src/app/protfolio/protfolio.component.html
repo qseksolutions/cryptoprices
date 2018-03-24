@@ -49,7 +49,7 @@
     </div>
 
     <!--add transaction-popup-->
-    <div class="modal fade" id="add-transaction" tabindex="-1" role="dialog" aria-labelledby="add-transactionlabel" aria-hidden="true">
+    <div class="modal fade" id="add-transaction" role="dialog" aria-labelledby="add-transactionlabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -62,10 +62,17 @@
             <div class="container">
               <div class="row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                  <form class="model-form">
+                  <form class="model-form" #form="ngForm" (ngSubmit)="onSubmitAddtransaction(form.value)">
+                    <input type="hidden" id="port_id" name="port_id" ngModel />
+
+                    <div class="prot-amnt-input mb-30">
+                      <label class="widget-select-label">Select Date</label>
+                      <input class="currency-select form-control date" placeholder="Select date of Purchase..." name="date" [(ngModel)]="modeldate" (ngModelChange)="getcoinprice(form.value);" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" id="date">
+                    </div>
+
                     <div class="calc-coin-dropdown mb-30">
                       <label class="widget-select-label">Select Coin</label>
-                      <select class="selectpicker form-control hauto" id="sel_coin">
+                      <select class="selectpicker form-control hauto" id="coin" name="coin" ngModel>
                         <ng-container *ngFor="let coin of allcoin">
                           <option value="{{coin.symbol}}">{{coin.name}} ({{coin.symbol}})</option>
                         </ng-container>
@@ -74,23 +81,22 @@
 
                     <div class="calc-coin-dropdown mb-30">
                       <label class="widget-select-label">Select Currency</label>
-                      <select class="selectpicker form-control hauto" id="sel_curr">
+                      <select class="selectpicker form-control hauto" id="currency" name="currency" ngModel>
                         <ng-container *ngFor="let curr of allcurrency">
                           <option value="{{curr.currency_symbol}}">{{curr.currency_symbol}}</option>
                         </ng-container>
                       </select>
                     </div>
 
+
                     <div class="prot-amnt-input mb-30">
                       <label class="widget-select-label">Enter Coin Amount</label>
-
-                      <input type="number" class="form-control" />
+                      <input type="text" class="form-control" id="amount" name="amount" ngModel (keyup)="getcoinprice(form.value);"/>
                     </div>
 
                     <div class="prot-amnt-input mb-30">
                       <label class="widget-select-label">Enter Value of Coin</label>
-
-                      <input type="number" class="form-control" />
+                      <input type="text" class="form-control" id="value_coin" name="value_coin" ngModel/>
                     </div>
 
                     <div class="form-group d-md-flex justify-content-md-between align-items-md-center">
@@ -123,6 +129,7 @@
                     <th>Profit </th>
                     <th>Return </th>
                     <th>No.Trade </th>
+                    <!-- <th>Action</th> -->
                   </tr>
                 </thead>
 
@@ -138,7 +145,7 @@
                           <span class="coin-name-text">
                             <h6>{{pl.coin_name}}</h6>
                             <span class="coin-shortname">
-                              {{pl.buy_coin}}
+                              {{pl.coin_amount}}&nbsp;{{pl.buy_coin}}
                             </span>
                           </span>
                         </div>
@@ -155,6 +162,10 @@
                       <span [ngClass]="((pl.current_price * pl.coin_amount) - pl.totalcost) / pl.totalcost * 100 > 0 ? 'text-green' : 'text-red'"> {{base_sing}}{{((pl.current_price * pl.coin_amount) - pl.totalcost) / pl.totalcost * 100 | number : '1.0-2'}}% </span>
                     </td>
                     <td class="text-center"> {{pl.trade}} </td>
+                    <!-- <td class="text-center"> 
+                      <a href="javascript:;"><i class="fa fa-times text-red mr-10"></i></a>
+                      <i class="fa fa-pencil-square"></i>
+                    </td> -->
                   </tr>
                 </tbody>
               </table>

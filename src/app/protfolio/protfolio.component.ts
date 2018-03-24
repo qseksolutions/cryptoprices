@@ -34,6 +34,16 @@ export class ProtfolioComponent implements OnInit {
   value: any = 0;
   overolsum: any = 0;
   overolper: any = 0;
+  coin: any;
+  currency: any;
+  port = {
+    port_id: '',
+    coin: '',
+    date: '',
+    currency: '',
+    amount: '',
+    value_coin: ''
+  };
 
   constructor(private coinservice: CoinService, toasterService: ToasterService, private title: Title, private meta: Meta) {
     localStorage.setItem('sorton', null);
@@ -72,53 +82,112 @@ export class ProtfolioComponent implements OnInit {
     this.coinservice.getallcoin('').subscribe(resData => {
       if (resData.status === true) {
         this.allcoin = resData.data;
+        console.log(this.allcoin);
       }
     });
     this.coinservice.getmaincurrencylist('').subscribe(resData => {
       if (resData.status === true) {
         this.allcurrency = resData.data;
+        console.log(this.allcurrency);
+      }
+    });
+    setTimeout(() => {
+      $('#currency').select2('destroy');
+      $('#coin').select2('destroy');
+      for (let i = 0; i < this.allcurrency.length; i++) {
+        if (this.allcurrency[i]['currency_symbol'] == 'USD') {
+          $('#currency').val(this.allcurrency[i]['currency_symbol']);
+        }
+      }
+      for (let i = 0; i < this.allcoin.length; i++) {
+        if (this.allcoin[i]['symbol'] == 'BTC') {
+          $('#coin').val(this.allcoin[i]['symbol']);
+        }
+      }
+      $('#currency').select2();
+      $('#coin').select2();
+      this.currency = $('#currency').val();
+      this.coin = $('#coin').val();
+    }, 5000);
+  }
+
+  ngAfterViewInit() {
+    $('#coin').on('change', (e) => {
+      this.coin = $(e.target).val();
+    });
+
+    $('#currency').on('change', (e) => {
+      this.currency = $(e.target).val();
+    });
+  };
+
+  getcoinprice(trans) {
+    console.log(trans);
+    // tslint:disable-next-line:max-line-length
+    trans.port_id = $('#port_id').val();
+    trans.coin = this.coin;
+    trans.currency = this.currency;
+    if (trans.date != '' && trans.coin != '' && trans.currency != '' && trans.amount != '' && trans.port_id == '') {
+      this.coinservice.getcoinprice(trans).subscribe(resData => {
+        if (resData.Response === 'Error') {
+          $('#value_coin').val('0');
+        } else {
+          $('#value_coin').val(resData[trans.coin][trans.currency] * trans.amount);
+        }
+      });
+    } else {
+      /* trans.date = $('#date').val();
+      trans.coin = this.coin;
+      trans.currency = this.currency;
+      trans.amount = $('#amount').val();
+      trans.value_coin = $('#value_coin').val();
+      if (trans.date != '' && trans.coin != '' && trans.currency != '' && trans.amount != '') {
+
+        this.coinservice.getcoinprice(trans).subscribe(resData => {
+          if (resData.Response === 'Error') {
+            $('#rate').val('0');
+          } else {
+            $('#rate').val(resData[trans.coin][trans.currency] * trans.amount);
+          }
+        });
+      } */
+    }
+  }
+
+  onSubmitAddtransaction(trans) {
+    console.log(trans);
+    trans.coin = this.coin;
+    trans.currency = this.currency;
+    trans.value_coin = $('#value_coin').val();
+    this.coinservice.addtrade(trans).subscribe(resData => {
+      if (resData.status === true) {
+        console.log(resData);
+        this.toasterService.pop('success', 'Success', resData.message);
+        this.ngOnInit();
+        this.port = {
+          port_id: '',
+          coin: '',
+          date: '',
+          currency: '',
+          amount: '',
+          value_coin: ''
+        };
+        setTimeout(() => {
+          $('#add-transaction').modal('toggle');
+        }, 2000);
+      } else {
+        this.toasterService.pop('error', 'Error', resData.message);
       }
     });
   }
 
-  search = (text$: Observable<string>) =>
-    text$
-      .debounceTime(200)
-      .map(term => term === '' ? []
-        : this.allcoin.filter(v => v.id.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
-
-  formatter = (x: { name: string, symbol: string }) => x.name + ' (' + x.symbol + ')';
-
-  searchcur = (text$: Observable<string>) =>
-    text$
-      .debounceTime(200)
-      .map(termcur => termcur === '' ? []
-        : this.allcurrency.filter(v => v.currency_symbol.toLowerCase().indexOf(termcur.toLowerCase()) > -1).slice(0, 10))
-
-  formattercur = (x: { currency_symbol: string }) => x.currency_symbol;
-  formattersign = (x: { currency_sign: string }) => x.currency_sign;
-
-  isImage(src) {
-    const deferred = defer();
-    const image = new Image();
-    image.onerror = function () {
-      deferred.resolve(false);
-    };
-    image.onload = function () {
-      deferred.resolve(true);
-    };
-    image.src = src;
-    return deferred.promise;
-  }
-
-  errorHandler(event, name) {
-    const imgurl = 'assets/currency-25/' + name.toLowerCase() + '.png';
-    this.isImage(imgurl).then(function (test) {
-      // tslint:disable-next-line:triple-equals
-      if (test == true) {
-        return event.target.src = imgurl;
+  traderemove(tradeid) {
+    this.coinservice.removetrade(tradeid).subscribe(resData => {
+      if (resData.status === true) {
+        this.toasterService.pop('success', 'Success', resData.message);
+        this.ngOnInit();
       } else {
-        return event.target.src = 'assets/currency-25/not-found-50.png';
+        this.toasterService.pop('error', 'Error', resData.message);
       }
     });
   }

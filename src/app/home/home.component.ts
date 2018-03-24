@@ -52,6 +52,19 @@ export class HomeComponent implements OnInit {
   perioddata: any;
   login_ses: any =  0;
   adds: any;
+  coin: any;
+  currency: any;
+  allcoin: any;
+  allcurrency: any;
+  port = {
+    port_id: '',
+    coin: '',
+    date: '',
+    currency: '',
+    amount: '',
+    value_coin: ''
+  };
+  
 
   // tslint:disable-next-line:max-line-length
   constructor(private coinservice: CoinService, private router: Router, private http: Http, toasterService: ToasterService, private title: Title, private meta: Meta, private decimalpipe: DecimalPipe ) {
@@ -145,10 +158,32 @@ export class HomeComponent implements OnInit {
       }
     });
     this.getcointabledata();
+    this.coinservice.getallcoin('').subscribe(resData => {
+      if (resData.status === true) {
+        this.allcoin = resData.data;
+        console.log(this.allcoin);
+      }
+    });
+    this.coinservice.getmaincurrencylist('').subscribe(resData => {
+      if (resData.status === true) {
+        this.allcurrency = resData.data;
+        console.log(this.allcurrency);
+      }
+    });
     setInterval(() => {
       this.realtimecoindata();
     }, 20000);
   }
+
+  ngAfterViewInit() {
+    $('#coin').on('change', (e) => {
+      this.coin = $(e.target).val();
+    });
+
+    $('#currency').on('change', (e) => {
+      this.currency = $(e.target).val();
+    });
+  };
 
   getcointabledata() {
     localStorage.setItem('period', this.perioddata);
@@ -268,6 +303,87 @@ export class HomeComponent implements OnInit {
         this.toasterService.pop('success', 'Success', resData.message);
       } else {
         this.toasterService.pop('error', 'Error', 'Something went wrong please try after sometime !');
+      }
+    });
+  }
+
+  addtransactiomodal(coin,currency) {
+    $('#currency').select2('destroy');
+    $('#coin').select2('destroy');
+    for (let i = 0; i < this.allcurrency.length; i++) {
+      if (this.allcurrency[i]['currency_symbol'] == currency) {
+        $('#currency').val(this.allcurrency[i]['currency_symbol']);
+      }
+    }
+    for (let i = 0; i < this.allcoin.length; i++) {
+      if (this.allcoin[i]['symbol'] == coin) {
+        $('#coin').val(this.allcoin[i]['symbol']);
+      }
+    }
+    $('#currency').select2();
+    $('#coin').select2();
+    this.currency = $('#currency').val();
+    this.coin = $('#coin').val();
+    $('#add-transaction').modal('toggle');
+  }
+
+
+  getcoinprice(trans) {
+    console.log(trans);
+    // tslint:disable-next-line:max-line-length
+    trans.port_id = $('#port_id').val();
+    trans.coin = this.coin;
+    trans.currency = this.currency;
+    if (trans.date != '' && trans.coin != '' && trans.currency != '' && trans.amount != '' && trans.port_id == '') {
+      this.coinservice.getcoinprice(trans).subscribe(resData => {
+        if (resData.Response === 'Error') {
+          $('#value_coin').val('0');
+        } else {
+          $('#value_coin').val(resData[trans.coin][trans.currency] * trans.amount);
+        }
+      });
+    } else {
+      /* trans.date = $('#date').val();
+      trans.coin = this.coin;
+      trans.currency = this.currency;
+      trans.amount = $('#amount').val();
+      trans.value_coin = $('#value_coin').val();
+      if (trans.date != '' && trans.coin != '' && trans.currency != '' && trans.amount != '') {
+
+        this.coinservice.getcoinprice(trans).subscribe(resData => {
+          if (resData.Response === 'Error') {
+            $('#rate').val('0');
+          } else {
+            $('#rate').val(resData[trans.coin][trans.currency] * trans.amount);
+          }
+        });
+      } */
+    }
+  }
+
+  onSubmitAddtransaction(trans) {
+    console.log(trans);
+    trans.coin = this.coin;
+    trans.currency = this.currency;
+    trans.value_coin = $('#value_coin').val();
+    this.coinservice.addtrade(trans).subscribe(resData => {
+      if (resData.status === true) {
+        console.log(resData);
+        this.toasterService.pop('success', 'Success', resData.message);
+        this.ngOnInit();
+        this.port = {
+          port_id: '',
+          coin: '',
+          date: '',
+          currency: '',
+          amount: '',
+          value_coin: ''
+        };
+        setTimeout(() => {
+          $('#add-transaction').modal('toggle');
+        }, 1000);
+      } else {
+        this.toasterService.pop('error', 'Error', resData.message);
       }
     });
   }

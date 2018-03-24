@@ -32,6 +32,7 @@ export class HeaderComponent implements OnInit {
   public loginData: any = myGlobals.login_ses;
   public basecurr: any = myGlobals.basecurr;
   public base_sing: any = myGlobals.base_sing;
+  public token: any = myGlobals.token;
   public login_ses: any = 0;
   maincurrencylist: any;
   subcurrencylist: any;
@@ -63,6 +64,7 @@ export class HeaderComponent implements OnInit {
 
   // tslint:disable-next-line:max-line-length
   constructor(private coinservice: CoinService, private router: Router, toasterService: ToasterService) {
+    console.log('token = ' + this.token);
     const href = location.href;
     const url = href.split('/');
     if (url[3] === '') {

@@ -972,7 +972,7 @@ div.modal.show .modal-dialog {
 .modal.fade .modal-dialog , .modal .modal-dialog{
     -webkit-transform: translate(0,-50%);
     transform: translate(0,-50%);
-    top: 50%;
+    top: -50%;
     transition: all ease-in-out 0.5s;
 
 }
@@ -1178,7 +1178,7 @@ div.modal.show .modal-dialog {
 -------------------------*/
 
 .footer-box {
-    padding: 20px 10px;
+    padding: 20px 0px;
 
 }
 
@@ -1482,7 +1482,7 @@ div.modal.show .modal-dialog {
 /*--------------------------------
 ------- Calculator-start ---------
 --------------------------------*/
-/*.widget-dropdown .select2-selection--single {
+.widget-dropdown .select2-selection--single , .model-form .select2-selection--single {
     background-color: transparent;
     border-radius: 45px;
     padding: 10px 10px;
@@ -1496,53 +1496,66 @@ div.modal.show .modal-dialog {
     font-size: 14px;
     line-height: 19px;
     background-clip: padding-box;
-    height: auto
+    height: 42px;
+    
+}
+.model-form .select2-selection--single{
+    height: 36px;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__rendered{
-    line-height: normal;
+    line-height: 20px;
+
+}
+
+.model-form .select2-container--default .select2-selection--single .select2-selection__rendered{
+    line-height: 14px;
+
 }
 
 .select2-container--default.select2-container--open.select2-container--below .select2-selection--single, 
 .select2-container--default.select2-container--open.select2-container--below .select2-selection--multiple{
-    border-bottom-left-radius:45px; 
-    border-bottom-right-radius: 45px;
+    border-radius: 45px;
+
 }
 
 .select2-container--default.select2-container--open.select2-container--above .select2-selection--single, 
 .select2-container--default.select2-container--open.select2-container--above .select2-selection--multiple{
-    border-top-left-radius:45px; 
-    border-top-right-radius: 45px;
+    border-radius: 45px
+    
 }
 
 .select2-container--default .select2-selection--single .select2-selection__arrow{
     height: 100%;
     right: 10px;
+
 }
 
 .select2-dropdown {
     padding: 10px;
     border-radius: 5px;
     margin: 5px 0px;
+
 }
+
 .select2-container--open .select2-dropdown--below{
     border-top: 1px solid #aaa;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+
 }
 
 .select2-container--open .select2-dropdown--above {
     border-bottom:  1px solid #aaa;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+
 }
 
 .bootstrap-select.btn-group .dropdown-toggle .filter-option{
     overflow: unset;
     vertical-align: middle;
 }
-
-
 
 .select2-results__option{
     color: #404040;
@@ -1551,22 +1564,32 @@ div.modal.show .modal-dialog {
     display: block;
 
 }
-*/
+
 .select2-container--default .select2-selection--single .select2-selection__rendered{
     outline: none;
+
 }
+
 .select2-container{
     display: block;
-    width: 100% !important;
     outline: none;
+
+}
+
+.model-form .select2-container{
+    width: 100% !important;
 }
 
 :focus{
     outline: none !important;
+
 }
+
 .select2-container:focus{
     outline: none;
+
 }
+
 .select2-results__option:hover , .select2-container--default .select2-results__option--highlighted[aria-selected]{
     background-color: #404040;
     color: #fff
@@ -1684,7 +1707,7 @@ div.modal.show .modal-dialog {
 
 .news-box {
     background-color: #fff;
-    box-shadow: 0 5px 10px rgba(114, 114, 114, 0.1);
+    box-shadow: 0 0px 10px rgba(114, 114, 114, 0.1);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1692,6 +1715,7 @@ div.modal.show .modal-dialog {
     -ms-flex-pack: justify;
     justify-content: space-between;
     margin-bottom: 15px;
+    border-bottom: solid 2px #404040;
 
 }
 
@@ -2148,6 +2172,14 @@ div.modal.show .modal-dialog {
 
 }
 
+ngb-datepicker {
+    margin-top: 0 !important;
+    min-width: auto !important;
+    width: auto !important;
+    right: initial !important;
+}
+
+
 
 /*------------------------------
 ------- Responsive-start -------
@@ -2181,7 +2213,7 @@ div.modal.show .modal-dialog {
 
     .navbar-expand-lg .navbar-nav .nav-item a,
     .footer-menu .nav-item a{
-        padding: 10px;
+        padding: 10px 0px;
 
     }
 
@@ -2194,7 +2226,7 @@ div.modal.show .modal-dialog {
     .footer-menu .nav-item.active a:after ,
     .navbar-expand-lg .navbar-nav .nav-item:hover a:after, 
     .footer-menu .nav-item:hover a:after{
-        left: 10px;
+        left: 0px;
 
     }
 
@@ -2471,6 +2503,26 @@ div.modal.show .modal-dialog {
         display: flex;
 
     }
+
+    .contact-bg {
+        padding: 50px 0px 170px;
+
+    }
+
+    .news-bg ,
+    .widget-bg  {
+        padding: 50px 0px 120px;
+    
+    }
+
+    .protfolio-bg ,
+    .editprofile-bg,
+    .faq-bg{
+        padding: 50px 0px;
+    
+    }
+
+    
 }
 
 @media (min-width: 768px){
@@ -2507,7 +2559,7 @@ div.modal.show .modal-dialog {
     }
 
     .footer-box{
-        padding: 10px 10px;
+        padding: 10px 0px;
 
     }
 
@@ -2517,7 +2569,7 @@ div.modal.show .modal-dialog {
     }
 
     .widget-bg{
-        padding: 30px 0px 120px;
+        padding: 20px 0px 120px;
 
     }
 
@@ -2529,9 +2581,9 @@ div.modal.show .modal-dialog {
 
     .widget-dropdown{
         -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
     }
 
     .calc-curr-dropdown, .calc-coin-dropdown , .amnt-widget-dropdown {
@@ -2587,22 +2639,30 @@ div.modal.show .modal-dialog {
 
     }
 
-    .news-bg , 
+    .news-bg {
+        padding: 20px 0px 120px; 
+    }
+
     .faq-bg{
         padding: 20px 0px;
+
     }
+
+
+    .widget-box ,
+    .newspage-form ,
+    .about-us-box{
+        margin-top: -150px;
     
-
-    .widget-box{
-        margin-top: -150px;
-    }
-
-    .about-us-box {
-        margin-top: -150px;
     }
 
     .contact-form{
         margin-top: -200px;
+    
+    }
+
+    .protfolio-box {
+        margin-top: -20px;
     }
 
     .protfolio-top-area{

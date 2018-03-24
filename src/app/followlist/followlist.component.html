@@ -29,57 +29,73 @@
 
   <section>
     <div class="container">
-      <div class="row" *ngIf="followlist == ''">
+      <div class="row" *ngIf="showloader">
         <div class="col-12 col-sm-12 col-md-6 col-lg-12 text-center">
           <img src="../../assets/images/loading.gif" />
         </div>
       </div>
-      <div class="row" *ngIf="followlist != ''">
-        <div class="col-12 col-sm-12 col-md-6 col-lg-4" *ngFor="let coin of followlist">
-          <div class="followlist-box">
-            <div class="followlist-coin-detaile">
-              <div class="followlist-coin-name">
-                <span class="single-coin-symbol">
-                  <img class="img-fluid" src="assets/currency-svg/{{coin.symbol | lowercase}}.svg" (error)="errorHandler($event,coin.symbol)">
-                </span>
-
-                <span class="protfolio-coin-title">
-                  <h6>{{coin.name}}</h6>
-                  <span class="currency_symbol">{{coin.symbol}}</span>
-                </span>
-                <div class="followlist-visit-site">
-                  <a href="#">
-                    <i class="fas fa-share-square"></i> Website</a>
-                </div>
-              </div>
-
-              <div class="followlist-coin-value">
-                <div class="followlist-value">
-                  <label class="followlist-coin-label">
-                    Last Price:
-                  </label>
-                  <span class="followlist-box-price">
-                    {{base_sing}}&nbsp;{{coin['price_'+basecurr] | number : '1.0-12'}}
+      <div class="row" *ngIf="!showloader">
+        <ng-container *ngIf="followlist != ''">
+          <div class="col-12 col-sm-12 col-md-6 col-lg-4" *ngFor="let coin of followlist">
+            <div class="followlist-box">
+              <div class="followlist-coin-detaile">
+                <div class="followlist-coin-name">
+                  <span class="single-coin-symbol">
+                    <img class="img-fluid" src="assets/currency-svg/{{coin.symbol | lowercase}}.svg" (error)="errorHandler($event,coin.symbol)">
                   </span>
-                </div>
-
-                <div class="followlist-24-value">
-                  <label class="followlist-coin-label">
-                    Volume 24h:
-                  </label>
-                  <span class="followlist-box-price" [ngClass]="coin.percent_change_24h > 0 ? 'text-green' : 'text-red'">
-                     {{coin.percent_change_24h | number : '1.2-2'}}%
+  
+                  <span class="protfolio-coin-title">
+                    <h6>{{coin.name}}</h6>
+                    <span class="currency_symbol">{{coin.symbol}}</span>
                   </span>
+                  <div class="followlist-visit-site">
+                    <a href="#">
+                      <i class="fas fa-share-square"></i> Website</a>
+                  </div>
                 </div>
-              </div>
-
-              <div class="followlist-btn text-center">
-                <button class="btn btn-primary btn-unfollow" (click)="followcoin(coin);">
-                  <i class="fas fa-minus"></i> Unfollow</button>
+  
+                <div class="followlist-coin-value">
+                  <div class="followlist-value">
+                    <label class="followlist-coin-label">
+                      Last Price:
+                    </label>
+                    <span class="followlist-box-price">
+                      {{base_sing}}&nbsp;{{coin['price_'+basecurr] | number : '1.0-12'}}
+                    </span>
+                  </div>
+  
+                  <div class="followlist-24-value">
+                    <label class="followlist-coin-label">
+                      Volume 24h:
+                    </label>
+                    <span class="followlist-box-price" [ngClass]="coin.percent_change_24h > 0 ? 'text-green' : 'text-red'">
+                       {{coin.percent_change_24h | number : '1.2-2'}}%
+                    </span>
+                  </div>
+                </div>
+  
+                <div class="followlist-btn text-center">
+                  <button class="btn btn-primary btn-unfollow" (click)="followcoin(coin);">
+                    <i class="fas fa-minus"></i> Unfollow</button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </ng-container>
+        <ng-container *ngIf="followlist == ''">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="followlist-box">
+              <div class="followlist-coin-detaile">
+          
+                <div class="followlist-coin-value">
+                  <div class="followlist-value" style="width: 100%; text-align: center;">
+                    <p>You don’t have any coins in your follow list yet.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
       </div>
     </div>
   </section>

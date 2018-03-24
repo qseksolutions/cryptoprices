@@ -41,7 +41,7 @@
                 <span class="price-number-coin" *ngIf="coin['price_'+basecurr] < 1000">
                   {{base_sing}}{{coin['price_'+basecurr] | number : '1.0-6'}}
                 </span>
-                <span class="coin-price-change" [ngClass]="coin.percent_change_24h > 0 ? 'text-geen' : 'text-red'"> ({{coin.percent_change_24h}}%) </span>
+                <span class="coin-price-change" [ngClass]="coin.percent_change_24h > 0 ? 'text-green' : 'text-red'"> ({{coin.percent_change_24h}}%) </span>
                 <div class="btc-price">
                   <span class="btc-coin-price" > {{coin.price_btc | number : '1.0-8'}} </span>
                   <span class="currency_symbol"> BTC </span>

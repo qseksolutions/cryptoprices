@@ -1178,7 +1178,7 @@ div.modal.show .modal-dialog {
 -------------------------*/
 
 .footer-box {
-    padding: 20px 10px;
+    padding: 20px 0px;
 
 }
 
@@ -1500,7 +1500,7 @@ div.modal.show .modal-dialog {
     
 }
 .model-form .select2-selection--single{
-    width: 36px;
+    height: 36px;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__rendered{
@@ -2212,7 +2212,7 @@ ngb-datepicker {
 
     .navbar-expand-lg .navbar-nav .nav-item a,
     .footer-menu .nav-item a{
-        padding: 10px;
+        padding: 10px 0px;
 
     }
 
@@ -2225,7 +2225,7 @@ ngb-datepicker {
     .footer-menu .nav-item.active a:after ,
     .navbar-expand-lg .navbar-nav .nav-item:hover a:after, 
     .footer-menu .nav-item:hover a:after{
-        left: 10px;
+        left: 0px;
 
     }
 
@@ -2558,7 +2558,7 @@ ngb-datepicker {
     }
 
     .footer-box{
-        padding: 10px 10px;
+        padding: 10px 0px;
 
     }
 

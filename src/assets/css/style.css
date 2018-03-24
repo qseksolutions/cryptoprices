@@ -1456,7 +1456,7 @@ div.modal.show .modal-dialog {
 
 .copy-textarea textarea{
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-
+    height: 180px;
 }
 
 .btn-copy {
@@ -1551,12 +1551,12 @@ div.modal.show .modal-dialog {
     display: block;
 
 }
-
+*/
 .select2-results__option:hover , .select2-container--default .select2-results__option--highlighted[aria-selected]{
     background-color: #404040;
     color: #fff
 
-}*/
+}
 
 .amnt-widget-dropdown{
     width: 42%;
@@ -1571,6 +1571,10 @@ div.modal.show .modal-dialog {
 .calc-curr-dropdown , .calc-coin-dropdown{
     width: 42%;
 
+}
+
+.model-form .calc-curr-dropdown , .model-form  .calc-coin-dropdown{
+    width: 100%;
 }
 
 .calc-arrow {

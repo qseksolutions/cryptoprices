@@ -111,7 +111,6 @@ export class HeaderComponent implements OnInit {
     this.coinservice.getmaincurrencylist('').subscribe(resData => {
       if (resData.status === true) {
         this.maincurrencylist = resData.data;
-        console.log(this.maincurrencylist);
       } else {
         this.maincurrencylist = '';
       }

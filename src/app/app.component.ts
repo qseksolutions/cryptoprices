@@ -31,7 +31,9 @@ export class AppComponent {
   }
 
   modifyHeader(location) {
-    if (location.url === '/login' || location.url === '/signup' || location.url === '/list') {
+    const url = window.location.pathname;
+    const segment = url.split('/');
+    if (location.url === '/coin-widget/'+segment[2]+'/'+segment[3]) {
       this.showHeader = false;
     } else {
       this.showHeader = true;

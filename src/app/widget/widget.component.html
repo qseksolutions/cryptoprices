@@ -37,7 +37,7 @@
                 <label class="widget-select-label">Select Coin</label>
                 <select class="selectpicker" id="sel_coin" style="width: 100%">
                   <ng-container *ngFor="let coin of allcoin">
-                    <option value="{{coin.symbol}}">{{coin.name}}</option>
+                    <option value="{{coin.symbol}}">{{coin.name}} ({{coin.symbol}})</option>
                   </ng-container>
                 </select>
               </div>
@@ -65,11 +65,11 @@
                       </span>
 
                       <span class="single-coin-title">
-                        <h6 id="coinname">Bitcoin</h6>
+                        <h6 id="coinname">Bitcoin (BTC)</h6>
 
                         <div class="visit-site">
                           <span class="fs16" id="coinprice">
-                            $8840
+                            8840
                           </span>
                           <span class="coin-price-change" [ngClass]="widgetchange24 > 0 ? 'text-green':'text-red'" id="coinchange24">  </span>
                         </div>
@@ -112,7 +112,7 @@
 
               <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                 <div class="copy-textarea form-group massage-box">
-                  <textarea rows="3" class="form-control" id="copy-text">"<iframe style="width:100%;min-height:206px" src="https://crypto.nexthon.com/coin-widget/BTC/USD"></iframe>"
+                  <textarea rows="3" class="form-control" id="copy-text">"<iframe style="width:100%;min-height:206px" src="{{base_url}}coin-widget/{{basecoin}}/{{currency}}"></iframe>"
                                     </textarea>
 
                   <div class="text-center">

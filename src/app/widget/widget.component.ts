@@ -20,6 +20,7 @@ export class WidgetComponent implements OnInit {
   currency: any;
   basecoin: any;
   widgetchange24: any;
+  public base_url: any = myGlobals.base_url;
 
   constructor(private coinservice: CoinService, private title: Title, private meta: Meta, private decimalpipe: DecimalPipe) {
     localStorage.setItem('sorton', null);
@@ -30,7 +31,6 @@ export class WidgetComponent implements OnInit {
     this.coinservice.getmaincurrencylist('').subscribe(resData => {
       if (resData.status === true) {
         this.maincurrencylist = resData.data;
-        console.log(this.maincurrencylist);
       } else {
         this.maincurrencylist = '';
       }
@@ -38,7 +38,6 @@ export class WidgetComponent implements OnInit {
     this.coinservice.getallcoin('').subscribe(resData => {
       if (resData.status === true) {
         this.allcoin = resData.data;
-        console.log(resData.data);
       }
     });
     setTimeout(() => {
@@ -79,12 +78,11 @@ export class WidgetComponent implements OnInit {
     this.coinservice.coinwidget(this.currency, this.basecoin).subscribe(resData => {
       if (resData.status === true) {
         this.widgetchange24 = resData.data.change24;
-        console.log(this.widgetchange24);
         $('#coinrank').html('<i class="fas fa-star"></i> Rank '+resData.data.rank);
-        $('#coinname').html(resData.data.name);
+        $('#coinname').html(resData.data.name+' ('+this.basecoin+')');
         const coin_price = this.decimalpipe.transform(resData.data.price, '1.0-2');
         $('#coinprice').html(coin_price+' '+this.currency);
-        $('#coinchange24').html("("+resData.data.change24+")");
+        $('#coinchange24').html("("+resData.data.change24+"%)");
         $('#coinmarket').html('$'+resData.data.market_cap);
         $('#coinvolume24').html('$'+resData.data.volume24h);
       }

@@ -1026,7 +1026,7 @@ div.modal.show .modal-dialog {
 
 }
 
-.form-control , .select2-container--default .select2-search--dropdown .select2-search__field{
+.form-control{
     background-color: transparent;
     border-radius: 45px;
     padding: 10px 30px;
@@ -1390,7 +1390,7 @@ div.modal.show .modal-dialog {
 
 .widget-coin-box {
     position: relative;
-    padding: 20px;
+    padding: 20px 20px 0px 20px;
     margin-top: 60px;
     border-radius: 15px;
     border: solid 1px #404040;
@@ -1422,9 +1422,9 @@ div.modal.show .modal-dialog {
 
 }
 .power-text {
-    justify-content: space-between;
     padding-top: 10px;
     border-top: solid 1px #afb8b8;
+    color: #F7931A;
 }
 
 .pb10 {
@@ -1482,7 +1482,7 @@ div.modal.show .modal-dialog {
 /*--------------------------------
 ------- Calculator-start ---------
 --------------------------------*/
-.widget-dropdown .select2-container--default {
+/*.widget-dropdown .select2-selection--single {
     background-color: transparent;
     border-radius: 45px;
     padding: 10px 10px;
@@ -1496,17 +1496,23 @@ div.modal.show .modal-dialog {
     font-size: 14px;
     line-height: 19px;
     background-clip: padding-box;
-}
-
-.select2-container .select2-selection--single{
-    height: auto;
-    background-color: transparent;
-    border:none;
-    border-radius: 0px;
+    height: auto
 }
 
 .select2-container--default .select2-selection--single .select2-selection__rendered{
     line-height: normal;
+}
+
+.select2-container--default.select2-container--open.select2-container--below .select2-selection--single, 
+.select2-container--default.select2-container--open.select2-container--below .select2-selection--multiple{
+    border-bottom-left-radius:45px; 
+    border-bottom-right-radius: 45px;
+}
+
+.select2-container--default.select2-container--open.select2-container--above .select2-selection--single, 
+.select2-container--default.select2-container--open.select2-container--above .select2-selection--multiple{
+    border-top-left-radius:45px; 
+    border-top-right-radius: 45px;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__arrow{
@@ -1550,7 +1556,7 @@ div.modal.show .modal-dialog {
     background-color: #404040;
     color: #fff
 
-}
+}*/
 
 .amnt-widget-dropdown{
     width: 42%;

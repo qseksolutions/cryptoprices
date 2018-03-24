@@ -398,7 +398,6 @@ span .curre-img{
     width: 120px;
     font-size: 12px;
     border: solid 1px #7f7f7f;
-    box-shadow: inset 0px 4px 5px rgba(0,0,0,0.1);
 
 }
 
@@ -578,7 +577,6 @@ input.search-input{
     border: solid 1px #404040;
     border-right: none;
     min-width: 200px;
-    box-shadow: inset 0px 4px 5px rgba(0,0,0,0.1);
     font-weight: normal;
     font-size: 14px;
 
@@ -1035,7 +1033,6 @@ div.modal.show .modal-dialog {
     position: relative;
     z-index: 1;
     border: solid 1px #404040;
-    box-shadow: inset 0px 4px 5px rgba(0,0,0,0.1);
     outline: none;
 
 }
@@ -1491,7 +1488,6 @@ div.modal.show .modal-dialog {
     position: relative;
     z-index: 1;
     border: solid 1px #404040;
-    box-shadow: inset 0px 4px 5px rgba(0,0,0,0.1);
     display: block;
     font-size: 14px;
     line-height: 19px;

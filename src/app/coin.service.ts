@@ -118,13 +118,11 @@ export class CoinService {
 
     const form = new URLSearchParams();
     form.append('userid', this.userid);
-    form.append('coin_name', trans.coin.name);
-    form.append('buycoin', trans.coin.symbol);
+    form.append('buycoin', trans.coin);
     form.append('buyamount', trans.amount);
-    form.append('bcurrency', trans.curr.currency_symbol);
-    form.append('bcprice', trans.rate);
+    form.append('bcurrency', trans.currency);
+    form.append('bcprice', trans.value_coin);
     form.append('dcurrency', this.user_base);
-    form.append('bc_sign', trans.curr.currency_sign);
     if (trans.date.day < 10) {
       trans.date.day = '0' + trans.date.day;
     }
@@ -512,7 +510,7 @@ export class CoinService {
       this.coindate = this.coindate / 1000;
 
       // tslint:disable-next-line:max-line-length
-      return this.http.get('https://min-api.cryptocompare.com/data/pricehistorical?fsym=' + trans.coin.symbol + '&tsyms=' + trans.curr.currency_symbol + '&ts=' + this.coindate)
+      return this.http.get('https://min-api.cryptocompare.com/data/pricehistorical?fsym=' + trans.coin + '&tsyms=' + trans.currency + '&ts=' + this.coindate)
         .map((response: Response) => response.json());
     } else {
       const tdate = trans.date;
@@ -521,7 +519,7 @@ export class CoinService {
       this.coindate = this.coindate / 1000;
 
       // tslint:disable-next-line:max-line-length
-      return this.http.get('https://min-api.cryptocompare.com/data/pricehistorical?fsym=' + trans.coin + '&tsyms=' + trans.curr + '&ts=' + this.coindate)
+      return this.http.get('https://min-api.cryptocompare.com/data/pricehistorical?fsym=' + trans.coin + '&tsyms=' + trans.currency + '&ts=' + this.coindate)
         .map((response: Response) => response.json());
     }
 

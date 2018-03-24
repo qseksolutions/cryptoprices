@@ -381,11 +381,11 @@
             <a class="nav-link" href="{{base_url}}widget">Widget</a>
           </li>
 
-          <li class="nav-item d-block d-lg-none">
+          <li class="nav-item d-block d-lg-none" *ngIf="loginData == null">
             <a class="nav-link " href="#" data-toggle="modal" data-target="#login-form"> Login </a>
           </li>
 
-          <li class="nav-item d-block d-lg-none">
+          <li class="nav-item d-block d-lg-none" *ngIf="loginData == null">
             <a class="nav-link" href="#" data-toggle="modal" data-target="#register-form"> Register</a>
           </li>
 

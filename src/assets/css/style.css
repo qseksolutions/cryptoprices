@@ -2639,9 +2639,13 @@ ngb-datepicker {
 
     }
 
-    .news-bg , 
-    .faq-bg{
+    .news-bg {
         padding: 20px 0px 120px; 
+    }
+
+    .faq-bg{
+        padding: 20px 0px;
+
     }
 
 

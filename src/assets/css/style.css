@@ -2168,7 +2168,7 @@ div.modal.show .modal-dialog {
 
 }
 
-.ngb-datepicker {
+ngb-datepicker {
     margin-top: 0;
     min-width: auto;
     width: auto;

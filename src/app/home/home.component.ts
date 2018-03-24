@@ -56,6 +56,7 @@ export class HomeComponent implements OnInit {
   currency: any;
   allcoin: any;
   allcurrency: any;
+  public modeldate: any;
   port = {
     port_id: '',
     coin: '',

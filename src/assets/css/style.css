@@ -972,7 +972,7 @@ div.modal.show .modal-dialog {
 .modal.fade .modal-dialog , .modal .modal-dialog{
     -webkit-transform: translate(0,-50%);
     transform: translate(0,-50%);
-    top: 50%;
+    top: -50%;
     transition: all ease-in-out 0.5s;
 
 }

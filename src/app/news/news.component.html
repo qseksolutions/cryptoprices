@@ -45,9 +45,9 @@
                   <div class="news-source">
                     <span class="small-text">Source:</span>
                     <span class="news-name">{{news.source}}</span>
-                    <span class="times-text">{{news.source}}</span>
+                    <span class="times-text">1 hour ago</span>
                   </div>
-                  <p>{{news.long_news}}</p>
+                  <p [innerHTML]="news.long_news"></p>
                   <p class="long_news read_more_{{news.id}}" [innerHtml]="news.long_news" style="display: none"></p>
 
                   <div class="news-btn">

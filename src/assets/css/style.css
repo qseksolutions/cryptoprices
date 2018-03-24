@@ -1496,8 +1496,11 @@ div.modal.show .modal-dialog {
     font-size: 14px;
     line-height: 19px;
     background-clip: padding-box;
-    height: auto;
+    height: 42px;
     
+}
+.model-form .select2-selection--single{
+    width: 36px;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__rendered{

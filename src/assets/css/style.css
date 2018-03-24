@@ -1552,6 +1552,21 @@ div.modal.show .modal-dialog {
 
 }
 */
+.select2-container--default .select2-selection--single .select2-selection__rendered{
+    outline: none;
+}
+.select2-container{
+    display: block;
+    width: 100% !important;
+    outline: none;
+}
+
+:focus{
+    outline: none !important;
+}
+.select2-container:focus{
+    outline: none;
+}
 .select2-results__option:hover , .select2-container--default .select2-results__option--highlighted[aria-selected]{
     background-color: #404040;
     color: #fff

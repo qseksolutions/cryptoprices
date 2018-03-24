@@ -34,9 +34,9 @@
           <div class="protfolio-networth protfolio-box">
             <div class="protfolio-detaile-box">
               <span class="prot-box-name">NET WORTH:</span>
-              <span class="prot-box-price">$6.33</span>
-              <span class="prot-box-change text-red">-30.83%
-                <i class="fas fa-angle-down"></i>
+              <span class="prot-box-price">{{base_sing}}{{overolsum | number : '1.0-2'}}</span>
+              <span class="prot-box-change" [ngClass]="overolper > 0 ? 'text-green' : 'text-red'">{{overolper | number : '1.2-2'}}%
+                <i class="fas" [ngClass]="overolper > 0 ? 'fa-angle-up' : 'fa-angle-down'"></i>
               </span>
             </div>
 
@@ -418,173 +418,46 @@
               <table class="table">
                 <thead>
                   <tr>
-                    <th>Coin
-                      <span class="datatable-arrow">
-                        <i class="fas fa-angle-up"></i>
-                        <i class="fas fa-angle-down"></i>
-                      </span>
-                    </th>
-                    <th>AVG. Buy Price
-                      <span class="datatable-arrow">
-                        <i class="fas fa-angle-up"></i>
-                        <i class="fas fa-angle-down"></i>
-                      </span>
-                    </th>
-                    <th>Current Price
-                      <span class="datatable-arrow">
-                        <i class="fas fa-angle-up"></i>
-                        <i class="fas fa-angle-down"></i>
-                      </span>
-                    </th>
-                    <th>Investment
-                      <span class="datatable-arrow">
-                        <i class="fas fa-angle-up"></i>
-                        <i class="fas fa-angle-down"></i>
-                      </span>
-                    </th>
-                    <th>Value
-                      <span class="datatable-arrow">
-                        <i class="fas fa-angle-up"></i>
-                        <i class="fas fa-angle-down"></i>
-                      </span>
-                    </th>
-                    <th>Profit
-                      <span class="datatable-arrow">
-                        <i class="fas fa-angle-up"></i>
-                        <i class="fas fa-angle-down"></i>
-                      </span>
-                    </th>
-                    <th>Return
-                      <span class="datatable-arrow">
-                        <i class="fas fa-angle-up"></i>
-                        <i class="fas fa-angle-down"></i>
-                      </span>
-                    </th>
-                    <th>No.Trade
-                      <span class="datatable-arrow">
-                        <i class="fas fa-angle-up"></i>
-                        <i class="fas fa-angle-down"></i>
-                      </span>
-                    </th>
+                    <th>Coin </th>
+                    <th>AVG. Buy Price </th>
+                    <th>Current Price </th>
+                    <th>Investment </th>
+                    <th>Value </th>
+                    <th>Profit </th>
+                    <th>Return </th>
+                    <th>No.Trade </th>
                   </tr>
                 </thead>
 
                 <tbody>
-                  <tr>
+                  <tr *ngFor="let pl of profitlosslist">
                     <td>
-                      <a href="#">
+                      <a href="{{base_url}}coin/{{pl.coin_id}}">
                         <div class="coin-name">
                           <span class="coin-symbol">
-                            <img class="img-fluid" src="http://stagging.coinmage.com/upload/currency-svg/btc.svg">
+                            <img class="img-fluid" src="assets/currency-svg/{{pl.buy_coin | lowercase}}.svg" (error)="errorHandler($event,pl.buy_coin)">
                           </span>
 
                           <span class="coin-name-text">
-                            <h6>Bitcoin</h6>
+                            <h6>{{pl.coin_name}}</h6>
                             <span class="coin-shortname">
-                              BTC
+                              {{pl.buy_coin}}
                             </span>
                           </span>
                         </div>
                       </a>
                     </td>
-                    <td> $9,387.51 </td>
-                    <td> $158,746.416 </td>
-                    <td> $8,107,530,000 </td>
-                    <td> $3,107,000 </td>
+                    <td> {{base_sing}}{{pl.totalcost / pl.coin_amount | number : '1.0-2'}} </td>
+                    <td> {{base_sing}}{{pl.current_price | number : '1.0-12'}} </td>
+                    <td> {{base_sing}}{{pl.totalcost | number : '1.0-2'}} </td>
+                    <td> {{base_sing}}{{pl.current_price * pl.coin_amount | number : '1.0-2'}} </td>
                     <td>
-                      <span class="text-green"> $ 9.15 </span>
+                      <span [ngClass]="pl.current_price * pl.coin_amount - pl.totalcost > 0 ? 'text-green' : 'text-red'"> {{base_sing}}{{pl.current_price * pl.coin_amount - pl.totalcost | number : '1.0-2'}} </span>
                     </td>
                     <td>
-                      <span class="text-green"> $ 30.15% </span>
+                      <span [ngClass]="((pl.current_price * pl.coin_amount) - pl.totalcost) / pl.totalcost * 100 > 0 ? 'text-green' : 'text-red'"> {{base_sing}}{{((pl.current_price * pl.coin_amount) - pl.totalcost) / pl.totalcost * 100 | number : '1.0-2'}}% </span>
                     </td>
-                    <td class="text-center"> 6 </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <a href="#">
-                        <div class="coin-name">
-                          <span class="coin-symbol">
-                            <img class="img-fluid" src="http://stagging.coinmage.com/upload/currency-svg/bch.svg">
-                          </span>
-
-                          <span class="coin-name-text">
-                            <h6>Bitcoin Cash</h6>
-                            <span class="coin-shortname">
-                              BCH
-                            </span>
-                          </span>
-                        </div>
-                      </a>
-                    </td>
-                    <td> $5000 </td>
-                    <td> $30,000 </td>
-                    <td> $50,000 </td>
-                    <td> $200 </td>
-                    <td>
-                      <span class="text-red"> $ -5.15 </span>
-                    </td>
-                    <td>
-                      <span class="text-red"> $ -15.15% </span>
-                    </td>
-                    <td class="text-center"> 2 </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <a href="#">
-                        <div class="coin-name">
-                          <span class="coin-symbol">
-                            <img class="img-fluid" src="http://stagging.coinmage.com/upload/currency-svg/eth.svg">
-                          </span>
-
-                          <span class="coin-name-text">
-                            <h6>Ethereum</h6>
-                            <span class="coin-shortname">
-                              ETH
-                            </span>
-                          </span>
-                        </div>
-                      </a>
-                    </td>
-                    <td> $6,255.51 </td>
-                    <td> $15,825 </td>
-                    <td> $82,500 </td>
-                    <td> $2,500 </td>
-                    <td>
-                      <span class="text-red"> $ -7.15 </span>
-                    </td>
-                    <td>
-                      <span class="text-red"> -22.15% </span>
-                    </td>
-                    <td class="text-center"> 5 </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <a href="#">
-                        <div class="coin-name">
-                          <span class="coin-symbol">
-                            <img class="img-fluid" src="http://stagging.coinmage.com/upload/currency-svg/xrp.svg">
-                          </span>
-
-                          <span class="coin-name-text">
-                            <h6>Ripple</h6>
-                            <span class="coin-shortname">
-                              XRP
-                            </span>
-                          </span>
-                        </div>
-                      </a>
-                    </td>
-                    <td> $93.51 </td>
-                    <td> $158.416 </td>
-                    <td> $815,00</td>
-                    <td> $3,000 </td>
-                    <td>
-                      <span class="text-green"> $ 3.15 </span>
-                    </td>
-                    <td>
-                      <span class="text-green"> 10.15% </span>
-                    </td>
-                    <td class="text-center"> 3 </td>
+                    <td class="text-center"> {{pl.trade}} </td>
                   </tr>
                 </tbody>
               </table>

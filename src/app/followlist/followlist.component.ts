@@ -20,8 +20,10 @@ export class FollowlistComponent implements OnInit {
   public basecurr: any = myGlobals.basecurr;
   public base_sing: any = myGlobals.base_sing;
   followlist: any = Array();
+  showloader: any;
 
   constructor(private coinservice: CoinService, toasterService: ToasterService, private title: Title, private meta: Meta) {
+    this.showloader = true;
     localStorage.setItem('sorton', null);
     localStorage.setItem('sortby', null);
     this.toasterService = toasterService;
@@ -32,7 +34,7 @@ export class FollowlistComponent implements OnInit {
   }
 
   ngOnInit() {
-    const curl = window.location.href;
+    /* const curl = window.location.href;
     this.coinservice.gettestseometa(curl).subscribe(resData => {
       if (resData.status === true) {
         this.title.setTitle(resData.data.title);
@@ -42,7 +44,7 @@ export class FollowlistComponent implements OnInit {
         this.meta.addTag({ name: 'robots', content: resData.data.robots });
         this.meta.addTag({ name: 'title', content: ' www.coinlisting.io' });
       }
-    });
+    }); */
     // tslint:disable-next-line:max-line-length
     this.coinservice.followlist().subscribe(resData => {
       if (resData.status === true) {
@@ -50,6 +52,7 @@ export class FollowlistComponent implements OnInit {
       } else {
         this.followlist = '';
       }
+      this.showloader = false;
       console.log(this.followlist);
     });
   }

@@ -68,15 +68,6 @@ export class ProtfolioComponent implements OnInit {
       } else {
         this.profitlosslist = '';
       }
-      console.log(this.profitlosslist);
-    });
-    this.coinservice.portfoliolist().subscribe(resData => {
-      if (resData.status === true) {
-        this.portfoliolist = resData.data;
-      } else {
-        this.portfoliolist = '';
-      }
-      console.log(this.portfoliolist);
     });
     this.coinservice.getallcoin('').subscribe(resData => {
       if (resData.status === true) {
@@ -106,5 +97,30 @@ export class ProtfolioComponent implements OnInit {
 
   formattercur = (x: { currency_symbol: string }) => x.currency_symbol;
   formattersign = (x: { currency_sign: string }) => x.currency_sign;
+
+  isImage(src) {
+    const deferred = defer();
+    const image = new Image();
+    image.onerror = function () {
+      deferred.resolve(false);
+    };
+    image.onload = function () {
+      deferred.resolve(true);
+    };
+    image.src = src;
+    return deferred.promise;
+  }
+
+  errorHandler(event, name) {
+    const imgurl = 'assets/currency-25/' + name.toLowerCase() + '.png';
+    this.isImage(imgurl).then(function (test) {
+      // tslint:disable-next-line:triple-equals
+      if (test == true) {
+        return event.target.src = imgurl;
+      } else {
+        return event.target.src = 'assets/currency-25/not-found-50.png';
+      }
+    });
+  }
 
 }

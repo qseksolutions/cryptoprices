@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CoinService } from '../coin.service';
 import { DecimalPipe } from '@angular/common';
+import * as myGlobals from './../global';
 
 declare var $: any;
 
@@ -13,7 +14,8 @@ declare var $: any;
 export class CoinwidgetComponent implements OnInit {
   basecoin: any;
   currency: any;
-  widgetchange24:any=25;
+  widgetchange24:any;
+  public base_url: any = myGlobals.base_url;
 
   constructor(private coinservice: CoinService, private decimalpipe: DecimalPipe) { }
 

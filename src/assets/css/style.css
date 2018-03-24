@@ -2173,10 +2173,10 @@ div.modal.show .modal-dialog {
 }
 
 ngb-datepicker {
-    margin-top: 0;
-    min-width: auto;
-    width: auto;
-    right: initial;
+    margin-top: 0 !important;
+    min-width: auto !important;
+    width: auto !important;
+    right: initial !important;
 }
 
 

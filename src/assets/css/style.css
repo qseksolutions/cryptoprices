@@ -1707,7 +1707,7 @@ div.modal.show .modal-dialog {
 
 .news-box {
     background-color: #fff;
-    box-shadow: 0 5px 10px rgba(114, 114, 114, 0.1);
+    box-shadow: 0 0px 10px rgba(114, 114, 114, 0.1);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1715,6 +1715,7 @@ div.modal.show .modal-dialog {
     -ms-flex-pack: justify;
     justify-content: space-between;
     margin-bottom: 15px;
+    border-bottom: solid 2px #404040;
 
 }
 

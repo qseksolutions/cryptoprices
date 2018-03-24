@@ -55,6 +55,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { FaqComponent } from './faq/faq.component';
 import { FollowlistComponent } from './followlist/followlist.component';
 import { ProtfolioComponent } from './protfolio/protfolio.component';
+import { CoinwidgetComponent } from './coinwidget/coinwidget.component';
 
 export function highchartsModules() {
     return [ highstock, exporting ];
@@ -123,6 +124,11 @@ export function highchartsModules() {
         component: ProtfolioComponent,
         pathMatch: 'full'
       },
+      {
+        path: 'coin-widget/:base/:currency',
+        component: CoinwidgetComponent,
+        pathMatch: 'full'
+      },
     ]),
     BrowserModule,
     NgbModule.forRoot(),
@@ -151,6 +157,7 @@ export function highchartsModules() {
     FaqComponent,
     FollowlistComponent,
     ProtfolioComponent,
+    CoinwidgetComponent,
   ],
   providers: [
     // { provide: HIGHCHARTS_MODULES, useFactory: highchartsModules }, { provide: AuthServiceConfig, useFactory: provideConfig }

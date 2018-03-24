@@ -2168,6 +2168,14 @@ div.modal.show .modal-dialog {
 
 }
 
+.ngb-datepicker {
+    margin-top: 0;
+    min-width: auto;
+    width: auto;
+    right: initial;
+}
+
+
 
 /*------------------------------
 ------- Responsive-start -------

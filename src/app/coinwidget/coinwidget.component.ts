@@ -23,6 +23,10 @@ export class CoinwidgetComponent implements OnInit {
     this.basecoin = segment[2];
     this.currency = segment[3];
     this.getWidget();
+
+    setInterval(() => {
+      this.getWidget();
+    }, 60000);
   }
 
   getWidget() {

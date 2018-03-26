@@ -43,9 +43,14 @@
                 <input type="email" class="form-control" disabled value="{{profile.email}}">
               </div>
 
-              <div class="form-group">
+              <div class="form-group profile-select">
                 <label for="message-text" class="widget-select-label">Change Currency</label>
-                <ng-template #os let-o="result" let-s="termcur" id="allcurr">
+                <select class="selectpicker" id="sel_curr" style="width: 100%">
+                  <ng-container *ngFor="let curr of maincurrencylist">
+                    <option value="{{curr.currency_symbol}}">{{curr.currency_symbol}}</option>
+                  </ng-container>
+                </select>
+                <!--<ng-template #os let-o="result" let-s="termcur" id="allcurr">
                   <div>
                     <img src="assets/currency-symbol/{{o.currency_symbol}}.svg" onError="this.src='assets/currency-25/not-found-25.png'" class="input-currency-icon img-filter">
                     <span>

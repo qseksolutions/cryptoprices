@@ -45,13 +45,12 @@
                   <div class="news-source">
                     <span class="small-text">Source:</span>
                     <span class="news-name">{{news.source}}</span>
-                    <span class="times-text">1 hour ago</span>
+                    <span class="times-text">{{news.insert_date | timeAgo}}</span>
                   </div>
                   <p [innerHTML]="news.long_news"></p>
-                  <p class="long_news read_more_{{news.id}}" [innerHtml]="news.long_news" style="display: none"></p>
 
                   <div class="news-btn">
-                    <a class="btn btn-primary btn-read read_btn_{{news.id}}" href="{{news.short_news}}">Read More
+                    <a class="btn btn-primary btn-read read_btn_{{news.id}}" target="_blank" href="{{news.link}}">Read More
                       <i class="fas fa-angle-double-right"></i>
                     </a>
                   </div>

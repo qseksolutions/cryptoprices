@@ -255,14 +255,14 @@ export class ProtfolioComponent implements OnInit {
     bootbox.confirm({
       closeButton: false,
       title: "Confirm Delete !",
-      message: "Are you sure you want to detele this record ?",
+      message: "Are you sure you want to detele this portfolio record ?",
       buttons: {
         confirm: {
           label: 'Confirm',
           className: 'btn-success'
         },
         cancel: {
-          label: 'No',
+          label: 'Cancel',
           className: 'btn-danger'
         }
       },

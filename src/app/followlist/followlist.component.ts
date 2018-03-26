@@ -64,7 +64,7 @@ export class FollowlistComponent implements OnInit {
     bootbox.confirm({
       closeButton: false,
       title: "Confirm Delete ?",
-      message: "Are you sure you want to unfollow this coin ?",
+      message: "Are you sure you want to unfollow this " + coin.name.toLowerCase() + " ?",
       buttons: {
         confirm: {
           label: 'Confirm',

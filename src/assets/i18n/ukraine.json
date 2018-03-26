@@ -1,0 +1,23 @@
+{
+  "HEADER": {
+    "marketcap" : "Cap. Marché",
+    "24hvol" : "Vol 24h",
+    "btcdominance" : "Dominance BTC",
+    "login" : "Login",
+    "register" : "Register",
+    "home" : "Home",
+    "contact" : "Contact Us",
+    "news" : "News",
+    "calculator" : "Calculator",
+    "widget" : "Widget"
+  },
+  "HOME": {
+    "name" : "Nom",
+    "price" : "Prix",
+    "24h" : "24h",
+    "marketcap" : "Cap. Marché",
+    "volume24h" : "Volume 24h",
+    "7day" : "7 jours",
+    "add/track" : "Ajouter/Trace"
+  }
+}

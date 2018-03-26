@@ -36,7 +36,7 @@
   var templates = {
     dialog:
       "<div class='bootbox modal' tabindex='-1' role='dialog' aria-hidden='true'>" +
-        "<div class='modal-dialog'>" +
+        "<div class='modal-dialog followlist-popup'>" +
           "<div class='modal-content'>" +
             "<div class='modal-body'><div class='bootbox-body'></div></div>" +
           "</div>" +
@@ -47,7 +47,7 @@
         "<h4 class='modal-title'></h4>" +
       "</div>",
     footer:
-      "<div class='modal-footer'></div>",
+      "<div class='modal-footer justify-content-center f-popup-footer'></div>",
     closeButton:
       "<button type='button' class='bootbox-close-button close' aria-hidden='true'>&times;</button>",
     form:

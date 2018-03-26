@@ -63,16 +63,16 @@ export class FollowlistComponent implements OnInit {
     let th = this;
     bootbox.confirm({
       closeButton: false,
-      title: "Confirm Delete !",
-      message: "Are you sure you want to detele this record ?",
+      title: "Confirm Delete ?",
+      message: "Are you sure you want to unfollow this coin ?",
       buttons: {
         confirm: {
           label: 'Confirm',
-          className: 'btn-success'
+          className: 'btn-success '
         },
         cancel: {
-          label: 'No',
-          className: 'btn-danger'
+          label: 'Cancel',
+          className: 'btn-primary'
         }
       },
       callback: function (result) {

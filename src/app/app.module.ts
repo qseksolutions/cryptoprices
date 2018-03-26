@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartModule, HIGHCHARTS_MODULES } from 'angular-highcharts';
 import { ToasterModule } from 'angular2-toaster';
 import {TranslateModule} from '@ngx-translate/core';
-
+import { TimeAgoPipe } from 'time-ago-pipe';
 // import { SocialLoginModule, AuthServiceConfig } from 'angular4-social-login';
 // import { GoogleLoginProvider, FacebookLoginProvider } from 'angular4-social-login';
 
@@ -161,6 +161,7 @@ export function highchartsModules() {
     FollowlistComponent,
     ProtfolioComponent,
     CoinwidgetComponent,
+    TimeAgoPipe
   ],
   providers: [
     // { provide: HIGHCHARTS_MODULES, useFactory: highchartsModules }, { provide: AuthServiceConfig, useFactory: provideConfig }

@@ -79,6 +79,13 @@ export class ProtfolioComponent implements OnInit {
         this.profitlosslist = '';
       }
     });
+    this.coinservice.portfoliolist().subscribe(resData => {
+      if (resData.status === true) {
+        this.portfoliolist = resData.data;
+      } else {
+        this.portfoliolist = '';
+      }
+    });
     this.coinservice.getallcoin('').subscribe(resData => {
       if (resData.status === true) {
         this.allcoin = resData.data;

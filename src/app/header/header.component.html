@@ -407,10 +407,10 @@
         <div class="home-search small-home-search">
           <ng-template #sc let-s="result" let-c="term" id="allcoinsearch">
             <div [attr.value]="s.symbol" class="">
-              <a href="{{urlString}}cryptocurrency/{{s.id}}">
+              <a href="{{urlString}}cryptocurrency/{{s.id}}-{{s.symbol | lowercase}}-price">
                 <img src="assets/currency-svg/{{s.symbol | lowercase}}.svg" (error)="errorHandler($event,s.symbol)" class="input-currency-icon">
                 <span>
-                  <span class="coin_name">{{s.name}}</span> ({{s.symbol}})
+                  <span class="coin_name">{{s.name}} ({{s.symbol}})</span> 
                 </span>
               </a>
             </div>

@@ -128,13 +128,13 @@ export class HeaderComponent implements OnInit {
     text$
       .debounceTime(200)
       .map(term => term === '' ? []
-        : this.allcoin.filter(v => v.id.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
+        : this.allcoin.filter(v => v.fullname.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
 
   formattersearch = (x: { name: string, symbol: string }) => x.name + ' (' + x.symbol + ')';
 
   keyDownFunction(event) {
     if (event.keyCode === 13) {
-      location.href = this.base_url + 'coin/' + this.model.id;
+      location.href = this.base_url + 'cryptocurrency/' + this.model.id + '-' + this.model.symbol.toLowerCase() + '-price';
     }
   }
 

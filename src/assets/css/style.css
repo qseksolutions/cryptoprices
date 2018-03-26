@@ -717,6 +717,11 @@ input.search-input{
 
 }
 
+.add-track-btn button {
+    width: 31px;
+    padding: 5px 0px;
+}
+
 /*pagination*/
 .pag-table{
     padding-top: 10px;
@@ -967,6 +972,10 @@ input.search-input{
 /*-------------------------
 ----- popup-page-start -----
 -------------------------*/
+.model-transaction .modal-dialog{
+    width: 800px;
+
+}
 div.modal.show .modal-dialog {
     -webkit-transform: translate(0,-50%);
     -o-transform: translate(0,-50%);
@@ -1535,11 +1544,6 @@ div.modal.show .modal-dialog {
 
 }
 
-.model-form .select2-container--default .select2-selection--single .select2-selection__rendered{
-    line-height: 14px;
-
-}
-
 .select2-container--default.select2-container--open.select2-container--below .select2-selection--single, 
 .select2-container--default.select2-container--open.select2-container--below .select2-selection--multiple{
     border-radius: 45px;
@@ -2079,7 +2083,7 @@ div.modal.show .modal-dialog {
 }
 
 .bootbox-body {
-    padding: 0px 50px;
+    padding: 0px 40px;
     text-align: center;
     font-size: 16px;
     color: #a0a0a0;
@@ -2572,6 +2576,10 @@ ngb-datepicker {
     
     }
 
+    .div.modal.modal-transaction.show .modal-dialog{
+        padding: 10px;
+    }
+
     
 }
 
@@ -2736,6 +2744,13 @@ ngb-datepicker {
     .single-track-btn{
         display: block;
 
+    }
+
+    div.modal.model-transaction.show .modal-dialog {
+        -webkit-transform: unset;
+        -o-transform: translate(0,-50%);
+        transform: unset;
+        top: 0;
     }
 }
 

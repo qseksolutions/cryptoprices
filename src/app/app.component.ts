@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToasterContainerComponent, ToasterService, ToasterConfig } from 'angular2-toaster';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -21,8 +22,11 @@ export class AppComponent {
   showHeader: any;
   public location = '';
 
-  constructor(private router: Router, toasterService: ToasterService) {
+  constructor(private translate: TranslateService,private router: Router, toasterService: ToasterService) {
     this.toasterService = toasterService;
+    translate.addLangs(['en', 'fr']);
+    translate.setDefaultLang('en');
+    translate.use('en');
   }
 
   ngOnInit() {

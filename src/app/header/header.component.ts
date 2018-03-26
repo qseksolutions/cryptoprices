@@ -133,7 +133,6 @@ export class HeaderComponent implements OnInit {
   formattersearch = (x: { name: string, symbol: string }) => x.name + ' (' + x.symbol + ')';
 
   keyDownFunction(event) {
-    console.log(this.model);
     if (event.keyCode === 13) {
       location.href = this.base_url + 'cryptocurrency/' + this.model.id + '-' + this.model.symbol.toLowerCase() + '-price';
     }

@@ -5,6 +5,8 @@ import { ToasterContainerComponent, ToasterService, ToasterConfig } from 'angula
 import { Title, Meta } from '@angular/platform-browser';
 import { defer } from 'q';
 
+declare var bootbox: any;
+
 @Component({
   selector: 'app-followlist',
   templateUrl: './followlist.component.html',
@@ -58,19 +60,39 @@ export class FollowlistComponent implements OnInit {
   }
 
   followcoin(coin) {
-    this.coinservice.cointrackbyuser(1, coin.coin_id, coin.name).subscribe(resData => {
-      if (resData.status === true) {
-        if (coin.followstatus === 1) {
-          coin.followstatus = 0;
-        } else {
-          coin.followstatus = 1;
+    let th = this;
+    bootbox.confirm({
+      closeButton: false,
+      title: "Confirm Delete !",
+      message: "Are you sure you want to detele this record ?",
+      buttons: {
+        confirm: {
+          label: 'Confirm',
+          className: 'btn-success'
+        },
+        cancel: {
+          label: 'No',
+          className: 'btn-danger'
         }
-        this.toasterService.pop('success', 'Success', resData.message);
-        setTimeout(() => {
-          this.ngOnInit();
-        });
-      } else {
-        this.toasterService.pop('error', 'Error', 'Something went wrong please try after sometime !');
+      },
+      callback: function (result) {
+        if (result) {
+          th.coinservice.cointrackbyuser(1, coin.coin_id, coin.name).subscribe(resData => {
+            if (resData.status === true) {
+              if (coin.followstatus === 1) {
+                coin.followstatus = 0;
+              } else {
+                coin.followstatus = 1;
+              }
+              th.toasterService.pop('success', 'Success', resData.message);
+              setTimeout(() => {
+                th.ngOnInit();
+              });
+            } else {
+              th.toasterService.pop('error', 'Error', 'Something went wrong please try after sometime !');
+            }
+          });
+        }
       }
     });
   }

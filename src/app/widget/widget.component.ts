@@ -31,34 +31,39 @@ export class WidgetComponent implements OnInit {
     this.coinservice.getmaincurrencylist('').subscribe(resData => {
       if (resData.status === true) {
         this.maincurrencylist = resData.data;
-      } else {
-        this.maincurrencylist = '';
+        if (this.maincurrencylist.length > 0) {
+          setTimeout(() => {
+            $('#sel_curr').select2('destroy');
+            for (let i = 0; i < this.maincurrencylist.length; i++) {
+              if (this.maincurrencylist[i]['currency_symbol'] == 'USD') {
+                $('#sel_curr').val(this.maincurrencylist[i]['currency_symbol']);
+              }
+            }
+            $('#sel_curr').select2();
+            this.currency = $('#sel_curr').val();
+            console.log('currency data');
+          }, 2000);
+        }
       }
     });
     this.coinservice.getallcoin('').subscribe(resData => {
       if (resData.status === true) {
         this.allcoin = resData.data;
+        if (this.allcoin.length > 0) {
+          setTimeout(() => {
+            $('#sel_coin').select2('destroy');
+            for (let i = 0; i < this.allcoin.length; i++) {
+              if (this.allcoin[i]['symbol'] == 'BTC') {
+                $('#sel_coin').val(this.allcoin[i]['symbol']);
+              }
+            }
+            $('#sel_coin').select2();
+            this.basecoin = $('#sel_coin').val();
+            this.getWidget();
+          }, 2000);
+        }
       }
     });
-    setTimeout(() => {
-      $('#sel_curr').select2('destroy');
-      $('#sel_coin').select2('destroy');
-      for (let i = 0; i < this.maincurrencylist.length; i++) {
-        if (this.maincurrencylist[i]['currency_symbol'] == 'USD') {
-          $('#sel_curr').val(this.maincurrencylist[i]['currency_symbol']);
-        }
-      }
-      for (let i = 0; i < this.allcoin.length; i++) {
-        if (this.allcoin[i]['symbol'] == 'BTC') {
-          $('#sel_coin').val(this.allcoin[i]['symbol']);
-        }
-      }
-      $('#sel_curr').select2();
-      $('#sel_coin').select2();
-      this.currency = $('#sel_curr').val();
-      this.basecoin = $('#sel_coin').val();
-      this.getWidget();
-    }, 2000);
   }
 
   ngAfterViewInit() {

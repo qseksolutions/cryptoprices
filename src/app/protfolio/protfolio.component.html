@@ -67,7 +67,7 @@
                   </div>
 
                   <div class="col-12 col-sm-12 col-md-12 col-lg-12">                      
-                    <div class="prot-amnt-input mb-30">
+                    <div class="port-amnt-input mb-30">
                       <label class="widget-select-label">Select Date</label>
                       <input class="currency-select form-control date" placeholder="Select date of Purchase..." name="date" [(ngModel)]="modeldate" (ngModelChange)="getcoinprice(form.value);" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" id="date">
                     </div>
@@ -95,14 +95,14 @@
                   </div>
 
                   <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="prot-amnt-input mb-3"r>
+                    <div class="port-amnt-input mb-3">
                       <label class="widget-select-label">Enter Coin Amount</label>
                       <input type="text" class="form-control" id="amount" name="amount" ngModel (keyup)="getcoinprice(form.value);"/>
                     </div>
                   </div>
 
                   <div class="col-12 col-sm-12 col-md-6 col-lg-6">                        
-                    <div class="prot-amnt-input mb-30">
+                    <div class="port-amnt-input mb-30">
                       <label class="widget-select-label">Enter Value of Coin</label>
                       <input type="text" class="form-control" id="value_coin" name="value_coin" ngModel/>
                     </div>
@@ -122,138 +122,65 @@
     </div>
   </div>
   <section >
-    <div class="portfolio-contant">
+    <div class="portfolio-contant" *ngIf="showloader">
       <div class="container">
         <div class="row">
-          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-            <div class="width-responsive">
-              <div class="main-table transaction-table table-responsive">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>Coin </th>
-                      <th>AVG. Buy Price </th>
-                      <th>Current Price </th>
-                      <th>Investment </th>
-                      <th>Value </th>
-                      <th>Profit </th>
-                      <th>Return </th>
-                      <th>No.Trade </th>
-                    </tr>
-                  </thead>
-
-                  <tbody>
-                    <tr *ngFor="let pl of profitlosslist">
-                      <td>
-                        <a href="{{base_url}}coin/{{pl.coin_id}}">
-                          <div class="coin-name">
-                            <span class="coin-symbol">
-                              <img class="img-fluid" src="assets/currency-svg/{{pl.buy_coin | lowercase}}.svg" (error)="errorHandler($event,pl.buy_coin)">
-                            </span>
-
-                            <span class="coin-name-text">
-                              <h6>{{pl.coin_name}}</h6>
-                              <span class="coin-shortname">
-                                {{pl.coin_amount}}&nbsp;{{pl.buy_coin}}
-                              </span>
-                            </span>
-                          </div>
-                        </a>
-                      </td>
-                      <td> {{base_sing}}{{pl.totalcost / pl.coin_amount | number : '1.0-2'}} </td>
-                      <td> {{base_sing}}{{pl.current_price | number : '1.0-12'}} </td>
-                      <td> {{base_sing}}{{pl.totalcost | number : '1.0-2'}} </td>
-                      <td> {{base_sing}}{{pl.current_price * pl.coin_amount | number : '1.0-2'}} </td>
-                      <td>
-                        <span [ngClass]="pl.current_price * pl.coin_amount - pl.totalcost > 0 ? 'text-green' : 'text-red'"> {{base_sing}}{{pl.current_price * pl.coin_amount - pl.totalcost | number : '1.0-2'}} </span>
-                      </td>
-                      <td>
-                        <span [ngClass]="((pl.current_price * pl.coin_amount) - pl.totalcost) / pl.totalcost * 100 > 0 ? 'text-green' : 'text-red'"> {{((pl.current_price * pl.coin_amount) - pl.totalcost) / pl.totalcost * 100 | number : '1.0-2'}}% </span>
-                      </td>
-                      <td class="text-center"> {{pl.trade}} </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
+            <img src="../../assets/images/loading.gif" />
           </div>
         </div>
       </div>
-    
-      <div class="recent-table">
-        <div class="container">
-          <h4 class="table-title">Recent Transaction</h4>
-        </div>
-        
+    </div>
+    <div class="portfolio-contant" *ngIf="!showloader">
+      <ng-container *ngIf="portfoliolist != ''">
         <div class="container">
           <div class="row">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12" >
               <div class="width-responsive">
-                <div class="main-table table-responsive">
+                <div class="main-table transaction-table table-responsive">
                   <table class="table">
                     <thead>
                       <tr>
                         <th>Coin </th>
-                        <th>Rate</th>
-                        <th>Total Cost </th>
-                        <th>Date </th>
-                        <th>Edit </th>
+                        <th>AVG. Buy Price </th>
+                        <th>Current Price </th>
+                        <th>Investment </th>
+                        <th>Value </th>
+                        <th>Profit </th>
+                        <th>Return </th>
+                        <th>No.Trade </th>
                       </tr>
                     </thead>
-      
+
                     <tbody>
-                      <tr *ngFor="let portfolio of portfoliolist">
+                      <tr *ngFor="let pl of profitlosslist">
                         <td>
-                          <a href="{{urlString}}cryptocurrency/{{portfolio.coin_name}}-{{portfolio.buy_coin | lowercase}}-price">
+                          <a href="{{base_url}}coin/{{pl.coin_id}}">
                             <div class="coin-name">
                               <span class="coin-symbol">
-                                <img class="img-fluid" src="assets/currency-svg/{{portfolio.buy_coin | lowercase}}.svg" (error)="errorHandler($event,portfolio.buy_coin)">
+                                <img class="img-fluid" src="assets/currency-svg/{{pl.buy_coin | lowercase}}.svg" (error)="errorHandler($event,pl.buy_coin)">
                               </span>
-      
+
                               <span class="coin-name-text">
-                                <h6>{{portfolio.coin_name}}</h6>
-                                <span class="coin-shortname"> {{portfolio.coin_amount}}&nbsp;{{portfolio.buy_coin}} </span>
+                                <h6>{{pl.coin_name}}</h6>
+                                <span class="coin-shortname">
+                                  {{pl.coin_amount}}&nbsp;{{pl.buy_coin}}
+                                </span>
                               </span>
                             </div>
                           </a>
                         </td>
+                        <td> {{base_sing}}{{pl.totalcost / pl.coin_amount | number : '1.0-2'}} </td>
+                        <td> {{base_sing}}{{pl.current_price | number : '1.0-12'}} </td>
+                        <td> {{base_sing}}{{pl.totalcost | number : '1.0-2'}} </td>
+                        <td> {{base_sing}}{{pl.current_price * pl.coin_amount | number : '1.0-2'}} </td>
                         <td>
-                          <div class="coin-name">
-                            <span class="coin-name-text">
-                              <h6>{{base_sing}}{{portfolio.dc_price / portfolio.coin_amount | number : '1.0-2'}}</h6>
-                              <span class="coin-shortname"> ({{portfolio.bc_sign}}{{portfolio.bc_price / portfolio.coin_amount | number : '1.0-2'}}) </span>
-                            </span>
-                          </div>
+                          <span [ngClass]="pl.current_price * pl.coin_amount - pl.totalcost > 0 ? 'text-green' : 'text-red'"> {{base_sing}}{{pl.current_price * pl.coin_amount - pl.totalcost | number : '1.0-2'}} </span>
                         </td>
                         <td>
-                          <div class="coin-name">
-                            <span class="coin-name-text">
-                              <h6>{{base_sing}}{{portfolio.dc_price | number : '1.2-2'}}</h6>
-                              <span class="coin-shortname"> ({{portfolio.bc_sign}} {{portfolio.bc_price | number : '1.2-2'}}) </span>
-                            </span>
-                          </div>
+                          <span [ngClass]="((pl.current_price * pl.coin_amount) - pl.totalcost) / pl.totalcost * 100 > 0 ? 'text-green' : 'text-red'"> {{((pl.current_price * pl.coin_amount) - pl.totalcost) / pl.totalcost * 100 | number : '1.0-2'}}% </span>
                         </td>
-                        <td>
-                          <div class="coin-name">
-                            <span class="coin-name-text">
-                              <h6>{{portfolio.transaction_date | date:'MMMM d, y'}}</h6>
-                            </span>
-                          </div>
-                        </td>
-                        <td>
-                          <div class="coin-edit">
-                                <button class="btn btn-primary" (click)="traderemove(portfolio.id)">
-                                  <i class="fas fa-times"></i>
-                                </button>
-                                <button class="btn btn-success" (click)="edittrade(portfolio.id)">
-                                  <i class="fas fa-edit"></i>
-                                </button>
-                          </div>
-                        </td>
-                        <!-- <td class="text-center"> 
-                            <a href="javascript:;"><i class="fa fa-times text-red mr-10"></i></a>
-                            <i class="fa fa-pencil-square"></i>
-                          </td> -->
+                        <td class="text-center"> {{pl.trade}} </td>
                       </tr>
                     </tbody>
                   </table>
@@ -262,7 +189,109 @@
             </div>
           </div>
         </div>
-      </div>
+      
+        <div class="recent-table">
+          <div class="container">
+            <h4 class="table-title">Recent Transaction</h4>
+          </div>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="width-responsive">
+                  <div class="main-table table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Coin </th>
+                          <th>Rate</th>
+                          <th>Total Cost </th>
+                          <th>Date </th>
+                          <th>Edit </th>
+                        </tr>
+                      </thead>
+        
+                      <tbody>
+                        <tr *ngFor="let portfolio of portfoliolist">
+                          <td>
+                            <a href="{{urlString}}cryptocurrency/{{portfolio.coin_name}}-{{portfolio.buy_coin | lowercase}}-price">
+                              <div class="coin-name">
+                                <span class="coin-symbol">
+                                  <img class="img-fluid" src="assets/currency-svg/{{portfolio.buy_coin | lowercase}}.svg" (error)="errorHandler($event,portfolio.buy_coin)">
+                                </span>
+        
+                                <span class="coin-name-text">
+                                  <h6>{{portfolio.coin_name}}</h6>
+                                  <span class="coin-shortname"> {{portfolio.coin_amount}}&nbsp;{{portfolio.buy_coin}} </span>
+                                </span>
+                              </div>
+                            </a>
+                          </td>
+                          <td>
+                            <div class="coin-name">
+                              <span class="coin-name-text">
+                                <h6>{{base_sing}}{{portfolio.dc_price / portfolio.coin_amount | number : '1.0-2'}}</h6>
+                                <span class="coin-shortname"> ({{portfolio.bc_sign}}{{portfolio.bc_price / portfolio.coin_amount | number : '1.0-2'}}) </span>
+                              </span>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="coin-name">
+                              <span class="coin-name-text">
+                                <h6>{{base_sing}}{{portfolio.dc_price | number : '1.2-2'}}</h6>
+                                <span class="coin-shortname"> ({{portfolio.bc_sign}} {{portfolio.bc_price | number : '1.2-2'}}) </span>
+                              </span>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="coin-name">
+                              <span class="coin-name-text">
+                                <h6>{{portfolio.transaction_date | date:'MMMM d, y'}}</h6>
+                              </span>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="coin-edit">
+                                  <button class="btn btn-primary" (click)="traderemove(portfolio.id)">
+                                    <i class="fas fa-times"></i>
+                                  </button>
+                                  <button class="btn btn-success" (click)="edittrade(portfolio.id)">
+                                    <i class="fas fa-edit"></i>
+                                  </button>
+                            </div>
+                          </td>
+                          <!-- <td class="text-center"> 
+                              <a href="javascript:;"><i class="fa fa-times text-red mr-10"></i></a>
+                              <i class="fa fa-pencil-square"></i>
+                            </td> -->
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="portfoliolist == ''">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="followlist-box">
+                <div class="followlist-coin-detaile">
+            
+                  <div class="followlist-coin-value">
+                    <div class="followlist-value" style="width: 100%; text-align: center;">
+                      <p>You didn’t added any Transaction in your portfolio list yet.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
     </div>
   </section>
 </div>

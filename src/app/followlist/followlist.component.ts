@@ -64,7 +64,7 @@ export class FollowlistComponent implements OnInit {
     bootbox.confirm({
       closeButton: false,
       title: "Confirm Delete ?",
-      message: "Are you sure you want to unfollow this coin ?",
+      message: "Are you sure you want to unfollow this " + coin.name.toLowerCase() + " ?",
       buttons: {
         confirm: {
           label: 'Confirm',
@@ -111,13 +111,13 @@ export class FollowlistComponent implements OnInit {
   }
 
   errorHandler(event, name) {
-    const imgurl = 'assets/currency-50/' + name.toLowerCase() + '.png';
+    const imgurl = 'assets/currency-25/' + name.toLowerCase() + '.png';
     this.isImage(imgurl).then(function (test) {
       // tslint:disable-next-line:triple-equals
       if (test == true) {
         return event.target.src = imgurl;
       } else {
-        return event.target.src = 'assets/currency-50/not-found-25.png';
+        return event.target.src = 'assets/currency-25/not-found-25.png';
       }
     });
   }

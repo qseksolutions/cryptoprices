@@ -255,14 +255,14 @@ export class ProtfolioComponent implements OnInit {
     bootbox.confirm({
       closeButton: false,
       title: "Confirm Delete !",
-      message: "Are you sure you want to detele this record ?",
+      message: "Are you sure you want to detele this portfolio record ?",
       buttons: {
         confirm: {
           label: 'Confirm',
           className: 'btn-success'
         },
         cancel: {
-          label: 'No',
+          label: 'Cancel',
           className: 'btn-danger'
         }
       },
@@ -277,6 +277,31 @@ export class ProtfolioComponent implements OnInit {
             }
           });
         }
+      }
+    });
+  }
+
+  isImage(src) {
+    const deferred = defer();
+    const image = new Image();
+    image.onerror = function () {
+      deferred.resolve(false);
+    };
+    image.onload = function () {
+      deferred.resolve(true);
+    };
+    image.src = src;
+    return deferred.promise;
+  }
+
+  errorHandler(event, name) {
+    const imgurl = 'assets/currency-25/' + name.toLowerCase() + '.png';
+    this.isImage(imgurl).then(function (test) {
+      // tslint:disable-next-line:triple-equals
+      if (test == true) {
+        return event.target.src = imgurl;
+      } else {
+        return event.target.src = 'assets/currency-25/not-found-25.png';
       }
     });
   }

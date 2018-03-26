@@ -357,6 +357,9 @@ span .curre-img{
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; 
 }
 
 .dropdown-menu .select-list li {
@@ -371,7 +374,6 @@ span .curre-img{
 .curre-img{
     width: 15px;
     margin-right: 5px;
-    margin-top: -2px;
     display: inline-block;
     vertical-align: middle;
     height: 15px;
@@ -401,6 +403,20 @@ span .curre-img{
     width: 120px;
     font-size: 12px;
     border: solid 1px #7f7f7f;
+
+}
+
+.btn-select .flag-img , 
+.btn-select .curre-img{
+    margin-top: -2px;
+}
+
+.btn-select .lang-name {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+    text-overflow: ellipsis;
+    width: 65px;
 
 }
 
@@ -1336,7 +1352,7 @@ div.modal.show .modal-dialog {
 }
 
 .contact-bg{
-    padding: 0px 0px 170px;
+    padding: 0px 0px 150px;
 
 }
 
@@ -1372,7 +1388,7 @@ div.modal.show .modal-dialog {
 }   
 
 .contact-form{
-    margin-top: -220px;
+    margin-top: -200px;
 
 }
 
@@ -1924,7 +1940,6 @@ div.modal.show .modal-dialog {
     margin-top: 20px;
 
 }
-
 
 .port-box-name {
     font-weight: 600;
@@ -2617,7 +2632,7 @@ ngb-datepicker {
     }
 
     .contact-bg {
-        padding: 50px 0px 170px;
+        padding: 50px 0px 150px;
 
     }
 

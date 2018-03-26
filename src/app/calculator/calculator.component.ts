@@ -32,7 +32,19 @@ export class CalculatorComponent implements OnInit {
     this.coinservice.getmaincurrencylist('').subscribe(resData => {
       if (resData.status === true) {
         this.maincurrencylist = resData.data;
-        console.log(this.maincurrencylist);
+        if (this.maincurrencylist.length > 0) {
+          setTimeout(() => {
+            $('#sel_curr').select2('destroy');
+            for (let i = 0; i < this.maincurrencylist.length; i++) {
+              if (this.maincurrencylist[i]['currency_symbol'] == 'USD') {
+                $('#sel_curr').val(this.maincurrencylist[i]['currency_symbol']);
+              }
+            }
+            $('#sel_curr').select2();
+            this.currency = $('#sel_curr').val();
+            console.log('currency data');
+          }, 2000);
+        }
       } else {
         this.maincurrencylist = '';
       }
@@ -40,32 +52,26 @@ export class CalculatorComponent implements OnInit {
     this.coinservice.getallcoin('').subscribe(resData => {
       if (resData.status === true) {
         this.allcoin = resData.data;
-        console.log(resData.data);
+        if (this.allcoin.length > 0) {
+          setTimeout(() => {
+            $('#sel_base').select2('destroy');
+            $('#sel_convert').select2('destroy');
+            for (let i = 0; i < this.allcoin.length; i++) {
+              if (this.allcoin[i]['symbol'] == 'BTC') {
+                $('#sel_base').val(this.allcoin[i]['symbol']);
+                $('#sel_convert').val(this.allcoin[i]['symbol']);
+              }
+            }
+            $('#sel_base').select2();
+            $('#sel_convert').select2();
+            this.basecoin = $('#sel_base').val();
+            this.convcoin = $('#sel_convert').val();
+            this.changevalue();
+            console.log('coin data');
+          }, 2000);
+        }
       }
     });
-    setTimeout(() => {
-      $('#sel_curr').select2('destroy');
-      $('#sel_base').select2('destroy');
-      $('#sel_convert').select2('destroy');
-      for (let i = 0; i < this.maincurrencylist.length; i++) {
-        if (this.maincurrencylist[i]['currency_symbol'] == 'USD') {
-          $('#sel_curr').val(this.maincurrencylist[i]['currency_symbol']);
-        }
-      }
-      for (let i = 0; i < this.allcoin.length; i++) {
-        if (this.allcoin[i]['symbol'] == 'BTC') {
-          $('#sel_base').val(this.allcoin[i]['symbol']);
-          $('#sel_convert').val(this.allcoin[i]['symbol']);
-        }
-      }
-      $('#sel_curr').select2();
-      $('#sel_base').select2();
-      $('#sel_convert').select2();
-      this.currency = $('#sel_curr').val();
-      this.basecoin = $('#sel_base').val();
-      this.convcoin = $('#sel_convert').val();
-      this.changevalue();
-    }, 2000);
   }
 
   changeamount() {

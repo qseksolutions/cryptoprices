@@ -183,8 +183,8 @@
   </div>
 </section>
 
-<div class="modal fade" id="add-transaction" role="dialog" aria-labelledby="add-transactionlabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+<div class="modal fade modal-transaction" id="add-transaction" role="dialog" aria-labelledby="add-transactionlabel" aria-hidden="true">
+  <div class="modal-dialog " role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Add Transaction </h5>
@@ -193,54 +193,65 @@
       </div>
 
       <div class="modal-body">
-        <div class="container">
+        <form class="model-form" #form="ngForm" (ngSubmit)="onSubmitAddtransaction(form.value)">
+         <div class="container">
           <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-              <form class="model-form" #form="ngForm" (ngSubmit)="onSubmitAddtransaction(form.value)">
-                <input type="hidden" id="port_id" name="port_id" ngModel />
+              <input type="hidden" id="port_id" name="port_id" ngModel />
+            </div>
 
-                <div class="prot-amnt-input mb-30">
-                  <label class="widget-select-label">Select Date</label>
-                  <input class="currency-select form-control date" placeholder="Select date of Purchase..." name="date" [(ngModel)]="modeldate"
-                    (ngModelChange)="getcoinprice(form.value);" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" id="date">
-                </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">            
+              <div class="prot-amnt-input mb-30">
+                <label class="widget-select-label">Select Date</label>
+                <input class="currency-select form-control date" placeholder="Select date of Purchase..." name="date" [(ngModel)]="modeldate"
+                  (ngModelChange)="getcoinprice(form.value);" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" id="date">
+              </div>
+            </div>
 
-                <div class="calc-coin-dropdown mb-30">
-                  <label class="widget-select-label">Select Coin</label>
-                  <select class="selectpicker form-control hauto" id="coin" name="coin" ngModel>
-                    <ng-container *ngFor="let coin of allcoin">
-                      <option value="{{coin.symbol}}">{{coin.name}} ({{coin.symbol}})</option>
-                    </ng-container>
-                  </select>
-                </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6">            
+              <div class="calc-coin-dropdown mb-30">
+                <label class="widget-select-label">Select Coin</label>
+                <select class="selectpicker form-control hauto" id="coin" name="coin" ngModel>
+                  <ng-container *ngFor="let coin of allcoin">
+                    <option value="{{coin.symbol}}">{{coin.name}} ({{coin.symbol}})</option>
+                  </ng-container>
+                </select>
+              </div>
+            </div>
 
-                <div class="calc-coin-dropdown mb-30">
-                  <label class="widget-select-label">Select Currency</label>
-                  <select class="selectpicker form-control hauto" id="currency" name="currency" ngModel>
-                    <ng-container *ngFor="let curr of allcurrency">
-                      <option value="{{curr.currency_symbol}}">{{curr.currency_symbol}}</option>
-                    </ng-container>
-                  </select>
-                </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6">                        
+              <div class="calc-coin-dropdown mb-30">
+                <label class="widget-select-label">Select Currency</label>
+                <select class="selectpicker form-control hauto" id="currency" name="currency" ngModel>
+                  <ng-container *ngFor="let curr of allcurrency">
+                    <option value="{{curr.currency_symbol}}">{{curr.currency_symbol}}</option>
+                  </ng-container>
+                </select>
+              </div>
+            </div>
+          
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6">                        
+              <div class="prot-amnt-input mb-30">
+                <label class="widget-select-label">Enter Coin Amount</label>
+                <input type="text" class="form-control" id="amount" name="amount" ngModel (keyup)="getcoinprice(form.value);" />
+              </div>
+            </div>
+            
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6">                        
+              <div class="prot-amnt-input mb-30">
+                <label class="widget-select-label">Enter Value of Coin</label>
+                <input type="text" class="form-control" id="value_coin" name="value_coin" ngModel/>
+              </div>
+            </div>
 
-
-                <div class="prot-amnt-input mb-30">
-                  <label class="widget-select-label">Enter Coin Amount</label>
-                  <input type="text" class="form-control" id="amount" name="amount" ngModel (keyup)="getcoinprice(form.value);" />
-                </div>
-
-                <div class="prot-amnt-input mb-30">
-                  <label class="widget-select-label">Enter Value of Coin</label>
-                  <input type="text" class="form-control" id="value_coin" name="value_coin" ngModel/>
-                </div>
-
-                <div class="form-group d-md-flex justify-content-md-between align-items-md-center">
-                  <button type="submit" class="btn btn-primary btn-submit"> SUBMIT </button>
-                </div>
-              </form>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">                        
+              <div class="form-group d-md-flex justify-content-md-between align-items-md-center">
+                <button type="submit" class="btn btn-primary btn-submit"> SUBMIT </button>
+              </div>
             </div>
           </div>
-        </div>
+         </div>
+        </form>
       </div>
     </div>
   </div>

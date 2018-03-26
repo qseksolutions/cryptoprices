@@ -1054,7 +1054,7 @@ div.modal.show .modal-dialog {
 
 .select2-container--default .select2-search--dropdown .select2-search__field:focus{
     outline: none;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 
 .form-group{
@@ -1319,7 +1319,7 @@ div.modal.show .modal-dialog {
 .subpage-form{
     padding: 50px 40px;
     background-color: #fff;
-    box-shadow: 0 5px 10px rgba(114, 114, 114, 0.1);
+    box-shadow: 0 0px 10px rgba(114, 114, 114, 0.1);
 
 }   
 
@@ -1846,7 +1846,7 @@ div.modal.show .modal-dialog {
     justify-content: space-between;
     align-items: center;
     background-color: #fff;
-    box-shadow: 0 5px 10px rgba(114, 114, 114, 0.1);
+    box-shadow: 0 0px 10px rgba(114, 114, 114, 0.1);
     padding: 20px 20px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1919,7 +1919,7 @@ div.modal.show .modal-dialog {
     display: flex;
     padding: 20px;
     background-color: #fff;
-    box-shadow: 0 5px 10px rgba(114, 114, 114, 0.1);
+    box-shadow: 0 0px 10px rgba(114, 114, 114, 0.1);
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
@@ -1933,7 +1933,7 @@ div.modal.show .modal-dialog {
     display: flex;
     align-items: center;
     background-color: #fff;
-    box-shadow: 0 5px 10px rgba(114, 114, 114, 0.1);
+    box-shadow: 0 0px 10px rgba(114, 114, 114, 0.1);
     margin-bottom: 30px;
 
 }
@@ -2080,7 +2080,7 @@ div.modal.show .modal-dialog {
 
 .faq-box{
     background-color: #fff;
-    box-shadow: 0 5px 10px rgba(114, 114, 114, 0.1);
+    box-shadow: 0 0px 10px rgba(114, 114, 114, 0.1);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;

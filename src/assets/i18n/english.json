@@ -11,6 +11,17 @@
     "calculator" : "Calculator",
     "widget" : "Widget"
   },
+  "FOOTER": {
+    "home" : "Home",
+    "about" : "About Us",
+    "faq" : "FAQ",
+    "contact" : "Contact Us",
+    "news" : "News",
+    "calculator" : "Calculator",
+    "widget" : "Widget",
+    "description" : "The day is coming where your marketing will be automated. advanced tracking simplified & mind-blowing reports generatedin one click!",
+    "copyright" : "Copyright © 2018 CryptoPrices. All Rights Reserved."
+  },
   "HOME": {
     "name" : "Name",
     "price" : "Price",
@@ -19,5 +30,12 @@
     "volume24h" : "Volume 24h",
     "7day" : "7 Day",
     "add/track" : "Add/Track"
+  },
+  "CONTACTUS": {
+    "description" : "Please use the form below to send us your comments & suggestions. We will get back to you as soon as possible. If you require technical assistance or customer service please visit the support section to open a ticket. You can also email us directly at support@cryptoprice.com",
+    "name" : "Name",
+    "emailaddress" : "Email Address",
+    "message" : "Message",
+    "sendmessage" : "Send Message"
   }
 }

@@ -66,8 +66,7 @@ export class HomeComponent implements OnInit {
     amount: '',
     value_coin: ''
   };
-  selectedImg:any=myGlobals.default_lang;
-  selectedLang:any=myGlobals.lang_name;
+  default_lang:any=myGlobals.default_lang;
   
 
   // tslint:disable-next-line:max-line-length
@@ -117,7 +116,7 @@ export class HomeComponent implements OnInit {
     this.prepage = 0;
     this.nxtpage = 2;
 
-    this.translateService.use(this.selectedImg);
+    this.translateService.use(this.default_lang);
 
   }
 

@@ -11,6 +11,17 @@
     "calculator" : "Calculator",
     "widget" : "Widget"
   },
+  "FOOTER": {
+    "home" : "Home",
+    "about" : "About Us",
+    "faq" : "FAQ",
+    "contact" : "Contact Us",
+    "news" : "News",
+    "calculator" : "Calculator",
+    "widget" : "Widget",
+    "description" : "The day is coming where your marketing will be automated. advanced tracking simplified & mind-blowing reports generatedin one click!",
+    "copyright" : "Copyright © 2018 CryptoPrices. All Rights Reserved."
+  },
   "HOME": {
     "name" : "Nom",
     "price" : "Prix",

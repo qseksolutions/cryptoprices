@@ -3,6 +3,7 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Router } from '@angular/router';
 import { CoinService } from '../coin.service';
 import * as myGlobals from './../global';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-footer',
@@ -15,8 +16,9 @@ export class FooterComponent implements OnInit {
   public base_url: any = myGlobals.base_url;
   adds: any;
   curl: any;
+  default_lang:any=myGlobals.default_lang;
 
-  constructor(private coinservice: CoinService, private router: Router, private http: Http) {
+  constructor(private translateService: TranslateService,private coinservice: CoinService, private router: Router, private http: Http) {
     const href = location.href;
     const url = href.split('/');
     if (url[3] === '') {
@@ -24,6 +26,9 @@ export class FooterComponent implements OnInit {
     } else {
       this.curl = url[3];
     }
+
+    this.translateService.use(this.default_lang);
+
   }
 
   ngOnInit() {

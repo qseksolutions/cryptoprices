@@ -726,7 +726,7 @@ input.search-input{
     padding: 5px 0px;
 }
 
-/*protfolio-table*/
+/*portfolio-table*/
 .recent-table {
     margin: 30px 0px;
 
@@ -1887,15 +1887,15 @@ div.modal.show .modal-dialog {
 
 
 /*------------------------------
-------- protfolio-start --------
+------- portfolio-start --------
 -------------------------------*/
 
-.protfolio-bg{
+.portfolio-bg{
     padding-bottom: 50px;
 
 }
 
-.protfolio-networth{
+.portfolio-networth{
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1915,7 +1915,7 @@ div.modal.show .modal-dialog {
 
 }
 
-.protfolio-box{
+.portfolio-box{
     margin-top: -50px;
 
 }
@@ -1925,17 +1925,27 @@ div.modal.show .modal-dialog {
 
 }
 
-.prot-box-name {
+.portfolio-detaile-box {
+    margin-bottom: 15px;
+
+}
+
+.port-box-name {
     font-weight: 600;
-    font-size: 16px;
+    font-size: 20px;
     margin-right: 5px;
 
 }
 
-.prot-box-price {
+.port-box-price {
     font-weight: 600;
     margin-right: 5px;
-    font-size: 14px;
+    font-size: 16px;
+
+}
+
+.port-box-change{
+    font-size: 16px;
 
 }
 
@@ -1948,24 +1958,24 @@ div.modal.show .modal-dialog {
 
 }
 
-.prot-amnt-input .form-control{
+.port-amnt-input .form-control{
     padding: 5px 15px;
 
 }
 
-.prot-dropdown .dropdown-menu{
+.port-dropdown .dropdown-menu{
     margin-top: 0px;
     min-width: auto;
 
 }
 
-.protfolio-top-area{
+.portfolio-top-area{
     margin-top: 20px;
 
 }
 
 /*------------------------------
---------- protfolio-end --------
+--------- portfolio-end --------
 -------------------------------*/
 
 
@@ -2037,7 +2047,7 @@ div.modal.show .modal-dialog {
 
 }
 
-.protfolio-coin-title h6{
+.portfolio-coin-title h6{
     font-size: 18px;
     margin-bottom: 0px;
     color: #fff;
@@ -2621,7 +2631,7 @@ ngb-datepicker {
     
     }
 
-    .protfolio-bg ,
+    .portfolio-bg ,
     .editprofile-bg,
     .faq-bg{
         padding: 50px 0px;
@@ -2771,11 +2781,11 @@ ngb-datepicker {
     
     }
 
-    .protfolio-box {
+    .portfolio-box {
         margin-top: -20px;
     }
 
-    .protfolio-top-area{
+    .portfolio-top-area{
         margin-top: 0px;
 
     }
@@ -2857,7 +2867,7 @@ ngb-datepicker {
         text-align: right;
     }
 
-    .protfolio-bg{
+    .portfolio-bg{
         padding: 20px 0px;
     }
 

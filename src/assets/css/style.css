@@ -1372,7 +1372,17 @@ div.modal.show .modal-dialog {
 
 .widget-curr-dropdown{
     width: 30%;
-    
+    position: relative;
+
+}
+
+.loader-box{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 10px;
+
 }
 
 .widget-select-label{

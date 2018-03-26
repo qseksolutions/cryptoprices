@@ -88,11 +88,13 @@
                 <span class="btn btn-warning equal-value-btn" id="convert_curr">00.000
                   <span class="calc-curr-symbol"></span>
                 </span>
-                
-                <span *ngIf="showloader">
-                  <img src="../../assets/images/preloader.gif" width="30px" style="margin-left: 2%;"/>
-                </span>
               </div>
+            </div>
+
+            <div class="text-center loader-box">
+              <span *ngIf="showloader" class="pt-2">
+                <img src="../../assets/images/preloader.gif" width="30px"/>
+              </span>
             </div>
           </div>
         </div>

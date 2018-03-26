@@ -111,7 +111,7 @@
       </div>
     </div>
   </div>
-  <section>
+  <section >
     <div class="table-top-area protfolio-top-area"></div>
     <div class="container">
       <div class="row">
@@ -129,7 +129,6 @@
                     <th>Profit </th>
                     <th>Return </th>
                     <th>No.Trade </th>
-                    <!-- <th>Action</th> -->
                   </tr>
                 </thead>
 
@@ -162,10 +161,6 @@
                       <span [ngClass]="((pl.current_price * pl.coin_amount) - pl.totalcost) / pl.totalcost * 100 > 0 ? 'text-green' : 'text-red'"> {{((pl.current_price * pl.coin_amount) - pl.totalcost) / pl.totalcost * 100 | number : '1.0-2'}}% </span>
                     </td>
                     <td class="text-center"> {{pl.trade}} </td>
-                    <!-- <td class="text-center"> 
-                      <a href="javascript:;"><i class="fa fa-times text-red mr-10"></i></a>
-                      <i class="fa fa-pencil-square"></i>
-                    </td> -->
                   </tr>
                 </tbody>
               </table>
@@ -176,7 +171,10 @@
     </div>
   </section>
   <section>
-    <div class="table-top-area protfolio-top-area"></div>
+    <div class="container">
+      <h4 style="color:#565454;">Recent Transaction</h4>
+    </div>
+    <div class="table-top-area protfolio-top-area" style="margin-top: 56px;"></div>
     <div class="container">
       <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
@@ -209,19 +207,42 @@
                         </div>
                       </a>
                     </td>
-                    <td> {{base_sing}}{{portfolio.dc_price / portfolio.coin_amount | number : '1.0-2'}} <br>
-                    ({{portfolio.bc_sign}}{{portfolio.bc_price / portfolio.coin_amount | number : '1.0-2'}}) </td>
-                    <td> {{base_sing}}{{portfolio.dc_price | number : '1.2-2'}} <br>
-                       ({{portfolio.bc_sign}} {{portfolio.bc_price | number : '1.2-2'}})
+                    <td>
+                      <div class="coin-name">
+                        <span class="coin-name-text">
+                          <h6>{{base_sing}}{{portfolio.dc_price / portfolio.coin_amount | number : '1.0-2'}}</h6>
+                          <span class="coin-shortname"> ({{portfolio.bc_sign}}{{portfolio.bc_price / portfolio.coin_amount | number : '1.0-2'}}) </span>
+                        </span>
+                      </div>
                     </td>
-                    <td> {{portfolio.transaction_date}} </td>
-                    <td> 
-                      <a href="javascript:;" class="btn btn-remove" (click)="traderemove(portfolio.id)">
-                        <i class="fa fa-times"></i>
-                      </a>
-                      <a href="javascript:;" class="btn btn-edit" (click)="edittrade(portfolio.id)">
-                        <i class="fa fa-edit"></i>
-                      </a>
+                    <td>
+                      <div class="coin-name">
+                        <span class="coin-name-text">
+                          <h6>{{base_sing}}{{portfolio.dc_price | number : '1.2-2'}}</h6>
+                          <span class="coin-shortname"> ({{portfolio.bc_sign}} {{portfolio.bc_price | number : '1.2-2'}}) </span>
+                        </span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="coin-name">
+                        <span class="coin-name-text">
+                          <h6>{{portfolio.transaction_date | date:'MMMM d, y'}}</h6>
+                        </span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="coin-name">
+                        <span class="coin-name-text">
+                          <h6>
+                            <a href="javascript:;" class="btn btn-remove text-red" (click)="traderemove(portfolio.id)">
+                              <i class="fa fa-times"></i>
+                            </a>
+                            <a href="javascript:;" class="btn btn-edit" (click)="edittrade(portfolio.id)">
+                              <i class="fa fa-edit"></i>
+                            </a>
+                          </h6>
+                        </span>
+                      </div>
                     </td>
                     <!-- <td class="text-center"> 
                         <a href="javascript:;"><i class="fa fa-times text-red mr-10"></i></a>

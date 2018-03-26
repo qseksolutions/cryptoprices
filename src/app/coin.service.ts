@@ -139,22 +139,15 @@ export class CoinService {
   updatetrade(trans) {
     const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
     const options = new RequestOptions({ headers: headers });
-    console.log(trans);
-    const fcoin = trans.coin;
-    const tcoin = fcoin.split('(');
-    const lcoin = tcoin[1].split(')');
-    trans.coin = lcoin[0];
 
     const form = new URLSearchParams();
     form.append('port_id', trans.port_id);
     form.append('userid', this.userid);
-    form.append('coin_name', tcoin[0]);
-    form.append('buycoin', lcoin[0]);
+    form.append('buycoin', trans.coin);
     form.append('buyamount', trans.amount);
-    form.append('bcurrency', trans.curr);
-    form.append('bcprice', trans.rate);
+    form.append('bcurrency', trans.currency);
+    form.append('bcprice', trans.value_coin);
     form.append('dcurrency', this.user_base);
-    form.append('bc_sign', trans.curr_sign);
     form.append('tdate', trans.date);
     form.append('token', this.token);
 

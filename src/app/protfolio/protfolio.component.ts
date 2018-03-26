@@ -7,14 +7,16 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/map';
 import { ToasterContainerComponent, ToasterService, ToasterConfig } from 'angular2-toaster';
 import { Title, Meta } from '@angular/platform-browser';
+import { DatePipe, DecimalPipe } from '@angular/common';
 
 declare var $: any;
+declare var bootbox: any;
 
 @Component({
   selector: 'app-protfolio',
   templateUrl: './protfolio.component.html',
   styleUrls: ['./protfolio.component.css'],
-  providers: [CoinService],
+  providers: [CoinService, DatePipe, DecimalPipe],
 })
 export class ProtfolioComponent implements OnInit {
 
@@ -30,6 +32,7 @@ export class ProtfolioComponent implements OnInit {
   public model: any;
   public modelcur: any;
   public modeldate: any;
+  showloader: any;
   totalcost: any = 0;
   value: any = 0;
   overolsum: any = 0;
@@ -45,7 +48,8 @@ export class ProtfolioComponent implements OnInit {
     value_coin: ''
   };
 
-  constructor(private coinservice: CoinService, toasterService: ToasterService, private title: Title, private meta: Meta) {
+  constructor(private coinservice: CoinService, toasterService: ToasterService, private title: Title, private meta: Meta, private decimalpipe: DecimalPipe, private datePipe: DatePipe) {
+    this.showloader = true;
     localStorage.setItem('sorton', null);
     localStorage.setItem('sortby', null);
     this.toasterService = toasterService;
@@ -55,6 +59,7 @@ export class ProtfolioComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.showloader = true;
     /* const curl = window.location.href;
     this.coinservice.gettestseometa(curl).subscribe(resData => {
       if (resData.status === true) {
@@ -82,40 +87,48 @@ export class ProtfolioComponent implements OnInit {
     this.coinservice.portfoliolist().subscribe(resData => {
       if (resData.status === true) {
         this.portfoliolist = resData.data;
+        this.showloader = false;
       } else {
         this.portfoliolist = '';
+        this.showloader = false;
       }
     });
     this.coinservice.getallcoin('').subscribe(resData => {
       if (resData.status === true) {
         this.allcoin = resData.data;
-        console.log(this.allcoin);
+        if (this.allcoin.length > 0) {
+          setTimeout(() => {
+            $('#coin').select2('destroy');
+            for (let i = 0; i < this.allcoin.length; i++) {
+              if (this.allcoin[i]['symbol'] == 'BTC') {
+                $('#coin').val(this.allcoin[i]['symbol']);
+              }
+            }
+            $('#coin').select2();
+            this.coin = $('#coin').val();
+            console.log('coin data');
+          }, 2000);
+        }
       }
     });
     this.coinservice.getmaincurrencylist('').subscribe(resData => {
       if (resData.status === true) {
         this.allcurrency = resData.data;
-        console.log(this.allcurrency);
+        if (this.allcurrency.length > 0) {
+          setTimeout(() => {
+            $('#currency').select2('destroy');
+            for (let i = 0; i < this.allcurrency.length; i++) {
+              if (this.allcurrency[i]['currency_symbol'] == 'USD') {
+                $('#currency').val(this.allcurrency[i]['currency_symbol']);
+              }
+            }
+            $('#currency').select2();
+            this.currency = $('#currency').val();
+            console.log('currency data');
+          }, 2000);
+        }
       }
     });
-    setTimeout(() => {
-      $('#currency').select2('destroy');
-      $('#coin').select2('destroy');
-      for (let i = 0; i < this.allcurrency.length; i++) {
-        if (this.allcurrency[i]['currency_symbol'] == 'USD') {
-          $('#currency').val(this.allcurrency[i]['currency_symbol']);
-        }
-      }
-      for (let i = 0; i < this.allcoin.length; i++) {
-        if (this.allcoin[i]['symbol'] == 'BTC') {
-          $('#coin').val(this.allcoin[i]['symbol']);
-        }
-      }
-      $('#currency').select2();
-      $('#coin').select2();
-      this.currency = $('#currency').val();
-      this.coin = $('#coin').val();
-    }, 5000);
   }
 
   ngAfterViewInit() {
@@ -143,7 +156,7 @@ export class ProtfolioComponent implements OnInit {
         }
       });
     } else {
-      /* trans.date = $('#date').val();
+      trans.date = $('#date').val();
       trans.coin = this.coin;
       trans.currency = this.currency;
       trans.amount = $('#amount').val();
@@ -152,12 +165,12 @@ export class ProtfolioComponent implements OnInit {
 
         this.coinservice.getcoinprice(trans).subscribe(resData => {
           if (resData.Response === 'Error') {
-            $('#rate').val('0');
+            $('#value_coin').val('0');
           } else {
-            $('#rate').val(resData[trans.coin][trans.currency] * trans.amount);
+            $('#value_coin').val(resData[trans.coin][trans.currency] * trans.amount);
           }
         });
-      } */
+      }
     }
   }
 
@@ -166,22 +179,71 @@ export class ProtfolioComponent implements OnInit {
     trans.coin = this.coin;
     trans.currency = this.currency;
     trans.value_coin = $('#value_coin').val();
-    this.coinservice.addtrade(trans).subscribe(resData => {
+    trans.port_id = $('#port_id').val();
+    if (trans.port_id === '') {
+      this.coinservice.addtrade(trans).subscribe(resData => {
+        if (resData.status === true) {
+          console.log(resData);
+          this.toasterService.pop('success', 'Success', resData.message);
+          this.ngOnInit();
+          this.port = {
+            port_id: '',
+            coin: '',
+            date: '',
+            currency: '',
+            amount: '',
+            value_coin: ''
+          };
+          setTimeout(() => {
+            $('#add-transaction').modal('toggle');
+          }, 2000);
+        } else {
+          this.toasterService.pop('error', 'Error', resData.message);
+        }
+      });
+    } else {
+      trans.date = $('#date').val();
+      trans.coin = $('#coin').val();
+      trans.curr = $('#currency').val();
+      trans.amount = $('#amount').val();
+      trans.rate = $('#value_coin').val();
+      this.coinservice.updatetrade(trans).subscribe(resData => {
+        if (resData.status === true) {
+          this.toasterService.pop('success', 'Success', resData.message);
+          this.ngOnInit();
+          this.port = {
+            port_id: '',
+            coin: '',
+            date: '',
+            currency: '',
+            amount: '',
+            value_coin: ''
+          };
+          setTimeout(() => {
+            $('#add-transaction').modal('toggle');
+          }, 2000);
+        } else {
+          this.toasterService.pop('error', 'Error', resData.message);
+        }
+      });
+    }
+  }
+
+  edittrade(id) {
+    this.coinservice.gettradesingledata(id).subscribe(resData => {
       if (resData.status === true) {
-        console.log(resData);
-        this.toasterService.pop('success', 'Success', resData.message);
-        this.ngOnInit();
-        this.port = {
-          port_id: '',
-          coin: '',
-          date: '',
-          currency: '',
-          amount: '',
-          value_coin: ''
-        };
-        setTimeout(() => {
-          $('#add-transaction').modal('toggle');
-        }, 2000);
+        const date = this.datePipe.transform(resData.data.transaction_date, 'yyyy-MM-dd');
+        $('#date').val(date);
+        $('#coin').select2('destroy');
+        $('#coin').val(resData.data.buy_coin);
+        $('#coin').select2();
+        $('#currency').select2('destroy');
+        $('#currency').val(resData.data.b_currency);
+        $('#currency').select2();
+        $('#amount').val(resData.data.coin_amount);
+        $('#value_coin').val(resData.data.bc_price);
+        $('#port_id').val(resData.data.id);
+        $('#add-transaction').modal('toggle');
       } else {
         this.toasterService.pop('error', 'Error', resData.message);
       }
@@ -189,12 +251,32 @@ export class ProtfolioComponent implements OnInit {
   }
 
   traderemove(tradeid) {
-    this.coinservice.removetrade(tradeid).subscribe(resData => {
-      if (resData.status === true) {
-        this.toasterService.pop('success', 'Success', resData.message);
-        this.ngOnInit();
-      } else {
-        this.toasterService.pop('error', 'Error', resData.message);
+    let th = this;
+    bootbox.confirm({
+      closeButton: false,
+      title: "Confirm Delete !",
+      message: "Are you sure you want to detele this record ?",
+      buttons: {
+        confirm: {
+          label: 'Confirm',
+          className: 'btn-success'
+        },
+        cancel: {
+          label: 'No',
+          className: 'btn-danger'
+        }
+      },
+      callback: function (result) {
+        if (result) {
+          th.coinservice.removetrade(tradeid).subscribe(resData => {
+            if (resData.status === true) {
+              th.toasterService.pop('success', 'Success', resData.message);
+              th.ngOnInit();
+            } else {
+              th.toasterService.pop('error', 'Error', resData.message);
+            }
+          });
+        }
       }
     });
   }

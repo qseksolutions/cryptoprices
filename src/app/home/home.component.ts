@@ -8,6 +8,7 @@ import { Observable } from 'rxjs/Observable';
 import { ToasterContainerComponent, ToasterService, ToasterConfig } from 'angular2-toaster';
 import { DecimalPipe } from '@angular/common';
 import { Title, Meta } from '@angular/platform-browser';
+import {TranslateService} from '@ngx-translate/core';
 
 declare var $;
 
@@ -65,10 +66,12 @@ export class HomeComponent implements OnInit {
     amount: '',
     value_coin: ''
   };
+  selectedImg:any=myGlobals.default_lang;
+  selectedLang:any=myGlobals.lang_name;
   
 
   // tslint:disable-next-line:max-line-length
-  constructor(private coinservice: CoinService, private router: Router, private http: Http, toasterService: ToasterService, private title: Title, private meta: Meta, private decimalpipe: DecimalPipe ) {
+  constructor(private translateService: TranslateService,private coinservice: CoinService, private router: Router, private http: Http, toasterService: ToasterService, private title: Title, private meta: Meta, private decimalpipe: DecimalPipe ) {
     this.toasterService = toasterService;
     this.sorton = localStorage.getItem('sorton');
     this.sortby = localStorage.getItem('sortby');
@@ -113,6 +116,8 @@ export class HomeComponent implements OnInit {
     }
     this.prepage = 0;
     this.nxtpage = 2;
+
+    this.translateService.use(this.selectedImg);
 
   }
 

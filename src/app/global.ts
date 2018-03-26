@@ -49,6 +49,10 @@ export const userstatus = localStorage.getItem('status');
 export const basecurr = localStorage.getItem('base');
 export const base_sing = localStorage.getItem('base_sing');
 export const user_base = localStorage.getItem('user_base');
+
+export const default_lang = localStorage.getItem('default_lang');
+export const lang_name = localStorage.getItem('lang_name');
+
 export const token = localStorage.getItem('token');
 const aurl = window.location.href;
 const burl = aurl.split('/');

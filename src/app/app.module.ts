@@ -8,7 +8,9 @@ import { APP_BASE_HREF } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartModule, HIGHCHARTS_MODULES } from 'angular-highcharts';
 import { ToasterModule } from 'angular2-toaster';
-import {TranslateModule} from '@ngx-translate/core';
+import { HttpClient,HttpClientModule } from "@angular/common/http";
+import { TranslateModule,TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { TimeAgoPipe } from 'time-ago-pipe';
 // import { SocialLoginModule, AuthServiceConfig } from 'angular4-social-login';
 // import { GoogleLoginProvider, FacebookLoginProvider } from 'angular4-social-login';
@@ -61,6 +63,10 @@ import { CoinwidgetComponent } from './coinwidget/coinwidget.component';
 
 export function highchartsModules() {
     return [ highstock, exporting ];
+}
+
+export function HttpLoaderFactory(httpClient: HttpClient) {
+    return new TranslateHttpLoader(httpClient, "./assets/i18n/", ".json");
 }
 
 @NgModule({
@@ -134,7 +140,12 @@ export function highchartsModules() {
     ]),
     BrowserModule,
     NgbModule.forRoot(),
-    TranslateModule.forRoot(),
+    HttpClientModule,
+    TranslateModule.forRoot({loader: {
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [HttpClient]
+          }}),
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
@@ -163,7 +174,7 @@ export function highchartsModules() {
     CoinwidgetComponent,
     TimeAgoPipe
   ],
-  providers: [
+  providers: [HttpClient,TranslateModule,
     // { provide: HIGHCHARTS_MODULES, useFactory: highchartsModules }, { provide: AuthServiceConfig, useFactory: provideConfig }
     { provide: HIGHCHARTS_MODULES, useFactory: highchartsModules }
   ],

@@ -3,21 +3,21 @@
     <div class="all-coinvalue">
       <div class="coinvalue-box pl-0">
         <div class="value-list-box">
-          <span class="coinlis-value"> Market Cap: </span>
+          <span class="coinlis-value"> {{ 'HEADER.marketcap' | translate}} : </span>
           <h5 class="coinlist-name"> {{base_sing}}{{totalmarket | number}} </h5>
         </div>
       </div>
 
       <div class="coinvalue-box big-box">
         <div class="value-list-box">
-          <span class="coinlis-value"> 24h Vol: </span>
+          <span class="coinlis-value"> {{ 'HEADER.24hvol' | translate}} : </span>
           <h5 class="coinlist-name"> {{base_sing}}{{totaltrade | number}} </h5>
         </div>
       </div>
 
       <div class="coinvalue-box">
         <div class="value-list-box">
-          <span class="coinlis-value"> BTC Dominance: </span>
+          <span class="coinlis-value"> {{ 'HEADER.btcdominance' | translate}} : </span>
           <h5 class="coinlist-name"> {{(btcmarketcap / totalmarket) * 100 | number  : '1.0-2'}}% </h5>
         </div>
       </div>
@@ -50,138 +50,18 @@
             <a href="javascript:void(0);" class="select-list-country-link dropdown-anchor" id="lang-dropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
               <span class="btn btn-select">
-                <img src="assets/language-symbol/english.svg" class="flag-img">
-                <span class="lang-name">English</span>
+                <img src="assets/language-symbol/{{selectedImg}}.svg" class="flag-img">
+                <span class="lang-name">{{selectedLang}}</span>
               </span>
               <button class="btn btn-language btn-select-dropdown">
                 <i class="fas fa-caret-down"></i>
               </button>
             </a>
             <ul class="select-list-country dropdown-menu" aria-labelledby="lang-dropdown">
-              <li class="active">
-                <span value="english">
-                  <img src="assets/language-symbol/english.svg" class="flag-img">
-                  <span class="lang-name">Engish</span>
-                </span>
-              </li>
-              <li>
-                <span value="chinese">
-                  <img src="assets/language-symbol/chinese.svg" class="flag-img">
-                  <span class="lang-name">简体中文</span>
-                </span>
-              </li>
-              <li>
-                <span value="japanese">
-                  <img src="assets/language-symbol/japanese.svg" class="flag-img">
-                  <span class="lang-name">日本語</span>
-                </span>
-              </li>
-              <li>
-                <span value="korean">
-                  <img src="assets/language-symbol/korean.svg" class="flag-img">
-                  <span class="lang-name">한국어</span>
-                </span>
-              </li>
-              <li>
-                <span value="vietnamese">
-                  <img src="assets/language-symbol/vietnamese.svg" class="flag-img">
-                  <span class="lang-name">Tiếng Việt</span>
-                </span>
-              </li>
-              <li>
-                <span value="spanish">
-                  <img src="assets/language-symbol/spanish.svg" class="flag-img">
-                  <span class="lang-name">Español</span>
-                </span>
-              </li>
-              <li>
-                <span value="portugueseBrazil">
-                  <img src="assets/language-symbol/portugueseBrazil.svg" class="flag-img">
-                  <span class="lang-name">Brazil Português</span>
-                </span>
-              </li>
-              <li>
-                <span value="portugal">
-                  <img src="assets/language-symbol/portugal.svg" class="flag-img">
-                  <span class="lang-name">Português</span>
-                </span>
-              </li>
-              <li>
-                <span value="german">
-                  <img src="assets/language-symbol/german.svg" class="flag-img">
-                  <span class="lang-name">Deutsche</span>
-                </span>
-              </li>
-              <li>
-                <span value="romanian">
-                  <img src="assets/language-symbol/romanian.svg" class="flag-img">
-                  <span class="lang-name">Română</span>
-                </span>
-              </li>
-              <li>
-                <span value="russian">
-                  <img src="assets/language-symbol/russian.svg" class="flag-img">
-                  <span class="lang-name">русский</span>
-                </span>
-              </li>
-              <li>
-                <span value="turkish">
-                  <img src="assets/language-symbol/turkish.svg" class="flag-img">
-                  <span class="lang-name">Türk</span>
-                </span>
-              </li>
-              <li>
-                <span value="ukraine">
-                  <img src="assets/language-symbol/ukraine.svg" class="flag-img">
-                  <span class="lang-name">український</span>
-                </span>
-              </li>
-              <li>
-                <span value="italian">
-                  <img src="assets/language-symbol/italian.svg" class="flag-img">
-                  <span class="lang-name">Italiano</span>
-                </span>
-              </li>
-              <li>
-                <span value="dutch">
-                  <img src="assets/language-symbol/dutch.svg" class="flag-img">
-                  <span class="lang-name">Nederlands</span>
-                </span>
-              </li>
-              <li>
-                <span value="french">
-                  <img src="assets/language-symbol/french.svg" class="flag-img">
-                  <span class="lang-name">Français</span>
-                </span>
-              </li>
-              <li>
-                <span value="greek">
-                  <img src="assets/language-symbol/greek.svg" class="flag-img">
-                  <span class="lang-name">ελληνικά</span>
-                </span>
-              </li>
-              <li>
-                <span value="hindi">
-                  <img src="assets/language-symbol/hindi.svg" class="flag-img">
-                  <span class="lang-name">हिंदी</span>
-                </span>
-              </li>
-              <li>
-                <span value="indonesian">
-                  <img src="assets/language-symbol/indonesian.svg" class="flag-img">
-                  <span class="lang-name">Bahasa Indonesia</span>
-                </span>
-              </li>
-              <li>
-                <span value="danish">
-                  <img src="assets/language-symbol/danish.svg" class="flag-img">
-                  <span class="lang-name">Dansk</span>
-                </span>
-              </li>
-              <li>
+              <li *ngFor="let data of language" (click)="changeLang(data.lang,data.image)">
                 <span value="arabic">
-                  <img src="assets/language-symbol/arabic.svg" class="flag-img">
-                  <span class="lang-name">العربية</span>
+                  <img src="assets/language-symbol/{{data.image}}.svg" class="flag-img">
+                  <span class="lang-name">{{data.lang}}</span>
                 </span>
               </li>
             </ul>

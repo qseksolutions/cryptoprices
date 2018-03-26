@@ -1,3 +1,12 @@
+<!--<div>
+      <h2>{{ 'HOME.home' | translate }}</h2>
+      <label>
+        {{ 'HOME.about' | translate }}
+        <select #langSelect (change)="changeLang(langSelect.value)">
+          <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+        </select>
+      </label>
+    </div>-->
 <app-header *ngIf="showHeader"></app-header>
 <toaster-container [toasterconfig]="toasterconfig"></toaster-container>
 <router-outlet></router-outlet>

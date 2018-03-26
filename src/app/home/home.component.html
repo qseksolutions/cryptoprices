@@ -31,7 +31,7 @@
                   </th>
                   <th>
                     <a href="javascript:;" (click)="orderingColumn('ch.name','asc')">
-                      Name
+                      {{'HOME.name' | translate}}
                       <span class="datatable-arrow" *ngIf="sorton == 'ch.name'">
                         <i class="fas fa-angle-up" *ngIf="sortby == 'asc'"></i>
                         <i class="fas fa-angle-down" *ngIf="sortby == 'desc'"></i>
@@ -40,7 +40,7 @@
                   </th>
                   <th>
                     <a href="javascript:;" (click)="orderingColumn('ch.price_usd','asc')">
-                      Price
+                      {{'HOME.price' | translate}}
                       <span class="datatable-arrow" *ngIf="sorton == 'ch.price_usd'">
                         <i class="fas fa-angle-up" *ngIf="sortby == 'asc'"></i>
                         <i class="fas fa-angle-down" *ngIf="sortby == 'desc'"></i>
@@ -49,7 +49,7 @@
                   </th>
                   <th>
                     <a href="javascript:;" (click)="orderingColumn('ch.percent_change_24h','asc')">
-                      +/- 24h
+                      +/- {{'HOME.24h' | translate}}
                       <span class="datatable-arrow" *ngIf="sorton == 'ch.percent_change_24h'">
                         <i class="fas fa-angle-up" *ngIf="sortby == 'asc'"></i>
                         <i class="fas fa-angle-down" *ngIf="sortby == 'desc'"></i>
@@ -58,7 +58,7 @@
                   </th>
                   <th>
                     <a href="javascript:;" (click)="orderingColumn('ch.market_cap_usd','asc')">
-                      Market Cap
+                      {{'HOME.marketcap' | translate}}
                       <span class="datatable-arrow" *ngIf="sorton == 'ch.market_cap_usd'">
                         <i class="fas fa-angle-up" *ngIf="sortby == 'asc'"></i>
                         <i class="fas fa-angle-down" *ngIf="sortby == 'desc'"></i>
@@ -67,7 +67,7 @@
                   </th>
                   <th>
                     <a href="javascript:;" (click)="orderingColumn('ch.24h_volume_usd','asc')">
-                      Volume 24h
+                      {{'HOME.volume24h' | translate}}
                       <span class="datatable-arrow" *ngIf="sorton == 'ch.24h_volume_usd'">
                         <i class="fas fa-angle-up" *ngIf="sortby == 'asc'"></i>
                         <i class="fas fa-angle-down" *ngIf="sortby == 'desc'"></i>
@@ -75,11 +75,11 @@
                     </a>
                   </th>
                   <th>
-                    7 Day
+                    {{'HOME.7day' | translate}}
                   </th>
                   <th>
                     <a href="javascript:;" (click)="orderingColumn('ct.status','asc')">
-                      Add/Track
+                      {{'HOME.add/track' | translate}}
                       <span class="datatable-arrow" *ngIf="sorton == 'ct.status'">
                         <i class="fas fa-angle-up" *ngIf="sortby == 'asc'"></i>
                         <i class="fas fa-angle-down" *ngIf="sortby == 'desc'"></i>

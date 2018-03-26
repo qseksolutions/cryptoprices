@@ -11,6 +11,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/map';
 import { window } from 'rxjs/operator/window';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
@@ -19,6 +20,8 @@ import { window } from 'rxjs/operator/window';
   providers: [CoinService],
 })
 export class HeaderComponent implements OnInit {
+  lang_name: any;
+  default_lang: any;
 
   private toasterService: ToasterService;
   public toasterconfig: ToasterConfig =
@@ -61,9 +64,12 @@ export class HeaderComponent implements OnInit {
     userpass: '',
     userconpass: ''
   };
+  selectedImg:any=myGlobals.default_lang;
+  selectedLang:any=myGlobals.lang_name;
+  language : any=[{"image":"english", "lang":"Engish"}, {"image":"chinese", "lang":"简体中文"}, {"image":"japanese", "lang":"日本語"}, {"image":"korean", "lang":"한국어"}, {"image":"vietnamese", "lang":"Tiếng Việt"}, {"image":"spanish", "lang":"Español"}, {"image":"portugueseBrazil", "lang":"Brazil Português"}, {"image":"portugal", "lang":"Português"}, {"image":"german", "lang":"Deutsche"}, {"image":"romanian", "lang":"Română"}, {"image":"russian", "lang":"русский"}, {"image":"turkish", "lang":"Türk"}, {"image":"ukraine", "lang":"український"}, {"image":"italian", "lang":"Italiano"}, {"image":"dutch", "lang":"Nederlands"}, {"image":"french", "lang":"Français"}, {"image":"greek", "lang":"ελληνικά"}, {"image":"hindi", "lang":"हिंदी"}, {"image":"indonesian", "lang":"Bahasa Indonesia"}, {"image":"danish", "lang":"Dansk"}, {"image":"arabic", "lang":"العربية"}];
 
   // tslint:disable-next-line:max-line-length
-  constructor(private coinservice: CoinService, private router: Router, toasterService: ToasterService) {
+  constructor(private translateService: TranslateService,private coinservice: CoinService, private router: Router, toasterService: ToasterService) {
     console.log('token = ' + this.token);
     const href = location.href;
     const url = href.split('/');
@@ -90,6 +96,8 @@ export class HeaderComponent implements OnInit {
     } else {
       this.login_ses = 0;
     }
+
+
   }
 
   ngOnInit() {
@@ -234,12 +242,23 @@ export class HeaderComponent implements OnInit {
     // this.authService.signOut();
     localStorage.clear();
     location.href = this.base_url;
+    localStorage.setItem('default_lang','english');
+    localStorage.setItem('lang_name','English');
   }
 
   closeNav(basecur, base_sing) {
     localStorage.setItem('base', basecur);
     localStorage.setItem('base_sing', base_sing);
     location.reload();
+  }
+  
+  changeLang(lang, lnName: string) {
+    this.selectedLang = lang;
+    this.selectedImg = lnName;
+    // this.translateService.setDefaultLang(lnName);
+    localStorage.setItem('default_lang',lnName);
+    localStorage.setItem('lang_name',lang);
+    this.translateService.use(lnName);
   }
 
   isImage(src) {

@@ -1348,6 +1348,7 @@ div.modal.show .modal-dialog {
 
 .subpage-bg{
     background-color: #a0a0a0;
+    padding-top: 120px;
 
 }
 
@@ -1402,7 +1403,7 @@ div.modal.show .modal-dialog {
 -------------------------*/
 
 .widget-bg{
-    padding: 0px 0px 120px;
+    padding-bottom: 120px;
 
 }
 

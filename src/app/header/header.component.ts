@@ -188,7 +188,7 @@ export class HeaderComponent implements OnInit {
               localStorage.setItem('base_sing', res.data.currency_sign);
               localStorage.setItem('token', resData.data.token);
               setTimeout(() => {
-                // location.reload();
+                location.reload();
               }, 1000);
             }
           });

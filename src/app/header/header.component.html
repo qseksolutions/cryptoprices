@@ -4,14 +4,14 @@
       <div class="coinvalue-box pl-0">
         <div class="value-list-box">
           <span class="coinlis-value"> {{ 'HEADER.marketcap' | translate}} : </span>
-          <h5 class="coinlist-name"> {{base_sing}}{{totalmarket | number}} </h5>
+          <h5 class="coinlist-name"> {{base_sing}}{{totalmarket | number : '1.0-2'}} </h5>
         </div>
       </div>
 
       <div class="coinvalue-box big-box">
         <div class="value-list-box">
           <span class="coinlis-value"> {{ 'HEADER.24hvol' | translate}} : </span>
-          <h5 class="coinlist-name"> {{base_sing}}{{totaltrade | number}} </h5>
+          <h5 class="coinlist-name"> {{base_sing}}{{totaltrade | number : '1.0-2'}} </h5>
         </div>
       </div>
 

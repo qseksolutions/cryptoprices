@@ -139,7 +139,7 @@
                     <tbody>
                       <tr *ngFor="let pl of profitlosslist">
                         <td>
-                          <a href="{{base_url}}coin/{{pl.coin_id}}">
+                            <a href="{{base_url}}cryptocurrency/{{pl.coin_name | lowercase}}-{{pl.buy_coin | lowercase}}-price">
                             <div class="coin-name">
                               <span class="coin-symbol">
                                 <img class="img-fluid" src="assets/currency-svg/{{pl.buy_coin | lowercase}}.svg" (error)="errorHandler($event,pl.buy_coin)">
@@ -155,7 +155,8 @@
                           </a>
                         </td>
                         <td> {{base_sing}}{{pl.totalcost / pl.coin_amount | number : '1.0-2'}} </td>
-                        <td> {{base_sing}}{{pl.current_price | number : '1.0-12'}} </td>
+                        <td *ngIf="pl.current_price > 1"> {{base_sing}}{{pl.current_price | number : '1.0-2'}} </td>
+                        <td *ngIf="pl.current_price <= 1"> {{base_sing}}{{pl.current_price | number : '1.0-12'}} </td>
                         <td> {{base_sing}}{{pl.totalcost | number : '1.0-2'}} </td>
                         <td> {{base_sing}}{{pl.current_price * pl.coin_amount | number : '1.0-2'}} </td>
                         <td>
@@ -198,7 +199,7 @@
                       <tbody>
                         <tr *ngFor="let portfolio of portfoliolist">
                           <td>
-                            <a href="{{urlString}}cryptocurrency/{{portfolio.coin_name}}-{{portfolio.buy_coin | lowercase}}-price">
+                            <a href="{{base_url}}cryptocurrency/{{portfolio.coin_name | lowercase}}-{{portfolio.buy_coin | lowercase}}-price">
                               <div class="coin-name">
                                 <span class="coin-symbol">
                                   <img class="img-fluid" src="assets/currency-svg/{{portfolio.buy_coin | lowercase}}.svg" (error)="errorHandler($event,portfolio.buy_coin)">

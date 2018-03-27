@@ -44,7 +44,10 @@
                     <label class="followlist-coin-label">
                       {{'FOLLOWLIST.lastprice' | translate}}:
                     </label>
-                    <span class="followlist-box-price">
+                    <span class="followlist-box-price" *ngIf="coin['price_'+basecurr] > 1">
+                      {{base_sing}}&nbsp;{{coin['price_'+basecurr] | number : '1.0-2'}}
+                    </span>
+                    <span class="followlist-box-price" *ngIf="coin['price_'+basecurr] <= 1">
                       {{base_sing}}&nbsp;{{coin['price_'+basecurr] | number : '1.0-12'}}
                     </span>
                   </div>
@@ -54,7 +57,7 @@
                       {{'FOLLOWLIST.volume24h' | translate}}:
                     </label>
                     <span class="followlist-box-price" [ngClass]="coin.percent_change_24h > 0 ? 'text-green' : 'text-red'">
-                       {{coin.percent_change_24h | number : '1.2-2'}}%
+                      {{coin.percent_change_24h | number : '1.2-2'}}%
                     </span>
                   </div>
                 </div>

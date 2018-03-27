@@ -260,8 +260,13 @@ export class HomeComponent implements OnInit {
               $('#tr_bids_' + i).addClass('coin_pump');
             }, 1000);
           }
-          const price = this.decimalpipe.transform(resData.data[i]['price_' + this.basecurr], '1.0-12');
-          $('#td_price_' + i).html(this.base_sing + price);
+          if (resData.data[i]['price_' + this.basecurr] > 1) {
+            const price = this.decimalpipe.transform(resData.data[i]['price_' + this.basecurr], '1.0-2');
+            $('#td_price_' + i).html(this.base_sing + price);
+          } else {
+            const price = this.decimalpipe.transform(resData.data[i]['price_' + this.basecurr], '1.0-12');
+            $('#td_price_' + i).html(this.base_sing + price);
+          }
           const market_cap = this.decimalpipe.transform(resData.data[i]['market_cap_' + this.basecurr], '1.0-2');
           $('#td_market_cap_' + i).html(this.base_sing + market_cap);
           const volume_24h = this.decimalpipe.transform(resData.data[i]['24h_volume_' + this.basecurr], '1.0-2');

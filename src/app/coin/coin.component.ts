@@ -9,6 +9,7 @@ import { defer } from 'q';
 import { DatePipe } from '@angular/common';
 import { Title, Meta } from '@angular/platform-browser';
 import * as moment from 'moment';
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: 'app-coin',
@@ -40,9 +41,11 @@ export class CoinComponent implements OnInit {
   public userid: any = myGlobals.userid;
   public basecurr: any = myGlobals.basecurr;
   public base_sing: any = myGlobals.base_sing;
+  default_lang:any=myGlobals.default_lang;
 
   // tslint:disable-next-line:max-line-length
-  constructor(private coinservice: CoinService, private router: Router, toasterService: ToasterService, private http: Http, private titleService: Title, private datePipe: DatePipe, private meta: Meta) {
+  constructor(private translateService: TranslateService,private coinservice: CoinService, private router: Router, toasterService: ToasterService, private http: Http, private titleService: Title, private datePipe: DatePipe, private meta: Meta) {
+    this.translateService.use(this.default_lang);
     localStorage.setItem('sorton', null);
     localStorage.setItem('sortby', null);
     this.toasterService = toasterService;

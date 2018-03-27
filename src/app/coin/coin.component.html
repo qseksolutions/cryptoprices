@@ -27,7 +27,7 @@
 
                   <div class="visit-site">
                     <a href="{{coin.website}}">
-                      <i class="fas fa-share-square"></i> Website</a>
+                      <i class="fas fa-share-square"></i> {{'COIN.website' | translate}}</a>
                   </div>
                 </span>
 
@@ -50,19 +50,19 @@
 
               <div class="single-track-btn">
                 <button type="submit" class="btn btn-primary btn-add" data-toggle="modal" data-target="#login-form" [style.display]="loginData == null ? 'initial':'none'">
-                  <span> Add </span> <i class="fas fa-plus"></i>
+                  <span> {{'COIN.add' | translate}} </span> <i class="fas fa-plus"></i>
                 </button>
                 <button type="submit" class="btn btn-primary btn-add" data-toggle="modal" data-target="#login-form" [style.display]="loginData != null ? 'initial':'none'">
-                 <span> Add </span>  <i class="fas fa-plus"></i>
+                 <span> {{'COIN.add' | translate}} </span>  <i class="fas fa-plus"></i>
                 </button>
                 <button type="submit" class="btn btn-warning btn-track" data-toggle="modal" data-target="#login-form" [style.display]="loginData == null ? 'initial':'none'">
-                 <span> Track </span>  <i class="fas fa-check"></i>
+                 <span> {{'COIN.track' | translate}} </span>  <i class="fas fa-check"></i>
                 </button>
                 <button type="submit" class="btn btn-warning btn-track" *ngIf="coin.followstatus == 0" [style.display]="loginData != null ? 'initial':'none'" (click)="followcoin(coin);">
-                 <span> Track </span> <i class="fas fa-check"></i>
+                 <span> {{'COIN.track' | translate}} </span> <i class="fas fa-check"></i>
                 </button>
                 <button type="submit" class="btn btn-warning btn-track" *ngIf="coin.followstatus == 1" [style.display]="loginData != null ? 'initial':'none'" (click)="followcoin(coin);">
-                 <span> Untrack </span> <i class="fas fa-times"></i>
+                 <span> {{'COIN.untrack' | translate}} </span> <i class="fas fa-times"></i>
                 </button>
               </div>
             </div>
@@ -78,7 +78,7 @@
           <div class="single-header-box" *ngIf="coin != ''">
             <div class="best-coin-value">
               <label class="coin-lable">
-                MARKET CAP:
+                {{'COIN.marketcap' | translate}}:
               </label>
               <span class="coin-box-price">
                  {{base_sing}}{{coin['market_cap_'+basecurr] | number : '1.0-8'}}
@@ -94,7 +94,7 @@
           <div class="single-header-box" *ngIf="coin != ''">
             <div class="best-coin-value">
               <label class="coin-lable">
-                24H VOLUME:
+                {{'COIN.24hvolume' | translate}}:
               </label>
               <span class="coin-box-price">
                  {{base_sing}}{{coin['24h_volume_'+basecurr] | number : '1.0-8'}}
@@ -112,7 +112,7 @@
           <div class="single-header-box" *ngIf="coin != ''">
             <div class="best-coin-value">
               <label class="coin-lable">
-                CIRCULATING SUPPLY:
+                {{'COIN.circulatingsupply' | translate}}:
               </label>
               <span class="coin-box-price">
                  {{coin.available_supply | number}}
@@ -129,7 +129,7 @@
           <div class="single-header-box" *ngIf="coin != ''">
             <div class="best-coin-value">
               <label class="coin-lable">
-                TOTAL SUPPLY:
+                {{'COIN.totalsupply' | translate}}:
               </label>
               <span class="coin-box-price" *ngIf="coin.max_supply == 0">
                  {{coin.total_supply | number}}

@@ -255,32 +255,35 @@ export class ProtfolioComponent implements OnInit {
 
   traderemove(tradeid) {
     let th = this;
-    bootbox.confirm({
-      closeButton: false,
-      title: "Confirm Delete !",
-      message: "Are you sure you want to detele this portfolio record ?",
-      buttons: {
-        confirm: {
-          label: 'Confirm',
-          className: 'btn-success'
+    this.translateService.get(['PORTFOLIO']).subscribe(translations => {
+      console.log(translations.PORTFOLIO.confirmtitle);
+      bootbox.confirm({
+        closeButton: false,
+        title: translations.PORTFOLIO.confirmtitle,
+        message: translations.PORTFOLIO.confirmmessage,
+        buttons: {
+          confirm: {
+            label: translations.PORTFOLIO.confirmbtn,
+            className: 'btn-success'
+          },
+          cancel: {
+            label: translations.PORTFOLIO.cancelbtn,
+            className: 'btn-danger'
+          }
         },
-        cancel: {
-          label: 'Cancel',
-          className: 'btn-danger'
+        callback: function (result) {
+          if (result) {
+            th.coinservice.removetrade(tradeid).subscribe(resData => {
+              if (resData.status === true) {
+                th.toasterService.pop('success', 'Success', resData.message);
+                th.ngOnInit();
+              } else {
+                th.toasterService.pop('error', 'Error', resData.message);
+              }
+            });
+          }
         }
-      },
-      callback: function (result) {
-        if (result) {
-          th.coinservice.removetrade(tradeid).subscribe(resData => {
-            if (resData.status === true) {
-              th.toasterService.pop('success', 'Success', resData.message);
-              th.ngOnInit();
-            } else {
-              th.toasterService.pop('error', 'Error', resData.message);
-            }
-          });
-        }
-      }
+      });
     });
   }
 

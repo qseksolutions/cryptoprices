@@ -113,7 +113,11 @@
     "eca" : "Enter Coin Amount",
     "evc" : "Enter Value of Coin",
     "submit" : "Submit",
-    "nodata" : "You didn’t added any Transaction in your portfolio list yet."
+    "nodata" : "You didn’t added any Transaction in your portfolio list yet.",
+    "confirmtitle" : "Confirm Delete !",
+    "confirmmessage" : "Are you sure you want to detele this portfolio record ?",
+    "confirmbtn" : "Confirm",
+    "cancelbtn" : "Cancel"
   },
   "FOLLOWLIST": {
     "title" : "Followlist",
@@ -121,7 +125,11 @@
     "lastprice" : "Last Price",
     "volume24h" : "Volume 24h",
     "unfollow" : "Unfollow",
-    "nodata" : "You don’t have any coins in your follow list yet."
+    "nodata" : "You don’t have any coins in your follow list yet.",
+    "confirmtitle" : "Confirm Delete !",
+    "confirmmessage" : "Are you sure you want to unfollow this",
+    "confirmbtn" : "Confirm",
+    "cancelbtn" : "Cancel"
   },
   "PROFILE": {
     "title" : "Edit Profile",

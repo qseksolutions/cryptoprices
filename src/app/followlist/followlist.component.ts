@@ -64,39 +64,41 @@ export class FollowlistComponent implements OnInit {
 
   followcoin(coin) {
     let th = this;
-    bootbox.confirm({
-      closeButton: false,
-      title: "Confirm Delete ?",
-      message: "Are you sure you want to unfollow this " + coin.name.toLowerCase() + " ?",
-      buttons: {
-        confirm: {
-          label: 'Confirm',
-          className: 'btn-success '
+    this.translateService.get(['FOLLOWLIST']).subscribe(translations => {
+      bootbox.confirm({
+        closeButton: false,
+        title: translations.FOLLOWLIST.confirmtitle,
+        message: translations.FOLLOWLIST.confirmmessage +" "+ coin.name.toLowerCase() + " ?",
+        buttons: {
+          confirm: {
+            label: translations.FOLLOWLIST.confirmbtn,
+            className: 'btn-success '
+          },
+          cancel: {
+            label: translations.FOLLOWLIST.cancelbtn,
+            className: 'btn-primary'
+          }
         },
-        cancel: {
-          label: 'Cancel',
-          className: 'btn-primary'
-        }
-      },
-      callback: function (result) {
-        if (result) {
-          th.coinservice.cointrackbyuser(1, coin.coin_id, coin.name).subscribe(resData => {
-            if (resData.status === true) {
-              if (coin.followstatus === 1) {
-                coin.followstatus = 0;
+        callback: function (result) {
+          if (result) {
+            th.coinservice.cointrackbyuser(1, coin.coin_id, coin.name).subscribe(resData => {
+              if (resData.status === true) {
+                if (coin.followstatus === 1) {
+                  coin.followstatus = 0;
+                } else {
+                  coin.followstatus = 1;
+                }
+                th.toasterService.pop('success', 'Success', resData.message);
+                setTimeout(() => {
+                  th.ngOnInit();
+                });
               } else {
-                coin.followstatus = 1;
+                th.toasterService.pop('error', 'Error', 'Something went wrong please try after sometime !');
               }
-              th.toasterService.pop('success', 'Success', resData.message);
-              setTimeout(() => {
-                th.ngOnInit();
-              });
-            } else {
-              th.toasterService.pop('error', 'Error', 'Something went wrong please try after sometime !');
-            }
-          });
+            });
+          }
         }
-      }
+      });
     });
   }
 

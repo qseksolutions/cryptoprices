@@ -342,6 +342,7 @@ a:hover , a:focus{
 
 .currency-name{
     flex: 2;
+    vertical-align: middle;
 
 }
 
@@ -406,15 +407,10 @@ span .curre-img{
 
 }
 
-.btn-select .flag-img , 
-.btn-select .curre-img{
-    margin-top: -2px;
-}
-
 .btn-select .lang-name {
     overflow: hidden;
     display: inline-block;
-    vertical-align: bottom;
+    vertical-align: middle;
     text-overflow: ellipsis;
     width: 65px;
 
@@ -1348,14 +1344,15 @@ div.modal.show .modal-dialog {
 
 .subpage-bg{
     background-color: #a0a0a0;
-    padding-top: 120px;
+    padding-top: 80px;
+    padding-bottom: 80px;
 
 }
 
-.contact-bg{
-    padding: 0px 0px 150px;
+/*.contact-bg{
+    padding-bottom: 150px;
 
-}
+}*/
 
 .subpage-head {
     background-color:#404040;
@@ -1374,10 +1371,8 @@ div.modal.show .modal-dialog {
 .subpage-head p {
     line-height: 20px;
     color: #fff;
-    font-size: 16px;
-    opacity: 0.5;
-    text-align: justify;
-    font-weight: 300;
+    font-size: 15px;
+    font-weight: 400;
 
 }
 
@@ -1388,8 +1383,11 @@ div.modal.show .modal-dialog {
 
 }   
 
-.contact-form{
-    margin-top: -200px;
+.contact-form,
+.widget-box,
+.newspage-form,
+.editprofile-form{
+    margin-top: -130px;
 
 }
 
@@ -1401,16 +1399,6 @@ div.modal.show .modal-dialog {
 /*-------------------------
 ----- widget-start ---------
 -------------------------*/
-
-.widget-bg{
-    padding-bottom: 120px;
-
-}
-
-.widget-box {
-    margin-top: -170px;
-
-}
 
 .widget-dropdown{
     display: -webkit-box;
@@ -1786,16 +1774,6 @@ div.modal.show .modal-dialog {
 ------- news-start --------
 -------------------------*/
 
-
-.news-bg{
-    padding-bottom:120px;
-
-}
-
-.newspage-form {
-    margin-top: -170px;
-}
-
 .news-box {
     background-color: #fff;
     box-shadow: 0 0px 10px rgba(114, 114, 114, 0.1);
@@ -1874,13 +1852,8 @@ div.modal.show .modal-dialog {
 ------- about-start --------
 --------------------------*/
 
-.about-bg {
-    padding: 0px 0px 120px;
-
-}
-
 .about-us-box {
-    margin-top: -170px;
+    margin-top: -130px;
 
 }
 
@@ -1907,11 +1880,6 @@ div.modal.show .modal-dialog {
 ------- portfolio-start --------
 -------------------------------*/
 
-.portfolio-bg{
-    padding-bottom: 50px;
-
-}
-
 .portfolio-networth{
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1933,7 +1901,7 @@ div.modal.show .modal-dialog {
 }
 
 .portfolio-box{
-    margin-top: -50px;
+    margin-top: -80px;
 
 }
 
@@ -2286,16 +2254,6 @@ div.modal.show .modal-dialog {
 ------- FAQ-end -------
 ---------------------*/
 
-.editprofile-bg{
-    padding-bottom: 50px;
-
-}
-
-.editprofile-form{
-    margin-top: -100px;
-
-}
-
 ngb-datepicker {
     margin-top: 0 !important;
     min-width: auto !important;
@@ -2337,7 +2295,7 @@ ngb-datepicker {
 
     .navbar-expand-lg .navbar-nav .nav-item a,
     .footer-menu .nav-item a{
-        padding: 10px 0px;
+        padding: 10px 10px;
 
     }
 
@@ -2350,7 +2308,7 @@ ngb-datepicker {
     .footer-menu .nav-item.active a:after ,
     .navbar-expand-lg .navbar-nav .nav-item:hover a:after, 
     .footer-menu .nav-item:hover a:after{
-        left: 0px;
+        left: 10px;
 
     }
 
@@ -2632,20 +2590,7 @@ ngb-datepicker {
 
     }
 
-    .contact-bg {
-        padding: 50px 0px 150px;
-
-    }
-
-    .news-bg ,
-    .widget-bg  {
-        padding: 50px 0px 120px;
-    
-    }
-
-    .portfolio-bg ,
-    .editprofile-bg,
-    .faq-bg{
+    .subpage-bg{
         padding: 50px 0px;
     
     }
@@ -2654,6 +2599,17 @@ ngb-datepicker {
         padding: 10px;
     }
 
+    .contact-form, 
+    .widget-box, 
+    .newspage-form,
+    .editprofile-form{
+        margin-top: -100px;
+    }
+
+    .portfolio-box{
+        margin-top: -50px;
+    }
+    
     
 }
 
@@ -2697,11 +2653,6 @@ ngb-datepicker {
 
     .footer-social{
         margin-top: 30px;
-
-    }
-
-    .widget-bg{
-        padding: 20px 0px 120px;
 
     }
 
@@ -2771,26 +2722,16 @@ ngb-datepicker {
 
     }
 
-    .news-bg {
-        padding: 20px 0px 120px; 
-    }
-
-    .faq-bg{
+    .subpage-bg{
         padding: 20px 0px;
 
     }
 
-
-    .widget-box ,
-    .newspage-form ,
-    .about-us-box{
-        margin-top: -150px;
-    
-    }
-
-    .contact-form{
-        margin-top: -200px;
-    
+    .contact-form, 
+    .widget-box, 
+    .newspage-form,
+    .editprofile-form{
+        margin-top: -50px;
     }
 
     .portfolio-box {
@@ -2800,10 +2741,6 @@ ngb-datepicker {
     .portfolio-top-area{
         margin-top: 0px;
 
-    }
-
-    .editprofile-form {
-        margin-top: -80px;
     }
 
     .footer-logo{
@@ -2858,18 +2795,6 @@ ngb-datepicker {
     .subpage-form {
         padding: 30px 25px;
     }
-    
-    .about-bg{
-        padding: 20px 0px 120px;
-    }
-    
-    .contact-bg{
-        padding: 20px 0px 170px;
-    }
-
-    .editprofile-bg{
-        padding: 20px 0px 50px;
-    }
     .model-form{
         padding: 0px;
 
@@ -2877,10 +2802,6 @@ ngb-datepicker {
 
     .register-link{
         text-align: right;
-    }
-
-    .portfolio-bg{
-        padding: 20px 0px;
     }
 
     footer{

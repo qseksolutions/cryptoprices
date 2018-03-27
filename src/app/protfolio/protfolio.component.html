@@ -4,7 +4,7 @@
       <div class="row justify-content-center">
         <div class="col-12 col-sm-12 col-md-10 col-lg-6">
           <div class="subpage-head">
-            <h4 class="pagename-title text-center">Portfolio</h4>
+            <h4 class="pagename-title text-center">{{'PORTFOLIO.portfolio' | translate}}</h4>
           </div>
         </div>
       </div>
@@ -17,7 +17,7 @@
         <div class="col-12 col-sm-12 col-md-10 col-lg-6">
           <div class="portfolio-networth portfolio-box">
             <div class="portfolio-detaile-box">
-              <span class="port-box-name">NET WORTH:</span>
+              <span class="port-box-name">{{'PORTFOLIO.networth' | translate}}:</span>
               <span class="port-box-price">{{base_sing}}{{overolsum | number : '1.0-2'}}</span>
               <span class="port-box-change" [ngClass]="overolper > 0 ? 'text-green' : 'text-red'">{{overolper | number : '1.2-2'}}%
                 <i class="fas" [ngClass]="overolper > 0 ? 'fa-angle-up' : 'fa-angle-down'"></i>
@@ -25,7 +25,7 @@
             </div>
 
             <div class="add-transaction-btn">
-              <button class="btn btn-primary btn-addtran" data-toggle="modal" data-target="#add-transaction">Add Transaction</button>
+              <button class="btn btn-primary btn-addtran" data-toggle="modal" data-target="#add-transaction">{{'PORTFOLIO.addtransaction' | translate}}</button>
             </div>
           </div>
         </div>
@@ -37,7 +37,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Add Transaction </h5>
+            <h5 class="modal-title">{{'PORTFOLIO.addtransaction' | translate}} </h5>
             <span aria-hidden="true" class="close-btn" data-dismiss="modal" aria-label="Close">
               <img src="assets/images/close.svg" class="img-fluid"> </span>
           </div>
@@ -52,13 +52,13 @@
 
                   <div class="col-12 col-sm-12 col-md-12 col-lg-12">                      
                     <div class="port-amnt-input mb-30">
-                      <label class="widget-select-label">Select Date</label>
+                      <label class="widget-select-label">{{'PORTFOLIO.selectdate' | translate}}</label>
                       <input class="currency-select form-control date" placeholder="Select date of Purchase..." name="date" [(ngModel)]="modeldate" (ngModelChange)="getcoinprice(form.value);" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" id="date">
                     </div>
                   </div>
                   <div class="col-12 col-sm-12 col-md-6 col-lg-6">                        
                     <div class="calc-coin-dropdown mb-30">
-                      <label class="widget-select-label">Select Coin</label>
+                      <label class="widget-select-label">{{'PORTFOLIO.selectcoin' | translate}}</label>
                       <select class="selectpicker form-control hauto" id="coin" name="coin" ngModel>
                         <ng-container *ngFor="let coin of allcoin">
                           <option value="{{coin.symbol}}">{{coin.name}} ({{coin.symbol}})</option>
@@ -69,7 +69,7 @@
 
                   <div class="col-12 col-sm-12 col-md-6 col-lg-6">                        
                     <div class="calc-coin-dropdown mb-30">
-                      <label class="widget-select-label">Select Currency</label>
+                      <label class="widget-select-label">{{'PORTFOLIO.selectcurrency' | translate}}</label>
                       <select class="selectpicker form-control hauto" id="currency" name="currency" ngModel>
                         <ng-container *ngFor="let curr of allcurrency">
                           <option value="{{curr.currency_symbol}}">{{curr.currency_symbol}}</option>
@@ -80,21 +80,21 @@
 
                   <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                     <div class="port-amnt-input mb-3">
-                      <label class="widget-select-label">Enter Coin Amount</label>
+                      <label class="widget-select-label">{{'PORTFOLIO.eca' | translate}}</label>
                       <input type="text" class="form-control" id="amount" name="amount" ngModel (keyup)="getcoinprice(form.value);"/>
                     </div>
                   </div>
 
                   <div class="col-12 col-sm-12 col-md-6 col-lg-6">                        
                     <div class="port-amnt-input mb-30">
-                      <label class="widget-select-label">Enter Value of Coin</label>
+                      <label class="widget-select-label">{{'PORTFOLIO.evc' | translate}}</label>
                       <input type="text" class="form-control" id="value_coin" name="value_coin" ngModel/>
                     </div>
                   </div>
 
                   <div class="col-12 col-sm-12 col-md-12 col-lg-12">                        
                     <div class="form-group d-md-flex justify-content-md-between align-items-md-center">
-                      <button type="submit" class="btn btn-primary btn-submit"> SUBMIT </button>
+                      <button type="submit" class="btn btn-primary btn-submit"> {{'PORTFOLIO.submit' | translate}} </button>
                     </div>
                   </div>
                 </div>
@@ -125,14 +125,14 @@
                   <table class="table">
                     <thead>
                       <tr>
-                        <th>Coin </th>
-                        <th>AVG. Buy Price </th>
-                        <th>Current Price </th>
-                        <th>Investment </th>
-                        <th>Value </th>
-                        <th>Profit </th>
-                        <th>Return </th>
-                        <th>No.Trade </th>
+                        <th>{{'PORTFOLIO.coin' | translate}} </th>
+                        <th>{{'PORTFOLIO.avgbuyprice' | translate}} </th>
+                        <th>{{'PORTFOLIO.currentprice' | translate}} </th>
+                        <th>{{'PORTFOLIO.investment' | translate}} </th>
+                        <th>{{'PORTFOLIO.value' | translate}} </th>
+                        <th>{{'PORTFOLIO.profit' | translate}} </th>
+                        <th>{{'PORTFOLIO.return' | translate}} </th>
+                        <th>{{'PORTFOLIO.notrade' | translate}} </th>
                       </tr>
                     </thead>
 
@@ -176,7 +176,7 @@
       
         <div class="recent-table">
           <div class="container">
-            <h4 class="table-title">Recent Transaction</h4>
+            <h4 class="table-title">{{'PORTFOLIO.recenttransaction' | translate}}</h4>
           </div>
           
           <div class="container">
@@ -187,11 +187,11 @@
                     <table class="table">
                       <thead>
                         <tr>
-                          <th>Coin </th>
-                          <th>Rate</th>
-                          <th>Total Cost </th>
-                          <th>Date </th>
-                          <th>Edit </th>
+                          <th>{{'PORTFOLIO.coin' | translate}} </th>
+                          <th>{{'PORTFOLIO.rate' | translate}}</th>
+                          <th>{{'PORTFOLIO.totalcost' | translate}} </th>
+                          <th>{{'PORTFOLIO.date' | translate}} </th>
+                          <th>{{'PORTFOLIO.edit' | translate}} </th>
                         </tr>
                       </thead>
         
@@ -267,7 +267,7 @@
             
                   <div class="followlist-coin-value">
                     <div class="followlist-value" style="width: 100%; text-align: center;">
-                      <p>You didn’t added any Transaction in your portfolio list yet.</p>
+                      <p>{{'PORTFOLIO.nodata' | translate}}</p>
                     </div>
                   </div>
                 </div>

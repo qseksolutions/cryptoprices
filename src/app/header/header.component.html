@@ -42,7 +42,7 @@
                 <a class="nav-link" [ngClass]="curl == 'followlist' ? 'active' : ''"  href="{{base_url}}followlist">{{'HEADER.followlist' | translate}}</a>
                 <a class="nav-link" [ngClass]="curl == 'profile' ? 'active' : ''" href="{{base_url}}profile"> {{'HEADER.profile' | translate}}</a>
                 <a class="nav-link" [ngClass]="curl == 'change-password' ? 'active' : ''" href="{{base_url}}change-password">{{'HEADER.changepassword' | translate}}</a>
-                <a class="nav-link" href="javascript:;" (click)="destroyUser();">{{'HEADER.myaccount' | translate}}</a>
+                <a class="nav-link" href="javascript:;" (click)="destroyUser();">{{'HEADER.logout' | translate}}</a>
             </div>
           </li>
 

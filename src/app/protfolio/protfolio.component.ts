@@ -8,6 +8,7 @@ import 'rxjs/add/operator/map';
 import { ToasterContainerComponent, ToasterService, ToasterConfig } from 'angular2-toaster';
 import { Title, Meta } from '@angular/platform-browser';
 import { DatePipe, DecimalPipe } from '@angular/common';
+import { TranslateService } from "@ngx-translate/core";
 
 declare var $: any;
 declare var bootbox: any;
@@ -47,8 +48,10 @@ export class ProtfolioComponent implements OnInit {
     amount: '',
     value_coin: ''
   };
+  default_lang:any=myGlobals.default_lang;
 
-  constructor(private coinservice: CoinService, toasterService: ToasterService, private title: Title, private meta: Meta, private decimalpipe: DecimalPipe, private datePipe: DatePipe) {
+  constructor(private translateService: TranslateService,private coinservice: CoinService, toasterService: ToasterService, private title: Title, private meta: Meta, private decimalpipe: DecimalPipe, private datePipe: DatePipe) {
+    this.translateService.use(this.default_lang);
     this.showloader = true;
     localStorage.setItem('sorton', null);
     localStorage.setItem('sortby', null);

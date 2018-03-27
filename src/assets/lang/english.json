@@ -37,7 +37,7 @@
     "7day" : "7 Day",
     "add/track" : "Add/Track"
   },
-  "LOGIN" : {
+  "LOGIN": {
     "login" : "Login",
     "username" : "Username/Email Address",
     "password" : "Password",
@@ -45,7 +45,7 @@
     "donthave" : "Don’t have a account ",
     "register" : "Register"
   },
-  "REGISTER" : {
+  "REGISTER": {
     "register" : "Register",
     "name" : "Name",
     "email" : "Email Address",
@@ -88,5 +88,30 @@
     "circulatingsupply" : "CIRCULATING SUPPLY",
     "totalsupply" : "TOTAL SUPPLY",
     "pricechart" : "Price Chart"
+  },
+  "PORTFOLIO": {
+    "portfolio" : "Portfolio",
+    "networth" : "NET WORTH",
+    "addtransaction" : "Add Transaction",
+    "coin" : "Coin",
+    "avgbuyprice" : "AVG. Buy Price",
+    "currentprice" : "Current Price",
+    "investment" : "Investment",
+    "value" : "Value",
+    "profit" : "Profit",
+    "return" : "Return",
+    "notrade" : "No.Trade",
+    "recenttransaction" : "Recent Transaction",
+    "Rate" : "Rate",
+    "totalcost" : "Total Cost",
+    "date" : "Date",
+    "edit" : "Edit",
+    "selectdate" : "Select Date",
+    "selectcoin" : "Select Coin",
+    "selectcurrency" : "Select Currency",
+    "eca" : "Enter Coin Amount",
+    "evc" : "Enter Value of Coin",
+    "submit" : "Submit",
+    "nodata" : "You didn’t added any Transaction in your portfolio list yet."
   }
 }

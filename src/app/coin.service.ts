@@ -21,6 +21,7 @@ export class CoinService {
   changepasswordAPI: any = myGlobals.changepasswordAPI;
   addcontactusAPI: any = myGlobals.addcontactusAPI;
 
+  getbasesignAPI: any = myGlobals.getbasesignAPI;
   maincurrencylistAPI: any = myGlobals.maincurrencylistAPI;
   subcurrencylistAPI: any = myGlobals.subcurrencylistAPI;
   currencylistAPI: any = myGlobals.currencylistAPI;
@@ -185,13 +186,9 @@ export class CoinService {
     const form = new URLSearchParams();
     form.append('id', this.userid);
     form.append('name', profile.uname);
-    if (profile.b_curr !== '') {
-      form.append('d_currency', profile.b_curr.currency_symbol);
-      form.append('user_base', this.user_base);
-      localStorage.setItem('user_base', profile.b_curr.currency_symbol);
-    } else {
-      form.append('d_currency', '');
-    }
+    form.append('d_currency', profile.b_curr);
+    form.append('user_base', this.user_base);
+    localStorage.setItem('user_base', profile.b_curr);
     form.append('token', this.token);
 
     return this.http.post(this.api_url + this.profileupdateAPI, form, options)
@@ -225,6 +222,18 @@ export class CoinService {
       .map((response: Response) => response.json());
   }
 
+  getbasesign(curr) {
+    const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const options = new RequestOptions({ headers: headers });
+
+    const form = new URLSearchParams();
+    form.append('base_curr', curr);
+
+    return this.http.post(this.api_url + this.getbasesignAPI, form, options)
+      .map((response: Response) => response.json());
+
+  }
+  
   getmaincurrencylist(curr) {
     const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
     const options = new RequestOptions({ headers: headers });

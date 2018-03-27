@@ -14,6 +14,7 @@ export const profileupdateAPI = 'profileupdate';
 export const changepasswordAPI = 'changepassword';
 export const addcontactusAPI = 'addcontactus';
 
+export const getbasesignAPI = 'getbasesign';
 export const maincurrencylistAPI = 'maincurrencylist';
 export const subcurrencylistAPI = 'subcurrencylist';
 export const currencylistAPI = 'currencylist';

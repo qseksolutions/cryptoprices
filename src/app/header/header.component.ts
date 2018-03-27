@@ -80,7 +80,6 @@ export class HeaderComponent implements OnInit {
     }
 
     this.toasterService = toasterService;
-
     if (this.basecurr == null) {
       localStorage.setItem('base', 'USD');
       localStorage.setItem('base_sing', '$');
@@ -174,19 +173,25 @@ export class HeaderComponent implements OnInit {
     } else {
       this.coinservice.loginuserdata(this.login).subscribe(resData => {
         if (resData.status === true) {
-          this.toasterService.pop('success', 'Success', resData.message);
-          localStorage.setItem('login_ses', resData.status);
-          localStorage.setItem('id', resData.data.id);
-          localStorage.setItem('email', resData.data.email);
-          localStorage.setItem('name', resData.data.name);
-          localStorage.setItem('usertype', resData.data.usertype);
-          localStorage.setItem('status', resData.data.status);
-          localStorage.setItem('base', resData.data.d_currency);
-          localStorage.setItem('user_base', resData.data.d_currency);
-          localStorage.setItem('token', resData.data.token);
-          setTimeout(() => {
-            location.reload();
-          }, 1000);
+          console.log(resData);
+          this.coinservice.getbasesign(resData.data.d_currency).subscribe(res => {
+            if (res.status === true) {
+              this.toasterService.pop('success', 'Success', resData.message);
+              localStorage.setItem('login_ses', resData.status);
+              localStorage.setItem('id', resData.data.id);
+              localStorage.setItem('email', resData.data.email);
+              localStorage.setItem('name', resData.data.name);
+              localStorage.setItem('usertype', resData.data.usertype);
+              localStorage.setItem('status', resData.data.status);
+              localStorage.setItem('base', resData.data.d_currency);
+              localStorage.setItem('user_base', resData.data.d_currency);
+              localStorage.setItem('base_sing', res.data.currency_sign);
+              localStorage.setItem('token', resData.data.token);
+              setTimeout(() => {
+                // location.reload();
+              }, 1000);
+            }
+          });
         } else {
           this.toasterService.pop('error', 'Error', resData.message);
         }

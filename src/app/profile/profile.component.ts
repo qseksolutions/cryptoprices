@@ -45,7 +45,7 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    const curl = window.location.href;
+    /* const curl = window.location.href;
     this.coinservice.gettestseometa(curl).subscribe(resData => {
       if (resData.status === true) {
         this.title.setTitle(resData.data.title);
@@ -55,26 +55,37 @@ export class ProfileComponent implements OnInit {
         this.meta.addTag({ name: 'robots', content: resData.data.robots });
         this.meta.addTag({ name: 'title', content: ' www.coinlisting.io' });
       }
-    });
+    }); */
     this.coinservice.getprofileupdatedata().subscribe(resData => {
       if (resData.status === true) {
         this.profile = resData.data;
+        console.log(this.profile);
       }
     });
     this.coinservice.getallcurrencylist().subscribe(resData => {
       if (resData.status === true) {
         this.allcurrency = resData.data;
+        if (this.allcurrency.length > 0) {
+          setTimeout(() => {
+            $('#sel_curr').select2('destroy');
+            for (let i = 0; i < this.allcurrency.length; i++) {
+              if (this.allcurrency[i]['currency_symbol'] == this.profile.d_currency) {
+                $('#sel_curr').val(this.allcurrency[i]['currency_symbol']);
+              }
+            }
+            $('#sel_curr').select2();
+            this.prof.b_curr = $('#sel_curr').val();
+          }, 2000);
+        }
       }
     });
   }
 
-  searchcur = (text$: Observable<string>) =>
-    text$
-      .debounceTime(200)
-      .map(termcur => termcur === '' ? []
-        : this.allcurrency.filter(v => v.currency_symbol.toLowerCase().indexOf(termcur.toLowerCase()) > -1).slice(0, 10))
-
-  formattercur = (x: { currency_symbol: string }) => x.currency_symbol;
+  ngAfterViewInit() {
+    $('#sel_curr').on('change', (e) => {
+      this.prof.b_curr = $(e.target).val();
+    });
+  };
 
   onSubmitPrafile() {
     this.prof.uname = $('#unmae').val();

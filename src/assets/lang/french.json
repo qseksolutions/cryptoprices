@@ -47,7 +47,7 @@
   },
   "REGISTER": {
     "register" : "registre",
-    "name" : "Prénom",
+    "name" : "Nom",
     "email" : "Adresse e-mail",
     "password" : "Mot de passe",
     "copassword" : "Confirmez le mot de passe",
@@ -56,7 +56,7 @@
   "CONTACTUS": {
     "title" : "Contactez nous",
     "description" : "Veuillez utiliser le formulaire ci-dessous pour nous envoyer vos commentaires et suggestions. Nous reviendrons vers vous dès que possible. Vous pouvez également nous envoyer un email directement à support@cryptoprices.com",
-    "name" : "Prénom",
+    "name" : "Nom",
     "emailaddress" : "Adresse e-mail",
     "message" : "Message",
     "sendmessage" : "Envoyer le message"
@@ -134,7 +134,7 @@
   },
   "PROFILE": {
     "title" : "Editer le profil",
-    "name" : "Prénom",
+    "name" : "Nom",
     "email" : "Email",
     "changecurrency" : "Changer la devise",
     "submit" : "Soumettre"

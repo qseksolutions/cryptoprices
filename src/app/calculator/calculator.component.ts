@@ -104,9 +104,9 @@ export class CalculatorComponent implements OnInit {
       if (resData.status === true) {
         
         const amount = $('#amt').val();
-        $('#amout').html(amount);
+        $('#amout').html(amount + ' ' + this.basecoin);
         const convert_coin = this.decimalpipe.transform(resData.data.convertCoin * amount, '1.0-8');
-        $('#convert_coin').html(convert_coin);
+        $('#convert_coin').html(convert_coin + ' ' + this.convcoin);
         const convert_curr = this.decimalpipe.transform(resData.data.convertCurrency * amount, '1.0-2');
         $('#convert_curr').html(convert_curr + '<span class="calc-curr-symbol"> ' + this.currency + '</span>');
         this.showloader = false;

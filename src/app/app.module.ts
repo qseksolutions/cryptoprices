@@ -128,7 +128,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
         pathMatch: 'full'
       },
       {
-        path: 'protfolio',
+        path: 'portfolio',
         component: ProtfolioComponent,
         pathMatch: 'full'
       },

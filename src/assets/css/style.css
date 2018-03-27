@@ -682,6 +682,8 @@ input.search-input{
 }
 
 .coin-symbol{
+    width: 25px;
+	margin-right: 15px;
     display: inline-block;
 
 }

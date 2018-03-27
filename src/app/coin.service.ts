@@ -28,6 +28,7 @@ export class CoinService {
   coinlistAPI: any = myGlobals.coinlistAPI;
   totalcoinAPI: any = myGlobals.totalcoinAPI;
   singlecoinAPI: any = myGlobals.singlecoinAPI;
+  getsinglecoingraphAPI: any = myGlobals.getsinglecoingraphAPI;
   followlistAPI: any = myGlobals.followlistAPI;
   getallcoinlistAPI: any = myGlobals.getallcoinlistAPI;
   portfoliolistAPI: any = myGlobals.portfoliolistAPI;
@@ -321,8 +322,19 @@ export class CoinService {
         .map((response: Response) => response.json());
     }
   }
+  
+  getsinglecoingraph(coin) {
+    const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const options = new RequestOptions({ headers: headers });
 
-  getGraphData(period, coin) {
+    const form = new URLSearchParams();
+    form.append('coin', coin);
+
+    return this.http.post(this.api_url + this.getsinglecoingraphAPI, form, options)
+      .map((response: Response) => response.json());
+  }
+
+  /* getGraphData(period, coin) {
     const coinid = coin;
 
     const headers = new Headers({ 'Content-Type': undefined, 'X-API-KEY': '94ef-bc07-bf47-4ebe-9645-3f89-c464-681d' });
@@ -340,7 +352,7 @@ export class CoinService {
 
     return this.http.post('https://qseksolutions.com/api.qsek.com/api/V1/getcoindata', form, options)
       .map((response: Response) => response.json());
-  }
+  } */
 
   followlist() {
     const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });

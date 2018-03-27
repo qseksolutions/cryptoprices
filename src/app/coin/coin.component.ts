@@ -155,15 +155,11 @@ export class CoinComponent implements OnInit {
     const coinid = turl[2].split('-');
     coinid.splice(coinid.length - 2, 2);
     const coinurl = coinid.join('-');
-    this.coinservice.getGraphData('all', coinurl).subscribe(response => {
-      this.market_cap = response.market_cap;
-      this.price_usd = response.price_usd;
-      this.volume_usd = response.volume_usd;
+    this.coinservice.getsinglecoingraph(coinurl).subscribe(response => {
+      this.market_cap = response.data.market_cap_by_available_supply;
+      this.price_usd = response.data.price_usd;
+      this.volume_usd = response.data.volume_usd;
       this.chart = new StockChart({
-        chart: {
-          // type: 'area',
-          backgroundColor: null,
-        },
         rangeSelector: {
           buttons: [
           {
@@ -236,6 +232,7 @@ export class CoinComponent implements OnInit {
                 color: '#F7931A'
               }
             },
+            height: '65%',
           },
           {
             title: {
@@ -244,6 +241,7 @@ export class CoinComponent implements OnInit {
                 color: '#808080'
               }
             },
+            height: '70%',
             opposite: false,
           },
           {
@@ -253,10 +251,14 @@ export class CoinComponent implements OnInit {
                 color: '#C0C0C0'
               }
             },
+            top: '70%',
+            height: '30%',
+            offset: 0,
             opposite: false,
           },
         ],
         series: [{
+          backgroundColor: null,
           tooltip: {
             valueDecimals: 2
           },
@@ -266,6 +268,7 @@ export class CoinComponent implements OnInit {
           yAxis: 0,
         },
         {
+          backgroundColor: null,
           tooltip: {
             valueDecimals: 2
           },
@@ -275,6 +278,8 @@ export class CoinComponent implements OnInit {
           yAxis: 1,
         },
         {
+          type: 'column',
+          backgroundColor: null,
           tooltip: {
             valueDecimals: 2
           },

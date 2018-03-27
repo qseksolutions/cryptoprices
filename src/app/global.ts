@@ -21,6 +21,7 @@ export const currencylistAPI = 'currencylist';
 export const coinlistAPI = 'coinlist';
 export const totalcoinAPI = 'totalcoins';
 export const singlecoinAPI = 'coinlist';
+export const getsinglecoingraphAPI = 'getsinglecoingraph';
 export const followlistAPI = 'followlist';
 export const getallcoinlistAPI = 'getallcoinlist';
 export const portfoliolistAPI = 'portfoliolist';

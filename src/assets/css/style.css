@@ -650,7 +650,7 @@ input.search-input{
 }
 
 .home-table .table td:nth-child(2), .home-table .table th:nth-child(2) {
-    width: 18%;
+    width: 15%;
 }
 
 .datatable-arrow {
@@ -984,6 +984,15 @@ input.search-input{
     margin-right: 20px;
     padding: 5px 10px;
     font-size: 12px;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
 
 }
 
@@ -1262,8 +1271,7 @@ div.modal.show .modal-dialog {
 }
 
 .footer-menu .nav-item {
-    width: 50%;
-    float: left;
+    width: 100%;
 
 }
 
@@ -1936,6 +1944,7 @@ div.modal.show .modal-dialog {
 
 .port-box-change{
     font-size: 16px;
+    white-space: nowrap;
 
 }
 
@@ -1997,6 +2006,7 @@ div.modal.show .modal-dialog {
     background-color: #fff;
     box-shadow: 0 0px 10px rgba(114, 114, 114, 0.1);
     margin-bottom: 30px;
+    border-bottom:  solid 2px #404040;
 
 }
 
@@ -2695,7 +2705,7 @@ ngb-datepicker {
     }
 
     .calcu-value{
-        width: 130px;
+        width: 100%;
         text-align: center
     }
 
@@ -2773,6 +2783,9 @@ ngb-datepicker {
         transform: unset;
         top: 0;
     }
+    .select2-container{
+        max-width: 100%;
+    }
 }
 
 @media (max-width: 575px){
@@ -2801,10 +2814,20 @@ ngb-datepicker {
 
     .btn-select .lang-name {
         width: 78%;
+    
     }
+
     .subpage-form {
         padding: 30px 25px;
+        padding-bottom: 40px;
+
     }
+
+    .loader-box{
+        bottom: 5px;
+
+    }
+
     .model-form{
         padding: 0px;
 
@@ -2823,6 +2846,12 @@ ngb-datepicker {
         -ms-flex-pack: center;
         justify-content: center;
         flex-wrap: wrap
+    }
+
+    .port-box-name{
+        display: block;
+        text-align: center;
+        margin-bottom: 10px;
     }
 }
 

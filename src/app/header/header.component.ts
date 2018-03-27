@@ -66,7 +66,7 @@ export class HeaderComponent implements OnInit {
   };
   selectedImg:any=myGlobals.default_lang;
   selectedLang:any=myGlobals.lang_name;
-  language : any=[{"image":"english", "lang":"Engish"}, {"image":"chinese", "lang":"简体中文"}, {"image":"japanese", "lang":"日本語"}, {"image":"korean", "lang":"한국어"}, {"image":"vietnamese", "lang":"Tiếng Việt"}, {"image":"spanish", "lang":"Español"}, {"image":"portugueseBrazil", "lang":"Brazil Português"}, {"image":"portugal", "lang":"Português"}, {"image":"german", "lang":"Deutsche"}, {"image":"romanian", "lang":"Română"}, {"image":"russian", "lang":"русский"}, {"image":"turkish", "lang":"Türk"}, {"image":"ukraine", "lang":"український"}, {"image":"italian", "lang":"Italiano"}, {"image":"dutch", "lang":"Nederlands"}, {"image":"french", "lang":"Français"}, {"image":"greek", "lang":"ελληνικά"}, {"image":"hindi", "lang":"हिंदी"}, {"image":"indonesian", "lang":"Bahasa Indonesia"}, {"image":"danish", "lang":"Dansk"}, {"image":"arabic", "lang":"العربية"}];
+  language : any=[{"image":"english", "lang":"Engish"}, {"image":"chinese", "lang":"简体中文"}, {"image":"japanese", "lang":"日本語"}, {"image":"korean", "lang":"한국어"}, {"image":"vietnamese", "lang":"Tiếng Việt"}, {"image":"spanish", "lang":"Español"}, {"image":"portugueseBrazil", "lang":"Brazil Português"}, {"image":"german", "lang":"Deutsche"}, {"image":"russian", "lang":"русский"}, {"image":"italian", "lang":"Italiano"}, {"image":"french", "lang":"Français"}, {"image":"hindi", "lang":"हिंदी"}];
 
   // tslint:disable-next-line:max-line-length
   constructor(private translateService: TranslateService,private coinservice: CoinService, private router: Router, toasterService: ToasterService) {

@@ -188,17 +188,8 @@ export class ProtfolioComponent implements OnInit {
         if (resData.status === true) {
           console.log(resData);
           this.toasterService.pop('success', 'Success', resData.message);
-          this.ngOnInit();
-          this.port = {
-            port_id: '',
-            coin: '',
-            date: '',
-            currency: '',
-            amount: '',
-            value_coin: ''
-          };
           setTimeout(() => {
-            $('#add-transaction').modal('toggle');
+            location.reload();
           }, 2000);
         } else {
           this.toasterService.pop('error', 'Error', resData.message);
@@ -213,17 +204,8 @@ export class ProtfolioComponent implements OnInit {
       this.coinservice.updatetrade(trans).subscribe(resData => {
         if (resData.status === true) {
           this.toasterService.pop('success', 'Success', resData.message);
-          this.ngOnInit();
-          this.port = {
-            port_id: '',
-            coin: '',
-            date: '',
-            currency: '',
-            amount: '',
-            value_coin: ''
-          };
           setTimeout(() => {
-            $('#add-transaction').modal('toggle');
+            location.reload();
           }, 2000);
         } else {
           this.toasterService.pop('error', 'Error', resData.message);
@@ -276,7 +258,7 @@ export class ProtfolioComponent implements OnInit {
             th.coinservice.removetrade(tradeid).subscribe(resData => {
               if (resData.status === true) {
                 th.toasterService.pop('success', 'Success', resData.message);
-                th.ngOnInit();
+                location.reload();
               } else {
                 th.toasterService.pop('error', 'Error', resData.message);
               }

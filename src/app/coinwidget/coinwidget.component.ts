@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CoinService } from '../coin.service';
 import { DecimalPipe } from '@angular/common';
 import * as myGlobals from './../global';
+import { TranslateService } from "@ngx-translate/core";
 
 declare var $: any;
 
@@ -16,8 +17,11 @@ export class CoinwidgetComponent implements OnInit {
   currency: any;
   widgetchange24:any;
   public base_url: any = myGlobals.base_url;
+  default_lang:any=myGlobals.default_lang;
 
-  constructor(private coinservice: CoinService, private decimalpipe: DecimalPipe) { }
+  constructor(private translateService: TranslateService,private coinservice: CoinService, private decimalpipe: DecimalPipe) {
+    this.translateService.use(this.default_lang);
+  }
 
   ngOnInit() {
     const url = window.location.pathname;

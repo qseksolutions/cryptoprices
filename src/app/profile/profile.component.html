@@ -30,7 +30,7 @@
               <div class="form-group profile-select">
                 <label for="message-text" class="widget-select-label">Change Currency</label>
                 <select class="selectpicker" id="sel_curr" style="width: 100%">
-                  <ng-container *ngFor="let curr of maincurrencylist">
+                  <ng-container *ngFor="let curr of allcurrency">
                     <option value="{{curr.currency_symbol}}">{{curr.currency_symbol}}</option>
                   </ng-container>
                 </select>

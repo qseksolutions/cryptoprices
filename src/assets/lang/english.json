@@ -74,8 +74,8 @@
     "selectcurrency" : "Select Currency",
     "copythiswidget" : "Copy This Widget",
     "poweredby" : "Powered by Cryptoprices",
-    "marketcap" : "Market Cap",
-    "24hvolume" : "24h Volume",
+    "marketcap" : "MARKET CAP",
+    "24hvolume" : "24H VOLUME",
     "desc" : "Widget will be live as soon as you place its short code on the website"
   },
   "COIN": {

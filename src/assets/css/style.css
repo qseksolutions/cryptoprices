@@ -342,6 +342,7 @@ a:hover , a:focus{
 
 .currency-name{
     flex: 2;
+    vertical-align: middle;
 
 }
 
@@ -406,15 +407,10 @@ span .curre-img{
 
 }
 
-.btn-select .flag-img , 
-.btn-select .curre-img{
-    margin-top: -2px;
-}
-
 .btn-select .lang-name {
     overflow: hidden;
     display: inline-block;
-    vertical-align: bottom;
+    vertical-align: middle;
     text-overflow: ellipsis;
     width: 65px;
 

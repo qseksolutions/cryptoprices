@@ -49,19 +49,19 @@
               </div>
 
               <div class="single-track-btn">
-                <button type="submit" class="btn btn-primary btn-add" data-toggle="modal" data-target="#login-form" [style.display]="loginData == null ? 'initial':'none'">
+                <button type="submit" class="btn btn-primary btn-add" data-toggle="modal" data-target="#login-form" [style.display]="loginData == null ? 'inline-flex':'none'">
                   <span> {{'COIN.add' | translate}} </span> <i class="fas fa-plus"></i>
                 </button>
-                <button type="submit" class="btn btn-primary btn-add" data-toggle="modal" data-target="#login-form" [style.display]="loginData != null ? 'initial':'none'">
+                <button type="submit" class="btn btn-primary btn-add" data-toggle="modal" data-target="#login-form" [style.display]="loginData != null ? 'inline-flex':'none'">
                  <span> {{'COIN.add' | translate}} </span>  <i class="fas fa-plus"></i>
                 </button>
-                <button type="submit" class="btn btn-warning btn-track" data-toggle="modal" data-target="#login-form" [style.display]="loginData == null ? 'initial':'none'">
+                <button type="submit" class="btn btn-warning btn-track" data-toggle="modal" data-target="#login-form" [style.display]="loginData == null ? 'inline-flex':'none'">
                  <span> {{'COIN.track' | translate}} </span>  <i class="fas fa-check"></i>
                 </button>
-                <button type="submit" class="btn btn-warning btn-track" *ngIf="coin.followstatus == 0" [style.display]="loginData != null ? 'initial':'none'" (click)="followcoin(coin);">
+                <button type="submit" class="btn btn-warning btn-track" *ngIf="coin.followstatus == 0" [style.display]="loginData != null ? 'inline-flex':'none'" (click)="followcoin(coin);">
                  <span> {{'COIN.track' | translate}} </span> <i class="fas fa-check"></i>
                 </button>
-                <button type="submit" class="btn btn-warning btn-track" *ngIf="coin.followstatus == 1" [style.display]="loginData != null ? 'initial':'none'" (click)="followcoin(coin);">
+                <button type="submit" class="btn btn-warning btn-track" *ngIf="coin.followstatus == 1" [style.display]="loginData != null ? 'inline-flex':'none'" (click)="followcoin(coin);">
                  <span> {{'COIN.untrack' | translate}} </span> <i class="fas fa-times"></i>
                 </button>
               </div>

@@ -31,6 +31,7 @@ export class CoinComponent implements OnInit {
   chart: StockChart;
   market_cap: any;
   price_usd: any;
+  volume_usd: any;
   coin: any = Array();
   tempgraph: any = Array();
   selectedIndex: any = 6;
@@ -98,12 +99,12 @@ export class CoinComponent implements OnInit {
   }
 
   getsinglecoinData() {
-    const url = window.location.href;
+    const url = window.location.pathname;
     const turl = url.split('/');
-    const coinid = turl[4].split('-');
-    console.log(coinid);
-    console.log(coinid[0]);
-    this.coinservice.getSingleCoin(coinid[0]).subscribe(resData => {
+    const coinid = turl[2].split('-');
+    coinid.splice(coinid.length - 2, 2);
+    const coinurl = coinid.join('-');
+    this.coinservice.getSingleCoin(coinurl).subscribe(resData => {
       if (resData.status === true) {
         this.follow = resData.data.followstatus;
         this.coin = resData.data;
@@ -149,12 +150,15 @@ export class CoinComponent implements OnInit {
   realTimeGraph(period) {
     localStorage.setItem('period', period);
     this.perioddata = localStorage.getItem('period');
-    const url = window.location.href;
+    const url = window.location.pathname;
     const turl = url.split('/');
-    const coinid = turl[4].split('-');
-    this.coinservice.getGraphData('all', coinid[0]).subscribe(response => {
+    const coinid = turl[2].split('-');
+    coinid.splice(coinid.length - 2, 2);
+    const coinurl = coinid.join('-');
+    this.coinservice.getGraphData('all', coinurl).subscribe(response => {
       this.market_cap = response.market_cap;
       this.price_usd = response.price_usd;
+      this.volume_usd = response.volume_usd;
       this.chart = new StockChart({
         chart: {
           // type: 'area',
@@ -224,6 +228,34 @@ export class CoinComponent implements OnInit {
         credits: {
           enabled: false
         },
+        yAxis: [
+          {
+            title: {
+              text: "Price in USD",
+              style: {
+                color: '#F7931A'
+              }
+            },
+          },
+          {
+            title: {
+              text: "Market Cap",
+              style: {
+                color: '#808080'
+              }
+            },
+            opposite: false,
+          },
+          {
+            title: {
+              text: "Volume in USD",
+              style: {
+                color: '#C0C0C0'
+              }
+            },
+            opposite: false,
+          },
+        ],
         series: [{
           tooltip: {
             valueDecimals: 2
@@ -232,14 +264,24 @@ export class CoinComponent implements OnInit {
           name: 'Price in USD',
           data: this.price_usd,
           yAxis: 0,
-          fillColor: {
-            linearGradient: { x1: 0.5, y1: 0, x2: 0.5, y2: 1 },
-            stops: [
-              [1, 'rgba(19, 63, 113, 1)'],
-              [1, 'rgba(19, 63, 113, 1)'],
-              [1, 'rgba(19, 63, 113, 1)']
-            ]
+        },
+        {
+          tooltip: {
+            valueDecimals: 2
           },
+          color: '#808080',
+          name: 'Market Cap',
+          data: this.market_cap,
+          yAxis: 1,
+        },
+        {
+          tooltip: {
+            valueDecimals: 2
+          },
+          color: '#C0C0C0',
+          name: 'Volume in USD',
+          data: this.volume_usd,
+          yAxis: 2,
         }]
       });
       this.tempgraph = this.coin;

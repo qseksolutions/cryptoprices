@@ -212,15 +212,13 @@ export class CoinService {
       .map((response: Response) => response.json());
   }
 
-  addcontactus(contact, image) {
+  addcontactus(contact) {
     const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
     const options = new RequestOptions({ headers: headers });
 
     const form = new URLSearchParams();
     form.append('name', contact.cname);
     form.append('email', contact.cemail);
-    form.append('subject', contact.subject);
-    form.append('image', image);
     form.append('message', contact.message);
 
     return this.http.post(this.api_url + this.addcontactusAPI, form, options)

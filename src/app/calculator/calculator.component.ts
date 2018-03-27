@@ -4,6 +4,7 @@ import * as myGlobals from './../global';
 import { defer } from 'q';
 import { Title, Meta } from '@angular/platform-browser';
 import { DecimalPipe } from '@angular/common';
+import {TranslateService} from '@ngx-translate/core';
 
 declare var $: any;
 
@@ -21,11 +22,13 @@ export class CalculatorComponent implements OnInit {
   basecoin: any;
   convcoin: any;
   showloader: any;
+  default_lang:any=myGlobals.default_lang;
 
-  constructor(private coinservice: CoinService, private title: Title, private meta: Meta, private decimalpipe: DecimalPipe) {
+  constructor(private translateService: TranslateService,private coinservice: CoinService, private title: Title, private meta: Meta, private decimalpipe: DecimalPipe) {
     localStorage.setItem('sorton', null);
     localStorage.setItem('sortby', null);
     this.showloader = true;
+    this.translateService.use(this.default_lang);
   }
 
   ngOnInit() {

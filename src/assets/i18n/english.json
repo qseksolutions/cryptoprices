@@ -37,5 +37,22 @@
     "emailaddress" : "Email Address",
     "message" : "Message",
     "sendmessage" : "Send Message"
+  },
+  "NEWS": {
+    "title" : "Crypto News"
+  },
+  "CALCULATOR": {
+    "title" : "Cryptocurrency Converter & Calculator",
+    "enteramount" : "Enter Amount",
+    "selectcoin" : "Select Coin",
+    "selectcurrency" : "Select Currency"
+  },
+  "WIDGET": {
+    "title" : "Cryptocurrency Live Widget",
+    "selectcoin" : "Select Coin",
+    "selectcurrency" : "Select Currency",
+    "copythiswidget" : "Copy This Widget",
+    "poweredby" : "Powered by Cryptoprices",
+    "desc" : "Widget will be live as soon as you place its short code on the website"
   }
 }

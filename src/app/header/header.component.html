@@ -27,11 +27,11 @@
       <nav class="navbar pr-0">
         <ul class="nav dropdown">
           <li class="nav-item d-none d-lg-block" *ngIf="loginData == null">
-            <a class="nav-link" href="#" data-toggle="modal" data-target="#login-form">Login</a>
+            <a class="nav-link" href="#" data-toggle="modal" data-target="#login-form">{{ 'HEADER.login' | translate}}</a>
           </li>
           
           <li class="nav-item d-none d-lg-block" *ngIf="loginData == null">
-            <a class="nav-link" href="#" data-toggle="modal" data-target="#register-form">Register</a>
+            <a class="nav-link" href="#" data-toggle="modal" data-target="#register-form">{{ 'HEADER.register' | translate}}</a>
           </li>
           
           <li class="nav-item dropdown submenu-dropdown d-none d-lg-block" *ngIf="loginData != null">

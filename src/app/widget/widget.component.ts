@@ -4,6 +4,7 @@ import * as myGlobals from './../global';
 import { defer } from 'q';
 import { Title, Meta } from '@angular/platform-browser';
 import { DecimalPipe } from '@angular/common';
+import {TranslateService} from '@ngx-translate/core';
 
 declare var $: any;
 
@@ -21,10 +22,12 @@ export class WidgetComponent implements OnInit {
   basecoin: any;
   widgetchange24: any;
   public base_url: any = myGlobals.base_url;
+  default_lang:any=myGlobals.default_lang;
 
-  constructor(private coinservice: CoinService, private title: Title, private meta: Meta, private decimalpipe: DecimalPipe) {
+  constructor(private translateService: TranslateService,private coinservice: CoinService, private title: Title, private meta: Meta, private decimalpipe: DecimalPipe) {
     localStorage.setItem('sorton', null);
     localStorage.setItem('sortby', null);
+    this.translateService.use(this.default_lang);
   }
 
   ngOnInit() {

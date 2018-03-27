@@ -90,7 +90,7 @@
     "pricechart" : "Price Chart"
   },
   "PORTFOLIO": {
-    "portfolio" : "Portfolio",
+    "title" : "Portfolio",
     "networth" : "NET WORTH",
     "addtransaction" : "Add Transaction",
     "coin" : "Coin",
@@ -115,7 +115,7 @@
     "nodata" : "You didn’t added any Transaction in your portfolio list yet."
   },
   "FOLLOWLIST": {
-    "followlist" : "Followlist",
+    "title" : "Followlist",
     "website" : "Website",
     "lastprice" : "Last Price",
     "volume24h" : "Volume 24h",
@@ -123,7 +123,7 @@
     "nodata" : "You don’t have any coins in your follow list yet."
   },
   "PROFILE": {
-    "editprofile" : "Edit Profile",
+    "title" : "Edit Profile",
     "name" : "Name",
     "email" : "Email",
     "changecurrency" : "Change Currency",

@@ -5,7 +5,7 @@
       <div class="row justify-content-center">
         <div class="col-12 col-sm-10 col-md-8 col-lg-8">
           <div class="subpage-head">
-            <h4 class="pagename-title text-center">Followlist</h4>
+            <h4 class="pagename-title text-center">{{'FOLLOWLIST.followlist' | translate}}</h4>
           </div>
         </div>
       </div>
@@ -35,14 +35,14 @@
                   </span>
                   <div class="followlist-visit-site">
                     <a href="#">
-                      <i class="fas fa-share-square"></i> Website</a>
+                      <i class="fas fa-share-square"></i> {{'FOLLOWLIST.website' | translate}}</a>
                   </div>
                 </div>
   
                 <div class="followlist-coin-value">
                   <div class="followlist-value">
                     <label class="followlist-coin-label">
-                      Last Price:
+                      {{'FOLLOWLIST.lastprice' | translate}}:
                     </label>
                     <span class="followlist-box-price">
                       {{base_sing}}&nbsp;{{coin['price_'+basecurr] | number : '1.0-12'}}
@@ -51,7 +51,7 @@
   
                   <div class="followlist-24-value">
                     <label class="followlist-coin-label">
-                      Volume 24h:
+                      {{'FOLLOWLIST.volume24h' | translate}}:
                     </label>
                     <span class="followlist-box-price" [ngClass]="coin.percent_change_24h > 0 ? 'text-green' : 'text-red'">
                        {{coin.percent_change_24h | number : '1.2-2'}}%
@@ -61,7 +61,7 @@
   
                 <div class="followlist-btn text-center">
                   <button class="btn btn-primary btn-unfollow" (click)="followcoin(coin);">
-                    <i class="fas fa-minus"></i> Unfollow</button>
+                    <i class="fas fa-minus"></i> {{'FOLLOWLIST.unfollow' | translate}}</button>
                 </div>
               </div>
             </div>
@@ -74,7 +74,7 @@
           
                 <div class="followlist-coin-value">
                   <div class="followlist-value" style="width: 100%; text-align: center;">
-                    <p>You don’t have any coins in your follow list yet.</p>
+                    <p>{{'FOLLOWLIST.nodata' | translate}}</p>
                   </div>
                 </div>
               </div>

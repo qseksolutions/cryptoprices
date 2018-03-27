@@ -113,5 +113,27 @@
     "evc" : "Enter Value of Coin",
     "submit" : "Submit",
     "nodata" : "You didn’t added any Transaction in your portfolio list yet."
+  },
+  "FOLLOWLIST": {
+    "followlist" : "Followlist",
+    "website" : "Website",
+    "lastprice" : "Last Price",
+    "volume24h" : "Volume 24h",
+    "unfollow" : "Unfollow",
+    "nodata" : "You don’t have any coins in your follow list yet."
+  },
+  "PROFILE": {
+    "editprofile" : "Edit Profile",
+    "name" : "Name",
+    "email" : "Email",
+    "changecurrency" : "Change Currency",
+    "submit" : "Submit"
+  },
+  "CHANGEPASSWORD": {
+    "title" : "Change Password",
+    "oldpass" : "Old Password",
+    "newpass" : "New Password",
+    "repass" : "Retype Password",
+    "submit" : "Submit"
   }
 }

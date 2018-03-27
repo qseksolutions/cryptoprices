@@ -4,6 +4,7 @@ import * as myGlobals from './../global';
 import { ToasterContainerComponent, ToasterService, ToasterConfig } from 'angular2-toaster';
 import { Title, Meta } from '@angular/platform-browser';
 import { defer } from 'q';
+import { TranslateService } from "@ngx-translate/core";
 
 declare var bootbox: any;
 
@@ -23,8 +24,10 @@ export class FollowlistComponent implements OnInit {
   public base_sing: any = myGlobals.base_sing;
   followlist: any = Array();
   showloader: any;
+  default_lang:any=myGlobals.default_lang;
 
-  constructor(private coinservice: CoinService, toasterService: ToasterService, private title: Title, private meta: Meta) {
+  constructor(private translateService: TranslateService,private coinservice: CoinService, toasterService: ToasterService, private title: Title, private meta: Meta) {
+    this.translateService.use(this.default_lang);
     this.showloader = true;
     localStorage.setItem('sorton', null);
     localStorage.setItem('sortby', null);

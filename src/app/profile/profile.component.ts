@@ -5,6 +5,7 @@ import { defer } from 'q';
 import { Observable } from 'rxjs/Observable';
 import { ToasterContainerComponent, ToasterService, ToasterConfig } from 'angular2-toaster';
 import { Title, Meta } from '@angular/platform-browser';
+import { TranslateService } from "@ngx-translate/core";
 
 declare var $;
 
@@ -30,8 +31,10 @@ export class ProfileComponent implements OnInit {
     b_curr: ''
   };
   allcurrency: any;
-
-  constructor(private coinservice: CoinService, toasterService: ToasterService, private title: Title, private meta: Meta) {
+  default_lang:any=myGlobals.default_lang;
+  
+  constructor(private translateService: TranslateService,private coinservice: CoinService, toasterService: ToasterService, private title: Title, private meta: Meta) {
+    this.translateService.use(this.default_lang);
     localStorage.setItem('sorton', null);
     localStorage.setItem('sortby', null);
     this.toasterService = toasterService;

@@ -21,19 +21,19 @@
             <form class="form-model">
               <div class="form-group">
                 <label for="recipient-name" class="col-form-label">{{'CONTACTUS.name' | translate}}:</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="cname" [(ngModel)]="contact.cname">
               </div>
               <div class="form-group">
                 <label for="message-text" class="col-form-label">{{'CONTACTUS.emailaddress' | translate}}:</label>
-                <input type="email" class="form-control">
+                <input type="email" class="form-control" name="cemail" [(ngModel)]="contact.cemail">
               </div>
               <div class="form-group massage-box">
                 <label for="message-text" class="col-form-label">{{'CONTACTUS.message' | translate}}:</label>
-                <textarea type="massage" class="form-control"> </textarea>
+                <textarea type="massage" class="form-control" name="message" [(ngModel)]="contact.message"> </textarea>
               </div>
 
               <div class="form-group d-md-flex justify-content-md-between align-items-md-center">
-                <button type="send" class="btn btn-primary btn-submit"> {{'CONTACTUS.sendmessage' | translate}} </button>
+                <button type="send" class="btn btn-primary btn-submit" (click)="onsubmitsendcontactus();"> {{'CONTACTUS.sendmessage' | translate}} </button>
               </div>
             </form>
           </div>

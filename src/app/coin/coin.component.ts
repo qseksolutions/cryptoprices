@@ -188,7 +188,7 @@ export class CoinComponent implements OnInit {
           }]
         },
         title: {
-          text: this.coin.name + ' ( ' + this.coin.symbol + ') Price Chart',
+          text: this.coin.name + ' (' + this.coin.symbol + ') Price Chart',
           align:'left'
         },
         xAxis: {

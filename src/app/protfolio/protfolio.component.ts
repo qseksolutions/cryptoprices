@@ -109,7 +109,6 @@ export class ProtfolioComponent implements OnInit {
             }
             $('#coin').select2();
             this.coin = $('#coin').val();
-            console.log('coin data');
           }, 2000);
         }
       }
@@ -127,7 +126,6 @@ export class ProtfolioComponent implements OnInit {
             }
             $('#currency').select2();
             this.currency = $('#currency').val();
-            console.log('currency data');
           }, 2000);
         }
       }
@@ -145,7 +143,6 @@ export class ProtfolioComponent implements OnInit {
   };
 
   getcoinprice(trans) {
-    console.log(trans);
     // tslint:disable-next-line:max-line-length
     trans.port_id = $('#port_id').val();
     trans.coin = this.coin;
@@ -178,7 +175,6 @@ export class ProtfolioComponent implements OnInit {
   }
 
   onSubmitAddtransaction(trans) {
-    console.log(trans);
     trans.coin = this.coin;
     trans.currency = this.currency;
     trans.value_coin = $('#value_coin').val();
@@ -186,7 +182,6 @@ export class ProtfolioComponent implements OnInit {
     if (trans.port_id === '') {
       this.coinservice.addtrade(trans).subscribe(resData => {
         if (resData.status === true) {
-          console.log(resData);
           this.toasterService.pop('success', 'Success', resData.message);
           setTimeout(() => {
             location.reload();
@@ -238,7 +233,6 @@ export class ProtfolioComponent implements OnInit {
   traderemove(tradeid) {
     let th = this;
     this.translateService.get(['PORTFOLIO']).subscribe(translations => {
-      console.log(translations.PORTFOLIO.confirmtitle);
       bootbox.confirm({
         closeButton: false,
         title: translations.PORTFOLIO.confirmtitle,

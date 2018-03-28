@@ -51,7 +51,6 @@ export class NewsComponent implements OnInit {
       } else {
         this.newslist = '';
       }
-      console.log(this.newslist);
     });
   }
 

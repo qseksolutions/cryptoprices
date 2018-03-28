@@ -34,7 +34,6 @@ export class ContactusComponent implements OnInit {
   }
 
   onsubmitsendcontactus() {
-    console.log(this.contact);
     this.regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     if (this.contact.cname === '') {
       this.toasterService.pop('error', 'Required', 'Please enter name');

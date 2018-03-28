@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { CoinService } from '../coin.service';
 import * as myGlobals from './../global';
 import {TranslateService} from '@ngx-translate/core';
+import { ToasterContainerComponent, ToasterService, ToasterConfig } from 'angular2-toaster';
+
+declare var $ : any;
 
 @Component({
   selector: 'app-footer',
@@ -13,12 +16,17 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class FooterComponent implements OnInit {
 
+  private toasterService: ToasterService;
+
   public base_url: any = myGlobals.base_url;
   adds: any;
   curl: any;
+  regex: any;
+  email: any;
   default_lang:any=myGlobals.default_lang;
 
-  constructor(private translateService: TranslateService,private coinservice: CoinService, private router: Router, private http: Http) {
+  constructor(private translateService: TranslateService, toasterService: ToasterService, private coinservice: CoinService, private router: Router, private http: Http) {
+    this.toasterService = toasterService;
     const href = location.href;
     const url = href.split('/');
     if (url[3] === '') {
@@ -51,6 +59,24 @@ export class FooterComponent implements OnInit {
         this.totalcoin = 0;
       }
     }); */
+  }
+
+  subscribenewsletter() {
+    this.regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    if (this.email == '' || this.email == undefined) {
+      this.toasterService.pop('error', 'Required', 'Please enter email');
+    } else if (this.email.length == 0 || !this.regex.test(this.email)) {
+      this.toasterService.pop('error', 'Required', 'Please enter valid email');
+    } else {
+      this.coinservice.newsletter(this.email).subscribe(resData => {
+        if (resData.status === true) {
+          this.toasterService.pop('success', 'Success', resData.message);
+          $('#newemail').val();
+        } else {
+          this.toasterService.pop('error', 'Error', resData.message);
+        }
+      });
+    }
   }
 
 }

@@ -70,7 +70,6 @@ export class HeaderComponent implements OnInit {
 
   // tslint:disable-next-line:max-line-length
   constructor(private translateService: TranslateService,private coinservice: CoinService, private router: Router, toasterService: ToasterService) {
-    console.log('token = ' + this.token);
     const href = location.href;
     const url = href.split('/');
     if (url[3] === '') {
@@ -173,7 +172,6 @@ export class HeaderComponent implements OnInit {
     } else {
       this.coinservice.loginuserdata(this.login).subscribe(resData => {
         if (resData.status === true) {
-          console.log(resData);
           this.coinservice.getbasesign(resData.data.d_currency).subscribe(res => {
             if (res.status === true) {
               this.toasterService.pop('success', 'Success', resData.message);

@@ -108,7 +108,6 @@ export class CoinComponent implements OnInit {
       if (resData.status === true) {
         this.follow = resData.data.followstatus;
         this.coin = resData.data;
-        console.log(this.coin);
         this.titleService.setTitle(resData.data.name + ' (' + resData.data.symbol + ') Price');
       }
     });

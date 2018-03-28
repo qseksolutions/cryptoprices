@@ -58,7 +58,6 @@ export class FollowlistComponent implements OnInit {
         this.followlist = '';
       }
       this.showloader = false;
-      console.log(this.followlist);
     });
   }
 

@@ -44,7 +44,6 @@ export class WidgetComponent implements OnInit {
             }
             $('#sel_curr').select2();
             this.currency = $('#sel_curr').val();
-            console.log('currency data');
           }, 2000);
         }
       }

@@ -149,7 +149,6 @@ export class HomeComponent implements OnInit {
     /* this.coinservice.gettestseometa(this.base_url).subscribe(resData => {
       if (resData.status === true) {
         this.title.setTitle(resData.data.title);
-        // console.log(resData.data);
         this.meta.addTag({ name: 'description', content: resData.data.description });
         this.meta.addTag({ name: 'keywords', content: resData.data.keywords });
         this.meta.addTag({ name: 'author', content: 'coinlisting' });
@@ -166,13 +165,11 @@ export class HomeComponent implements OnInit {
     this.coinservice.getallcoin('').subscribe(resData => {
       if (resData.status === true) {
         this.allcoin = resData.data;
-        console.log(this.allcoin);
       }
     });
     this.coinservice.getmaincurrencylist('').subscribe(resData => {
       if (resData.status === true) {
         this.allcurrency = resData.data;
-        console.log(this.allcurrency);
       }
     });
     setInterval(() => {
@@ -227,7 +224,6 @@ export class HomeComponent implements OnInit {
       if (resData.data.length > 0) {
         this.coins = resData.data;
         this.tempcoins = resData.data;
-        console.log(this.coins);
       }
     });
     this.coinservice.getCoinCount().subscribe(responceData => {
@@ -339,7 +335,6 @@ export class HomeComponent implements OnInit {
 
 
   getcoinprice(trans) {
-    console.log(trans);
     // tslint:disable-next-line:max-line-length
     trans.port_id = $('#port_id').val();
     trans.coin = this.coin;
@@ -372,13 +367,11 @@ export class HomeComponent implements OnInit {
   }
 
   onSubmitAddtransaction(trans) {
-    console.log(trans);
     trans.coin = this.coin;
     trans.currency = this.currency;
     trans.value_coin = $('#value_coin').val();
     this.coinservice.addtrade(trans).subscribe(resData => {
       if (resData.status === true) {
-        console.log(resData);
         this.toasterService.pop('success', 'Success', resData.message);
         this.ngOnInit();
         this.port = {

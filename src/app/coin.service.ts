@@ -20,6 +20,7 @@ export class CoinService {
   profileupdateAPI: any = myGlobals.profileupdateAPI;
   changepasswordAPI: any = myGlobals.changepasswordAPI;
   addcontactusAPI: any = myGlobals.addcontactusAPI;
+  newsletterAPI: any = myGlobals.newsletterAPI;
 
   getbasesignAPI: any = myGlobals.getbasesignAPI;
   maincurrencylistAPI: any = myGlobals.maincurrencylistAPI;
@@ -220,6 +221,17 @@ export class CoinService {
     form.append('message', contact.message);
 
     return this.http.post(this.api_url + this.addcontactusAPI, form, options)
+      .map((response: Response) => response.json());
+  }
+  
+  newsletter(email) {
+    const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const options = new RequestOptions({ headers: headers });
+
+    const form = new URLSearchParams();
+    form.append('email', email);
+
+    return this.http.post(this.api_url + this.newsletterAPI, form, options)
       .map((response: Response) => response.json());
   }
 

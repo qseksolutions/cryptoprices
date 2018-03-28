@@ -45,7 +45,6 @@ export class CalculatorComponent implements OnInit {
             }
             $('#sel_curr').select2();
             this.currency = $('#sel_curr').val();
-            console.log('currency data');
           }, 2000);
         }
       } else {
@@ -70,7 +69,6 @@ export class CalculatorComponent implements OnInit {
             this.basecoin = $('#sel_base').val();
             this.convcoin = $('#sel_convert').val();
             this.changevalue();
-            console.log('coin data');
           }, 2000);
         }
       }

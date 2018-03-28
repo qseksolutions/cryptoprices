@@ -57,9 +57,9 @@
       <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-0">
         <div class="footer-box">
           <div class="footer-subscribe">
-            <input type="email" class="form-control" name="EMAIL" placeholder="Enter your email address">
+            <input type="email" id="newemail" class="form-control" name="email" placeholder="Enter your email address" [(ngModel)]="email">
 
-            <button type="submit" class="btn btn-warning btn-subcribe">
+            <button type="submit" class="btn btn-warning btn-subcribe" (click)="subscribenewsletter()">
               <i class="far fa-paper-plane"></i>
             </button>
           </div>

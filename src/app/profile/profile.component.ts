@@ -59,7 +59,6 @@ export class ProfileComponent implements OnInit {
     this.coinservice.getprofileupdatedata().subscribe(resData => {
       if (resData.status === true) {
         this.profile = resData.data;
-        console.log(this.profile);
       }
     });
     this.coinservice.getallcurrencylist().subscribe(resData => {

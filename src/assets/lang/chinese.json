@@ -100,7 +100,7 @@
     "currentprice" : "时价",
     "investment" : "投资",
     "value" : "值",
-    "profit" : "利润",
+    "profit" : "利润 / 失利",
     "return" : "返回",
     "notrade" : "交易数量",
     "recenttransaction" : "近期交易",
